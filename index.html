@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lider Telsiz | Haberleşme Çözümleri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --sari: #FFD700;
+            --siyah: #000000; /* Saf Siyah */
+            --gri: #0a0a0a;
+            --kart-bg: #0f0f0f;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--siyah); color: white; overflow-x: hidden; }
+
+        /* Logo ve Navigasyon Alanı */
+        header { 
+            padding: 15px 8%; 
+            display: flex; justify-content: space-between; align-items: center; 
+            background: rgba(0,0,0,0.95); 
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 2px solid var(--sari);
+        }
+
+        .logo-alani { display: flex; align-items: center; }
+        /* Eğer logo görsel ise bu kısmı kullan: */
+        .logo-img { height: 50px; width: auto; } 
+        /* Eğer logo yazı ise bu stil çalışacak: */
+        .logo-yazi { font-family: 'Orbitron', sans-serif; font-weight: 900; color: var(--sari); font-size: 1.6rem; text-decoration: none; }
+
+        /* Giriş Bölümü */
+        .hero { 
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center; padding: 0 10%; background: var(--siyah);
+        }
+        .hero h1 { 
+            font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; color: var(--sari);
+            margin-bottom: 20px; text-transform: uppercase;
+        }
+
+        /* Hizmetlerimiz */
+        .services { padding: 100px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { 
+            background: var(--kart-bg); padding: 40px; border-radius: 15px; 
+            border: 1px solid #1a1a1a; transition: 0.4s;
+        }
+        .card:hover { border-color: var(--sari); transform: translateY(-10px); background: #111; }
+        .card i { font-size: 2.5rem; color: var(--sari); margin-bottom: 20px; display: block; }
+        .card h3 { color: var(--sari); margin-bottom: 15px; font-size: 1.4rem; }
+        .card p { opacity: 0.8; line-height: 1.6; }
+
+        /* Butonlar */
+        .btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; display: inline-block; margin-top: 20px; }
+        .btn-sari { background: var(--sari); color: var(--siyah); }
+        .btn:hover { opacity: 0.9; transform: scale(1.05); }
+
+        /* İletişim */
+        .footer { padding: 60px 8%; background: var(--gri); text-align: center; border-top: 1px solid #1a1a1a; }
+        .footer-info { margin: 15px 0; font-size: 1.1rem; }
+        .footer-info a { color: var(--sari); text-decoration: none; }
+
+        /* Sabit WhatsApp */
+        .wp-link { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 1001; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-alani">
+            <a href="#" class="logo-yazi">LİDER TELSİZ</a>
+        </div>
+        <a href="tel:05395926070" style="color:white; text-decoration:none; font-weight:bold;">0539 592 60 70</a>
+    </header>
+
+    <section class="hero">
+        <h1>KESİNTİSİZ<br>İLETİŞİM</h1>
+        <p style="max-width: 700px; margin-bottom: 30px; font-size: 1.2rem;">Lider Telsiz; sahada çalışan ekiplerin haberleşme ihtiyacını güvenilirlik, hız ve kaliteyle karşılayan profesyonel bir markadır.</p>
+        <a href="https://wa.me/905395926070" class="btn btn-sari">WHATSAPP'TAN TEKLİF AL</a>
+    </section>
+
+    <section class="services">
+        <div class="card">
+            <i class="fas fa-film"></i>
+            <h3>Film & Dizi Setleri</h3>
+            <p>Sessiz mod ve set içi özel kulaklık sistemleri ile tam koordinasyon.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Güvenlik</h3>
+            <p>Zorlu arazi ve bina içi koşullarda yüksek çekim kapasiteli cihazlar.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-microphone-alt"></i>
+            <h3>Etkinlikler</h3>
+            <p>Konser ve festivallerde anlık grup haberleşmesi ve kanal yönetimi.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-tools"></i>
+            <h3>Teknik Destek</h3>
+            <p>Yerinde kurulum ve arıza durumunda anında yedek cihaz desteği.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-broadcast-tower"></i>
+            <h3>Geniş Kapsama</h3>
+            <p>Röle sistemleri ile İstanbul genelinde uzun mesafe haberleşme çözümleri.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-headset"></i>
+            <h3>Aksesuarlar</h3>
+            <p>Yedek batarya, hava kanallı kulaklık ve omuz mikrofonları mevcuttur.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <h2 style="color: var(--sari); margin-bottom: 20px;">İLETİŞİM</h2>
+        <div class="footer-info"><i class="fas fa-envelope"></i> <a href="mailto:lidertelsiz@gmail.com">lidertelsiz@gmail.com</a></div>
+        <div class="footer-info"><i class="fas fa-phone"></i> <a href="tel:05395926070">0539 592 60 70</a></div>
+        <div class="footer-info"><i class="fas fa-map-marker-alt"></i> Kağıthane / İstanbul</div>
+    </footer>
+
+    <a href="https://wa.me/905395926070" class="wp-link" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
