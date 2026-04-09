@@ -1,137 +1,306 @@
 <!DOCTYPE html>
+
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lider Telsiz | Profesyonel Haberleşme Çözümleri</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --sari: #FFD700;
-            --siyah: #000000;
-            --kart-bg: #0a0a0a;
-            --gri: #1a1a1a;
-        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--siyah); color: white; overflow-x: hidden; }
+```
+<!-- SEO -->
+<meta name="description" content="İstanbul'da profesyonel telsiz kiralama hizmetleri. Film seti, organizasyon ve güvenlik ekipleri için hızlı çözüm.">
 
-        /* Header */
-        header { 
-            padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; 
-            background: rgba(0,0,0,0.9); position: fixed; width: 100%; top: 0; z-index: 1000;
-            border-bottom: 2px solid var(--sari); backdrop-filter: blur(10px);
-        }
-        .logo-box { display: flex; align-items: center; text-decoration: none; }
-        
-        /* LOGO BURAYA: src="./logo.png" GitHub'da aynı dizindeyse çalışır */
-        .logo-img { height: 50px; width: auto; margin-right: 12px; }
-        .logo-text { font-family: 'Orbitron', sans-serif; color: var(--sari); font-weight: 900; font-size: 1.5rem; }
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        /* Hero Section */
-        .hero { 
-            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            text-align: center; padding: 0 10%; background: radial-gradient(circle, #111 0%, #000 100%);
-        }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); color: var(--sari); font-weight: 800; margin-bottom: 20px; text-transform: uppercase; }
-        .hero p { max-width: 600px; font-size: 1.1rem; opacity: 0.8; margin-bottom: 30px; }
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        /* Cihazlar Bölümü */
-        .cihazlar-section { padding: 100px 8%; text-align: center; }
-        .section-title { font-family: 'Orbitron', sans-serif; color: var(--sari); margin-bottom: 50px; font-size: 2rem; }
+<style>
+    :root {
+        --lacivert: #0a1f44;
+        --siyah: #000000;
+        --beyaz: #ffffff;
+        --kart-bg: #0f172a;
+        --gri: #1e293b;
+    }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .card { 
-            background: var(--kart-bg); border: 1px solid var(--gri); padding: 30px; border-radius: 20px;
-            transition: 0.4s; position: relative;
-        }
-        .card:hover { transform: translateY(-10px); border-color: var(--sari); box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* PNG TELSİZ FOTOĞRAFLARI BURAYA */
-        .telsiz-img { width: 100%; height: 250px; object-fit: contain; margin-bottom: 20px; }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--siyah);
+        color: var(--beyaz);
+        overflow-x: hidden;
+    }
 
-        .card h3 { color: var(--sari); margin-bottom: 10px; font-size: 1.2rem; text-transform: uppercase; }
-        .card p { font-size: 0.9rem; opacity: 0.7; }
+    /* HEADER */
+    header {
+        padding: 15px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0,0,0,0.9);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 2px solid var(--lacivert);
+        backdrop-filter: blur(10px);
+        flex-wrap: wrap;
+    }
 
-        /* İletişim */
-        footer { padding: 60px 8%; background: #050505; text-align: center; border-top: 1px solid var(--gri); }
-        .footer-link { color: white; text-decoration: none; margin: 0 15px; font-size: 1rem; transition: 0.3s; }
-        .footer-link:hover { color: var(--sari); }
-        .footer-link i { color: var(--sari); margin-right: 8px; }
+    .logo-box {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
 
-        /* WhatsApp */
-        .wp-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 30px; text-decoration: none; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        
-        .btn-teklif { background: var(--sari); color: var(--siyah); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s; }
-        .btn-teklif:hover { transform: scale(1.05); }
+    .logo-img {
+        height: 50px;
+        margin-right: 10px;
+    }
 
-    </style>
+    .logo-text {
+        font-family: 'Orbitron', sans-serif;
+        color: var(--beyaz);
+        font-weight: 900;
+        font-size: 1.5rem;
+    }
+
+    /* HERO */
+    .hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 10%;
+        background: radial-gradient(circle at center, #0a1f44 0%, #000 70%);
+    }
+
+    .hero h1 {
+        font-size: clamp(2.5rem, 8vw, 5rem);
+        color: var(--beyaz);
+        font-weight: 900;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        max-width: 600px;
+        font-size: 1.1rem;
+        opacity: 0.8;
+        margin-bottom: 30px;
+    }
+
+    .btn-teklif {
+        background: var(--lacivert);
+        color: var(--beyaz);
+        padding: 15px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: 0.3s;
+    }
+
+    .btn-teklif:hover {
+        transform: scale(1.05);
+        background: #132d63;
+    }
+
+    /* SECTION */
+    .cihazlar-section {
+        padding: 100px 8%;
+        text-align: center;
+    }
+
+    .section-title {
+        font-family: 'Orbitron', sans-serif;
+        color: var(--beyaz);
+        margin-bottom: 50px;
+        font-size: 2rem;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+
+    .card {
+        background: var(--kart-bg);
+        border: 1px solid var(--gri);
+        padding: 30px;
+        border-radius: 20px;
+        transition: 0.4s;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        border-color: var(--lacivert);
+        box-shadow: 0 10px 30px rgba(10, 31, 68, 0.4);
+    }
+
+    .telsiz-img {
+        width: 100%;
+        height: 250px;
+        object-fit: contain;
+        margin-bottom: 20px;
+    }
+
+    .card h3 {
+        color: var(--beyaz);
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 60px 8%;
+        background: #050505;
+        text-align: center;
+        border-top: 1px solid var(--gri);
+    }
+
+    .footer-link {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+    }
+
+    .footer-link i {
+        color: var(--lacivert);
+        margin-right: 8px;
+    }
+
+    /* WHATSAPP */
+    .wp-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #25d366;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: white;
+        text-decoration: none;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
+        70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
+        100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+</style>
+```
+
 </head>
+
 <body>
 
-    <header>
-        <a href="#" class="logo-box">
-            <img src="logo.png" alt="Lider Telsiz" class="logo-img" onerror="this.style.display='none'">
-            <span class="logo-text">LİDER TELSİZ</span>
-        </a>
-        <a href="tel:05395926070" style="color:white; text-decoration:none; font-weight:bold;">0539 592 60 70</a>
-    </header>
-
-    <section class="hero">
-        <h1>KESİNTİSİZ GÜÇ</h1>
-        <p>Lider Telsiz, profesyonel ekipler için İstanbul genelinde hızlı ve güvenilir kiralama çözümleri sunar.</p>
-        <a href="https://wa.me/905395926070" class="btn-teklif">WHATSAPP'TAN TEKLİF AL</a>
-    </section>
-
-    <section class="cihazlar-section">
-        <h2 class="section-title">CİHAZ PARKURUMUZ</h2>
-        <div class="grid">
-            
-            <div class="card">
-                <img src="telsiz1.png" alt="Telsiz 1" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Fotoğraf+Bulunamadı'">
-                <h3>Profesyonel Seri</h3>
-                <p>Yüksek ses kalitesi ve uzun mesafe çekim gücü.</p>
-            </div>
-
-            <div class="card">
-                <img src="telsiz2.png" alt="Telsiz 2" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Fotoğraf+Bulunamadı'">
-                <h3>Set Serisi</h3>
-                <p>Film ve dizi setleri için sessiz, hafif tasarım.</p>
-            </div>
-
-            <div class="card">
-                <img src="telsiz3.png" alt="Telsiz 3" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Fotoğraf+Bulunamadı'">
-                <h3>Saha Serisi</h3>
-                <p>Zorlu arazi ve inşaat koşullarına dayanıklı gövde.</p>
-            </div>
-
-            <div class="card">
-                <img src="./telsiz4.png" alt="Telsiz 4" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Fotoğraf+Bulunamadı'">
-                <h3>Güvenlik Serisi</h3>
-                <p>Kesintisiz haberleşme ve uzun batarya ömrü.</p>
-            </div>
-
-            <div class="card">
-                <img src="./telsiz5.png" alt="Telsiz 5" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Fotoğraf+Bulunamadı'">
-                <h3>Ekonomik Seri</h3>
-                <p>Küçük organizasyonlar için pratik çözümler.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <footer>
-        <div style="margin-bottom: 20px;">
-            <a href="tel:05395926070" class="footer-link"><i class="fas fa-phone"></i> 0539 592 60 70</a>
-            <a href="mailto:lidertelsiz@gmail.com" class="footer-link"><i class="fas fa-envelope"></i> lidertelsiz@gmail.com</a>
-        </div>
-        <p style="opacity: 0.5; font-size: 0.8rem;">&copy; 2026 Lider Telsiz | Kağıthane, İstanbul</p>
-    </footer>
-
-    <a href="https://wa.me/905395926070" class="wp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
+<header>
+    <a href="#" class="logo-box">
+        <img src="logo.png" class="logo-img" onerror="this.style.display='none'">
+        <span class="logo-text">LİDER TELSİZ</span>
     </a>
+
+```
+<a href="tel:05395926070" style="color:white; font-weight:bold;">
+    0539 592 60 70
+</a>
+```
+
+</header>
+
+<section class="hero">
+    <h1>KESİNTİSİZ İLETİŞİM</h1>
+    <p>
+        Film setlerinden güvenlik ekiplerine kadar tüm profesyonel ihtiyaçlarınız için 
+        İstanbul genelinde güçlü ve kesintisiz telsiz kiralama hizmeti.
+    </p>
+
+```
+<a href="https://wa.me/905395926070" class="btn-teklif">
+    WHATSAPP'TAN TEKLİF AL
+</a>
+```
+
+</section>
+
+<section class="cihazlar-section">
+    <h2 class="section-title">CİHAZ PARKURUMUZ</h2>
+
+```
+<div class="grid">
+
+    <div class="card">
+        <img src="telsiz1.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
+        <h3>Profesyonel Seri</h3>
+        <p>Yüksek ses kalitesi ve uzun mesafe çekim gücü.</p>
+    </div>
+
+    <div class="card">
+        <img src="telsiz2.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
+        <h3>Set Serisi</h3>
+        <p>Film ve dizi setleri için sessiz, hafif tasarım.</p>
+    </div>
+
+    <div class="card">
+        <img src="telsiz3.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
+        <h3>Saha Serisi</h3>
+        <p>Zorlu arazi koşullarına dayanıklı gövde.</p>
+    </div>
+
+    <div class="card">
+        <img src="telsiz4.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
+        <h3>Güvenlik Serisi</h3>
+        <p>Kesintisiz haberleşme ve uzun batarya ömrü.</p>
+    </div>
+
+    <div class="card">
+        <img src="telsiz5.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
+        <h3>Ekonomik Seri</h3>
+        <p>Küçük organizasyonlar için pratik çözümler.</p>
+    </div>
+
+</div>
+```
+
+</section>
+
+<footer>
+    <div>
+        <a href="tel:05395926070" class="footer-link">
+            <i class="fas fa-phone"></i> 0539 592 60 70
+        </a>
+
+```
+    <a href="mailto:lidertelsiz@gmail.com" class="footer-link">
+        <i class="fas fa-envelope"></i> lidertelsiz@gmail.com
+    </a>
+</div>
+
+<p style="opacity:0.5; margin-top:20px;">
+    © 2026 Lider Telsiz | İstanbul
+</p>
+```
+
+</footer>
+
+<a href="https://wa.me/905395926070" class="wp-btn">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 </body>
 </html>
