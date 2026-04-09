@@ -1,377 +1,367 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lider Telsiz | Profesyonel Haberleşme Çözümleri</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lider Telsiz | Profesyonel Haberleşme Çözümleri</title>
+<meta name="description" content="İstanbul'da profesyonel telsiz kiralama hizmetleri. Film seti, organizasyon ve güvenlik ekipleri için hızlı çözüm.">
 
-    <!-- SEO -->
-    <meta name="description" content="İstanbul'da profesyonel telsiz kiralama hizmetleri. Film seti, organizasyon ve güvenlik ekipleri için hızlı çözüm.">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<!-- Lightbox -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --lacivert: #0a1f44;
+    --siyah: #000000;
+    --beyaz: #ffffff;
+    --kart-bg: #0f172a;
+    --gri: #1e293b;
+    --accent: #132d63;
+}
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    <style>
-        :root {
-            --lacivert: #0a1f44;
-            --siyah: #000000;
-            --beyaz: #ffffff;
-            --kart-bg: #0f172a;
-            --gri: #1e293b;
-            --body-bg: var(--siyah);
-        }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--siyah);
+    color: var(--beyaz);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--body-bg);
-            color: var(--beyaz);
-            overflow-x: hidden;
-            transition: background 0.3s, color 0.3s;
-        }
+/* HEADER */
+header {
+    padding: 15px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.9);
+    position: fixed;
+    width: 100%;
+    top:0;
+    z-index:1000;
+    border-bottom:2px solid var(--lacivert);
+    backdrop-filter: blur(10px);
+    flex-wrap: wrap;
+}
 
-        /* HEADER */
-        header {
-            padding: 15px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0,0,0,0.9);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--lacivert);
-            backdrop-filter: blur(10px);
-            flex-wrap: wrap;
-        }
+.logo-box {
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
 
-        .logo-box {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
+.logo-img { height:50px; margin-right:10px; }
 
-        .logo-img {
-            height: 50px;
-            margin-right: 10px;
-        }
+.logo-text {
+    font-family:'Orbitron',sans-serif;
+    color: var(--beyaz);
+    font-weight:900;
+    font-size:1.5rem;
+}
 
-        .logo-text {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--beyaz);
-            font-weight: 900;
-            font-size: 1.5rem;
-        }
+.nav-right {
+    display:flex;
+    align-items:center;
+    gap:30px;
+    flex-wrap: wrap;
+}
 
-        /* Dark/Light Switch */
-        .theme-switch {
-            cursor: pointer;
-            background: var(--lacivert);
-            color: var(--beyaz);
-            padding: 8px 15px;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: 0.3s;
-        }
+.nav-right a { color:white; font-weight:bold; text-decoration:none; }
 
-        .theme-switch:hover {
-            background: #132d63;
-        }
+/* HERO */
+.hero {
+    height: 100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 10%;
+    background: radial-gradient(circle at center, #0a1f44 0%, #000 70%);
+    position: relative;
+    overflow:hidden;
+}
 
-        /* HERO */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 10%;
-            background: radial-gradient(circle at center, #0a1f44 0%, #000 70%);
-        }
+.hero-slider { position:relative; width:100%; max-width:1200px; height:100%; display:flex; align-items:center; justify-content:center; }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 900;
-            margin-bottom: 20px;
-        }
+.hero-slide {
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    transition:opacity 1s ease;
+    opacity:0;
+}
 
-        .hero p {
-            max-width: 600px;
-            font-size: 1.1rem;
-            opacity: 0.8;
-            margin-bottom: 30px;
-        }
+.hero-slide.active { opacity:1; }
 
-        .btn-teklif {
-            background: var(--lacivert);
-            color: var(--beyaz);
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: 0.3s;
-        }
+.hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight:900; margin-bottom:20px; }
 
-        .btn-teklif:hover {
-            transform: scale(1.05);
-            background: #132d63;
-        }
+.hero p { max-width:600px; font-size:1.1rem; opacity:0.8; margin-bottom:30px; }
 
-        /* SECTION */
-        .cihazlar-section {
-            padding: 100px 8%;
-            text-align: center;
-        }
+.btn-teklif {
+    background: var(--lacivert);
+    color: var(--beyaz);
+    padding: 15px 40px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.3s;
+}
+.btn-teklif:hover { background: var(--accent); transform:scale(1.05); }
 
-        .section-title {
-            font-family: 'Orbitron', sans-serif;
-            margin-bottom: 30px;
-            font-size: 2rem;
-        }
+/* HİZMETLERİMİZ */
+.services-section {
+    padding:100px 8%;
+}
 
-        .filter-buttons {
-            margin-bottom: 40px;
-        }
+.services-title {
+    font-family:'Orbitron',sans-serif;
+    font-size:2rem;
+    margin-bottom:50px;
+    text-align:center;
+}
 
-        .filter-buttons button {
-            margin: 0 8px;
-            padding: 8px 20px;
-            background: var(--lacivert);
-            color: var(--beyaz);
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
-        }
+/* Accordion */
+.accordion {
+    background: var(--kart-bg);
+    border:1px solid var(--gri);
+    border-radius:15px;
+    margin-bottom:15px;
+    cursor:pointer;
+    padding:15px 20px;
+    transition:0.3s;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
 
-        .filter-buttons button.active,
-        .filter-buttons button:hover {
-            background: #132d63;
-        }
+.accordion:hover { background: var(--accent); }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
+.accordion-content {
+    max-height:0;
+    overflow:hidden;
+    transition: max-height 0.3s ease;
+    background: var(--kart-bg);
+    padding:0 20px;
+}
 
-        .card {
-            background: var(--kart-bg);
-            border: 1px solid var(--gri);
-            padding: 30px;
-            border-radius: 20px;
-            transition: 0.6s;
-            opacity: 0;
-            transform: translateY(30px);
-        }
+.accordion-content p { padding:15px 0; opacity:0.8; }
 
-        .card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+/* CİHAZ PARKURU */
+.cihazlar-section { padding:100px 8%; text-align:center; }
 
-        .telsiz-img {
-            width: 100%;
-            height: 250px;
-            object-fit: contain;
-            margin-bottom: 20px;
-        }
+.section-title {
+    font-family:'Orbitron',sans-serif;
+    color: var(--beyaz);
+    margin-bottom:50px;
+    font-size:2rem;
+}
 
-        .card h3 {
-            margin-bottom: 10px;
-        }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
 
-        .card p {
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
+.card {
+    background:var(--kart-bg);
+    border:1px solid var(--gri);
+    padding:30px;
+    border-radius:20px;
+    transition:0.4s;
+}
 
-        /* FOOTER */
-        footer {
-            padding: 60px 8%;
-            text-align: center;
-            border-top: 1px solid var(--gri);
-        }
+.card:hover {
+    transform:translateY(-10px);
+    border-color:var(--lacivert);
+    box-shadow:0 10px 30px rgba(10,31,68,0.4);
+}
 
-        .footer-link {
-            color: inherit;
-            text-decoration: none;
-            margin: 0 15px;
-        }
+.telsiz-img { width:100%; height:250px; object-fit:contain; margin-bottom:20px; }
 
-        .footer-link i {
-            color: var(--lacivert);
-            margin-right: 8px;
-        }
+.card h3 { color: var(--beyaz); margin-bottom:10px; }
 
-        /* WHATSAPP */
-        .wp-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            color: white;
-            text-decoration: none;
-            animation: pulse 2s infinite;
-        }
+.card p { font-size:0.9rem; opacity:0.7; }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
-            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
-        }
-    </style>
+/* REFERANSLAR */
+.references-section { padding:100px 8%; }
+
+.references-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:20px; align-items:center; }
+
+.references-grid img { width:100%; filter:brightness(0) invert(1); transition:0.3s; }
+
+.references-grid img:hover { filter:brightness(1) invert(0); }
+
+/* FOOTER */
+footer {
+    padding:60px 8%;
+    background:#050505;
+    text-align:center;
+    border-top:1px solid var(--gri);
+}
+
+.footer-link {
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+}
+
+.footer-link i { color: var(--lacivert); margin-right:8px; }
+
+/* WHATSAPP */
+.wp-btn {
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    background:#25d366;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    color:white;
+    text-decoration:none;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow:0 0 0 0 rgba(37,211,102,0.7);}
+    70% { box-shadow:0 0 0 15px rgba(37,211,102,0);}
+    100% { box-shadow:0 0 0 0 rgba(37,211,102,0);}
+}
+
+/* SCROLL TO TOP */
+#scrollTop {
+    position:fixed;
+    bottom:110px;
+    right:30px;
+    background:var(--lacivert);
+    color:white;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    cursor:pointer;
+    display:none;
+}
+</style>
 </head>
-
 <body>
+
 <header>
     <a href="#" class="logo-box">
         <img src="logo.png" class="logo-img" onerror="this.style.display='none'">
         <span class="logo-text">LİDER TELSİZ</span>
     </a>
-
-    <div style="display:flex; align-items:center; gap:15px;">
-        <a href="tel:05395926070" style="color:white; font-weight:bold;">0539 592 60 70</a>
-        <button class="theme-switch" id="themeSwitch">🌙</button>
+    <div class="nav-right">
+        <a href="tel:05395926070"><i class="fas fa-phone"></i> 0539 592 60 70</a>
+        <a href="#services"><i class="fas fa-cogs"></i> Hizmetlerimiz</a>
     </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-    <h1>KESİNTİSİZ İLETİŞİM</h1>
-    <p>
-        Film setlerinden güvenlik ekiplerine kadar tüm profesyonel ihtiyaçlarınız için 
-        İstanbul genelinde güçlü ve kesintisiz telsiz kiralama hizmeti.
-    </p>
-    <a href="https://wa.me/905395926070" class="btn-teklif">
-        WHATSAPP'TAN TEKLİF AL
-    </a>
+    <div class="hero-slider">
+        <div class="hero-slide active">
+            <h1>KESİNTİSİZ İLETİŞİM</h1>
+            <p>Film setlerinden güvenlik ekiplerine kadar tüm profesyonel ihtiyaçlarınız için İstanbul genelinde güçlü ve kesintisiz telsiz kiralama hizmeti.</p>
+            <a href="https://wa.me/905395926070" class="btn-teklif">WHATSAPP'TAN TEKLİF AL</a>
+        </div>
+        <div class="hero-slide">
+            <h1>GÜVENLİ VE HIZLI</h1>
+            <p>Zorlu arazi koşullarında bile yüksek performanslı cihazlar ile iletişim sağlayın.</p>
+            <a href="https://wa.me/905395926070" class="btn-teklif">HIZLI TEKLİF AL</a>
+        </div>
+    </div>
 </section>
 
+<!-- HİZMETLERİMİZ -->
+<section id="services" class="services-section">
+    <h2 class="services-title">HİZMETLERİMİZ</h2>
+
+    <div class="accordion">📡 Profesyonel Telsiz Kiralama <i class="fas fa-chevron-down"></i></div>
+    <div class="accordion-content"><p>Film setleri, organizasyon ve güvenlik ekipleri için uzun menzilli ve kaliteli telsiz kiralama hizmeti sunuyoruz.</p></div>
+
+    <div class="accordion">🔧 Kurulum ve Destek <i class="fas fa-chevron-down"></i></div>
+    <div class="accordion-content"><p>Cihazların kurulumu ve teknik desteği uzman ekibimiz tarafından sağlanmaktadır.</p></div>
+
+    <div class="accordion">💼 Satış ve Danışmanlık <i class="fas fa-chevron-down"></i></div>
+    <div class="accordion-content"><p>Müşterilerimize uygun cihazları seçme, satış ve danışmanlık hizmeti veriyoruz.</p></div>
+</section>
+
+<!-- CİHAZ PARKURU -->
 <section class="cihazlar-section">
     <h2 class="section-title">CİHAZ PARKURUMUZ</h2>
-
-    <!-- Filter Buttons -->
-    <div class="filter-buttons">
-        <button class="active" data-filter="all">Tümü</button>
-        <button data-filter="profesyonel">Profesyonel</button>
-        <button data-filter="set">Set</button>
-        <button data-filter="saha">Saha</button>
-        <button data-filter="guvenlik">Güvenlik</button>
-        <button data-filter="ekonomik">Ekonomik</button>
-    </div>
-
-    <div class="grid" id="deviceGrid">
-
-        <div class="card" data-category="profesyonel">
-            <img src="telsiz1.png" class="telsiz-img" alt="Profesyonel Seri Telsiz">
-            <h3>Profesyonel Seri</h3>
-            <p>Yüksek ses kalitesi ve uzun mesafe çekim gücü.</p>
-        </div>
-
-        <div class="card" data-category="set">
-            <img src="telsiz2.png" class="telsiz-img" alt="Set Serisi Telsiz">
-            <h3>Set Serisi</h3>
-            <p>Film ve dizi setleri için sessiz, hafif tasarım.</p>
-        </div>
-
-        <div class="card" data-category="saha">
-            <img src="telsiz3.png" class="telsiz-img" alt="Saha Serisi Telsiz">
-            <h3>Saha Serisi</h3>
-            <p>Zorlu arazi koşullarına dayanıklı gövde.</p>
-        </div>
-
-        <div class="card" data-category="guvenlik">
-            <img src="telsiz4.png" class="telsiz-img" alt="Güvenlik Serisi Telsiz">
-            <h3>Güvenlik Serisi</h3>
-            <p>Kesintisiz haberleşme ve uzun batarya ömrü.</p>
-        </div>
-
-        <div class="card" data-category="ekonomik">
-            <img src="telsiz5.png" class="telsiz-img" alt="Ekonomik Seri Telsiz">
-            <h3>Ekonomik Seri</h3>
-            <p>Küçük organizasyonlar için pratik çözümler.</p>
-        </div>
-
+    <div class="grid">
+        <a href="telsiz1.png" data-lightbox="cihazlar"><div class="card"><img src="telsiz1.png" class="telsiz-img"><h3>Profesyonel Seri</h3><p>Yüksek ses kalitesi ve uzun mesafe çekim gücü.</p></div></a>
+        <a href="telsiz2.png" data-lightbox="cihazlar"><div class="card"><img src="telsiz2.png" class="telsiz-img"><h3>Set Serisi</h3><p>Film ve dizi setleri için sessiz, hafif tasarım.</p></div></a>
+        <a href="telsiz3.png" data-lightbox="cihazlar"><div class="card"><img src="telsiz3.png" class="telsiz-img"><h3>Saha Serisi</h3><p>Zorlu arazi koşullarına dayanıklı gövde.</p></div></a>
+        <a href="telsiz4.png" data-lightbox="cihazlar"><div class="card"><img src="telsiz4.png" class="telsiz-img"><h3>Güvenlik Serisi</h3><p>Kesintisiz haberleşme ve uzun batarya ömrü.</p></div></a>
+        <a href="telsiz5.png" data-lightbox="cihazlar"><div class="card"><img src="telsiz5.png" class="telsiz-img"><h3>Ekonomik Seri</h3><p>Küçük organizasyonlar için pratik çözümler.</p></div></a>
     </div>
 </section>
 
+<!-- REFERANSLAR -->
+<section class="references-section">
+    <h2 class="services-title">REFERANSLARIMIZ</h2>
+    <div class="references-grid">
+        <img src="ref1.png" alt="Müşteri 1">
+        <img src="ref2.png" alt="Müşteri 2">
+        <img src="ref3.png" alt="Müşteri 3">
+        <img src="ref4.png" alt="Müşteri 4">
+    </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
     <div>
-        <a href="tel:05395926070" class="footer-link">
-            <i class="fas fa-phone"></i> 0539 592 60 70
-        </a>
-        <a href="mailto:lidertelsiz@gmail.com" class="footer-link">
-            <i class="fas fa-envelope"></i> lidertelsiz@gmail.com
-        </a>
+        <a href="tel:05395926070" class="footer-link"><i class="fas fa-phone"></i> 0539 592 60 70</a>
+        <a href="mailto:lidertelsiz@gmail.com" class="footer-link"><i class="fas fa-envelope"></i> lidertelsiz@gmail.com</a>
     </div>
-    <p style="opacity:0.5; margin-top:20px;">
-        © 2026 Lider Telsiz | İstanbul
-    </p>
+    <p style="opacity:0.5; margin-top:20px;">© 2026 Lider Telsiz | İstanbul</p>
 </footer>
 
-<a href="https://wa.me/905395926070" class="wp-btn">
-    <i class="fab fa-whatsapp"></i>
-</a>
+<a href="https://wa.me/905395926070" class="wp-btn"><i class="fab fa-whatsapp"></i></a>
+<div id="scrollTop"><i class="fas fa-arrow-up"></i></div>
 
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 <script>
-    // DARK/LIGHT MODE SWITCH
-    const themeSwitch = document.getElementById('themeSwitch');
-    themeSwitch.addEventListener('click', () => {
-        if(document.body.style.backgroundColor === 'white') {
-            document.body.style.backgroundColor = '#000';
-            document.body.style.color = '#fff';
-            themeSwitch.textContent = '🌙';
-        } else {
-            document.body.style.backgroundColor = '#fff';
-            document.body.style.color = '#000';
-            themeSwitch.textContent = '☀️';
-        }
+// Hero slider
+let slides = document.querySelectorAll('.hero-slide');
+let index = 0;
+setInterval(() => {
+    slides[index].classList.remove('active');
+    index = (index+1)%slides.length;
+    slides[index].classList.add('active');
+},5000);
+
+// Accordion
+const acc = document.querySelectorAll('.accordion');
+acc.forEach(a=>{
+    a.addEventListener('click', ()=>{
+        a.classList.toggle('active');
+        let panel = a.nextElementSibling;
+        if(panel.style.maxHeight) panel.style.maxHeight = null;
+        else panel.style.maxHeight = panel.scrollHeight+'px';
     });
+});
 
-    // DEVICE FILTERING
-    const filterButtons = document.querySelectorAll('.filter-buttons button');
-    const cards = document.querySelectorAll('.card');
-
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const filter = btn.dataset.filter;
-
-            cards.forEach(card => {
-                if(filter === 'all' || card.dataset.category === filter) {
-                    card.style.display = 'block';
-                    setTimeout(() => card.classList.add('visible'), 50);
-                } else {
-                    card.classList.remove('visible');
-                    setTimeout(() => card.style.display = 'none', 300);
-                }
-            });
-        });
-    });
-
-    // ANIMATION ON SCROLL
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.2 });
-
-    cards.forEach(card => observer.observe(card));
+// Scroll top
+const scrollBtn = document.getElementById('scrollTop');
+window.onscroll = function(){
+    if(document.body.scrollTop>300 || document.documentElement.scrollTop>300){
+        scrollBtn.style.display="flex";
+    }else{ scrollBtn.style.display="none"; }
+};
+scrollBtn.addEventListener('click', ()=>{ window.scrollTo({top:0,behavior:'smooth'}); });
 </script>
 
 </body>
