@@ -1,209 +1,249 @@
 <!DOCTYPE html>
-
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lider Telsiz | Profesyonel Haberleşme Çözümleri</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<!-- SEO -->
+<title>İstanbul Telsiz Kiralama | Lider Telsiz</title>
 <meta name="description" content="İstanbul'da profesyonel telsiz kiralama hizmetleri. Film seti, organizasyon ve güvenlik ekipleri için hızlı çözüm.">
+<meta name="keywords" content="telsiz kiralama İstanbul, profesyonel telsiz, set telsizi, güvenlik telsizi">
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
-    :root {
-        --lacivert: #0a1f44;
-        --siyah: #000000;
-        --beyaz: #ffffff;
-        --kart-bg: #0f172a;
-        --gri: #1e293b;
-    }
+:root {
+    --lacivert: #0a1f44;
+    --siyah: #000000;
+    --beyaz: #ffffff;
+    --kart-bg: #0f172a;
+    --gri: #1e293b;
+}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    body {
-        font-family: 'Poppins', sans-serif;
-        background-color: var(--siyah);
-        color: var(--beyaz);
-        overflow-x: hidden;
-    }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--siyah);
+    color: var(--beyaz);
+    overflow-x: hidden;
+}
 
-    /* HEADER */
+/* HEADER */
+header {
+    padding: 15px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--lacivert);
+    backdrop-filter: blur(10px);
+    flex-wrap: wrap;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--beyaz);
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+/* NAV */
+.nav-menu {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #4da3ff;
+}
+
+.phone {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10%;
+    background: radial-gradient(circle at center, #0a1f44 0%, #000 70%);
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 600px;
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+.btn-teklif {
+    background: var(--lacivert);
+    color: var(--beyaz);
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-teklif:hover {
+    transform: scale(1.05);
+    background: #132d63;
+}
+
+/* HİZMETLER */
+.hizmetler-section {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.hizmetler-section p {
+    max-width: 700px;
+    margin: 15px auto;
+    opacity: 0.8;
+}
+
+/* CİHAZLAR */
+.cihazlar-section {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--beyaz);
+    margin-bottom: 50px;
+    font-size: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--kart-bg);
+    border: 1px solid var(--gri);
+    padding: 30px;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--lacivert);
+    box-shadow: 0 10px 30px rgba(10, 31, 68, 0.4);
+}
+
+.telsiz-img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: var(--beyaz);
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* FOOTER */
+footer {
+    padding: 60px 8%;
+    background: #050505;
+    text-align: center;
+    border-top: 1px solid var(--gri);
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.footer-link i {
+    color: var(--lacivert);
+    margin-right: 8px;
+}
+
+/* WHATSAPP */
+.wp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25d366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+/* MOBILE */
+@media(max-width:768px){
     header {
-        padding: 15px 8%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: rgba(0,0,0,0.9);
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        border-bottom: 2px solid var(--lacivert);
-        backdrop-filter: blur(10px);
-        flex-wrap: wrap;
-    }
-
-    .logo-box {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-    }
-
-    .logo-img {
-        height: 50px;
-        margin-right: 10px;
-    }
-
-    .logo-text {
-        font-family: 'Orbitron', sans-serif;
-        color: var(--beyaz);
-        font-weight: 900;
-        font-size: 1.5rem;
-    }
-
-    /* HERO */
-    .hero {
-        height: 100vh;
-        display: flex;
         flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
         justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 0 10%;
-        background: radial-gradient(circle at center, #0a1f44 0%, #000 70%);
     }
-
-    .hero h1 {
-        font-size: clamp(2.5rem, 8vw, 5rem);
-        color: var(--beyaz);
-        font-weight: 900;
-        margin-bottom: 20px;
-    }
-
-    .hero p {
-        max-width: 600px;
-        font-size: 1.1rem;
-        opacity: 0.8;
-        margin-bottom: 30px;
-    }
-
-    .btn-teklif {
-        background: var(--lacivert);
-        color: var(--beyaz);
-        padding: 15px 40px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 700;
-        transition: 0.3s;
-    }
-
-    .btn-teklif:hover {
-        transform: scale(1.05);
-        background: #132d63;
-    }
-
-    /* SECTION */
-    .cihazlar-section {
-        padding: 100px 8%;
-        text-align: center;
-    }
-
-    .section-title {
-        font-family: 'Orbitron', sans-serif;
-        color: var(--beyaz);
-        margin-bottom: 50px;
-        font-size: 2rem;
-    }
-
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-    }
-
-    .card {
-        background: var(--kart-bg);
-        border: 1px solid var(--gri);
-        padding: 30px;
-        border-radius: 20px;
-        transition: 0.4s;
-    }
-
-    .card:hover {
-        transform: translateY(-10px);
-        border-color: var(--lacivert);
-        box-shadow: 0 10px 30px rgba(10, 31, 68, 0.4);
-    }
-
-    .telsiz-img {
-        width: 100%;
-        height: 250px;
-        object-fit: contain;
-        margin-bottom: 20px;
-    }
-
-    .card h3 {
-        color: var(--beyaz);
-        margin-bottom: 10px;
-    }
-
-    .card p {
-        font-size: 0.9rem;
-        opacity: 0.7;
-    }
-
-    /* FOOTER */
-    footer {
-        padding: 60px 8%;
-        background: #050505;
-        text-align: center;
-        border-top: 1px solid var(--gri);
-    }
-
-    .footer-link {
-        color: white;
-        text-decoration: none;
-        margin: 0 15px;
-    }
-
-    .footer-link i {
-        color: var(--lacivert);
-        margin-right: 8px;
-    }
-
-    /* WHATSAPP */
-    .wp-btn {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        background: #25d366;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 30px;
-        color: white;
-        text-decoration: none;
-        animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-        0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
-        70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
-        100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
-    }
-
+}
 </style>
-```
 
 </head>
 
@@ -215,12 +255,13 @@
         <span class="logo-text">LİDER TELSİZ</span>
     </a>
 
-```
-<a href="tel:05395926070" style="color:white; font-weight:bold;">
-    0539 592 60 70
-</a>
-```
+    <nav class="nav-menu">
+        <a href="#hizmetler">Hizmetlerimiz</a>
+        <a href="#cihazlar">Cihaz Parkuru</a>
+        <a href="#iletisim">İletişim</a>
+    </nav>
 
+    <a href="tel:05395926070" class="phone">0539 592 60 70</a>
 </header>
 
 <section class="hero">
@@ -230,72 +271,66 @@
         İstanbul genelinde güçlü ve kesintisiz telsiz kiralama hizmeti.
     </p>
 
-```
-<a href="https://wa.me/905395926070" class="btn-teklif">
-    WHATSAPP'TAN TEKLİF AL
-</a>
-```
-
+    <a href="https://wa.me/905395926070?text=Merhaba,%20telsiz%20kiralama%20hizmeti%20almak%20istiyorum" class="btn-teklif">
+        WHATSAPP'TAN TEKLİF AL
+    </a>
 </section>
 
-<section class="cihazlar-section">
+<section id="hizmetler" class="hizmetler-section">
+    <h2 class="section-title">HİZMETLERİMİZ</h2>
+    <p>
+        Lider Telsiz olarak İstanbul genelinde profesyonel telsiz kiralama hizmeti sunuyoruz. 
+        Film setleri, organizasyonlar, güvenlik ekipleri ve saha operasyonları için 
+        yüksek performanslı haberleşme çözümleri sağlıyoruz.
+    </p>
+    <p>✔ Telsiz kiralama</p>
+    <p>✔ Günlük / haftalık / aylık çözümler</p>
+    <p>✔ Teknik destek</p>
+    <p>✔ Hızlı teslimat</p>
+</section>
+
+<section id="cihazlar" class="cihazlar-section">
     <h2 class="section-title">CİHAZ PARKURUMUZ</h2>
 
-```
-<div class="grid">
+    <div class="grid">
+        <div class="card">
+            <img src="telsiz1.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
+            <h3>Profesyonel Seri</h3>
+            <p>Yüksek ses kalitesi ve uzun mesafe çekim gücü.</p>
+        </div>
 
-    <div class="card">
-        <img src="telsiz1.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
-        <h3>Profesyonel Seri</h3>
-        <p>Yüksek ses kalitesi ve uzun mesafe çekim gücü.</p>
+        <div class="card">
+            <img src="telsiz2.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
+            <h3>Set Serisi</h3>
+            <p>Film ve dizi setleri için sessiz, hafif tasarım.</p>
+        </div>
+
+        <div class="card">
+            <img src="telsiz3.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
+            <h3>Saha Serisi</h3>
+            <p>Zorlu arazi koşullarına dayanıklı gövde.</p>
+        </div>
+
+        <div class="card">
+            <img src="telsiz4.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
+            <h3>Güvenlik Serisi</h3>
+            <p>Kesintisiz haberleşme ve uzun batarya ömrü.</p>
+        </div>
+
+        <div class="card">
+            <img src="telsiz5.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
+            <h3>Ekonomik Seri</h3>
+            <p>Küçük organizasyonlar için pratik çözümler.</p>
+        </div>
     </div>
-
-    <div class="card">
-        <img src="telsiz2.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
-        <h3>Set Serisi</h3>
-        <p>Film ve dizi setleri için sessiz, hafif tasarım.</p>
-    </div>
-
-    <div class="card">
-        <img src="telsiz3.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
-        <h3>Saha Serisi</h3>
-        <p>Zorlu arazi koşullarına dayanıklı gövde.</p>
-    </div>
-
-    <div class="card">
-        <img src="telsiz4.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
-        <h3>Güvenlik Serisi</h3>
-        <p>Kesintisiz haberleşme ve uzun batarya ömrü.</p>
-    </div>
-
-    <div class="card">
-        <img src="telsiz5.png" class="telsiz-img" onerror="this.src='https://via.placeholder.com/250x250?text=Telsiz'">
-        <h3>Ekonomik Seri</h3>
-        <p>Küçük organizasyonlar için pratik çözümler.</p>
-    </div>
-
-</div>
-```
-
 </section>
 
-<footer>
+<footer id="iletisim">
     <div>
-        <a href="tel:05395926070" class="footer-link">
-            <i class="fas fa-phone"></i> 0539 592 60 70
-        </a>
-
-```
-    <a href="mailto:lidertelsiz@gmail.com" class="footer-link">
-        <i class="fas fa-envelope"></i> lidertelsiz@gmail.com
-    </a>
-</div>
-
-<p style="opacity:0.5; margin-top:20px;">
-    © 2026 Lider Telsiz | İstanbul
-</p>
-```
-
+        <a href="tel:05395926070" class="footer-link"><i class="fas fa-phone"></i> 0539 592 60 70</a>
+        <a href="mailto:lidertelsiz@gmail.com" class="footer-link"><i class="fas fa-envelope"></i> lidertelsiz@gmail.com</a>
+    </div>
+    <p style="opacity:0.5; margin-top:20px;">© 2026 Lider Telsiz | İstanbul</p>
 </footer>
 
 <a href="https://wa.me/905395926070" class="wp-btn">
