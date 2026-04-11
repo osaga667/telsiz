@@ -1,36 +1,52 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lider Telsiz | Profesyonel Haberleşme Çözümleri</title>
-<meta name="description" content="İstanbul'da profesyonel telsiz kiralama hizmetleri. Film seti, organizasyon ve güvenlik ekipleri için hızlı çözüm.">
+<!DOCTYPE html>  
+<html lang="tr">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Lider Telsiz | Profesyonel Haberleşme Çözümleri</title>  
+<meta name="description" content="İstanbul'da profesyonel telsiz kiralama hizmetleri. Film seti, organizasyon ve güvenlik ekipleri için hızlı çözüm.">  
+  
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">  
+  
+<style>  
+:root {  
+    --lacivert: #0a1f44;  
+    --siyah: #000000;  
+    --beyaz: #ffffff;  
+    --kart-bg: #0f172a;  
+    --gri: #1e293b;  
+    --accent: #132d63;  
+}  
+  
+* { margin:0; padding:0; box-sizing:border-box; }  
+  
+body {  
+    font-family: 'Poppins', sans-serif;  
+    background-color: var(--siyah);  
+    color: var(--beyaz);  
+    overflow-x: hidden;  
+    scroll-behavior: smooth;  
+}  
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<!-- Lightbox -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-
-<style>
-:root {
-    --lacivert: #0a1f44;
-    --siyah: #000000;
-    --beyaz: #ffffff;
-    --kart-bg: #0f172a;
-    --gri: #1e293b;
-    --accent: #132d63;
+/* REFERANS YENİ */
+.ref-item {
+    background: var(--kart-bg);
+    border: 1px solid var(--gri);
+    padding: 25px;
+    border-radius: 15px;
+    font-weight: 600;
+    text-align: center;
+    transition: 0.3s;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
 }
 
-* { margin:0; padding:0; box-sizing:border-box; }
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--siyah);
-    color: var(--beyaz);
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+.ref-item:hover {
+    background: var(--accent);
+    transform: scale(1.07);
+    box-shadow: 0 10px 30px rgba(10,31,68,0.5);
 }
 
 /* HEADER */
@@ -49,12 +65,7 @@ header {
     flex-wrap: wrap;
 }
 
-.logo-box {
-    display:flex;
-    align-items:center;
-    text-decoration:none;
-}
-
+.logo-box { display:flex; align-items:center; text-decoration:none; }
 .logo-img { height:50px; margin-right:10px; }
 
 .logo-text {
@@ -64,13 +75,7 @@ header {
     font-size:1.5rem;
 }
 
-.nav-right {
-    display:flex;
-    align-items:center;
-    gap:30px;
-    flex-wrap: wrap;
-}
-
+.nav-right { display:flex; align-items:center; gap:30px; flex-wrap: wrap; }
 .nav-right a { color:white; font-weight:bold; text-decoration:none; }
 
 /* HERO */
@@ -101,7 +106,6 @@ header {
 .hero-slide.active { opacity:1; }
 
 .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight:900; margin-bottom:20px; }
-
 .hero p { max-width:600px; font-size:1.1rem; opacity:0.8; margin-bottom:30px; }
 
 .btn-teklif {
@@ -115,10 +119,8 @@ header {
 }
 .btn-teklif:hover { background: var(--accent); transform:scale(1.05); }
 
-/* HİZMETLERİMİZ */
-.services-section {
-    padding:100px 8%;
-}
+/* HİZMETLER */
+.services-section { padding:100px 8%; }
 
 .services-title {
     font-family:'Orbitron',sans-serif;
@@ -137,7 +139,6 @@ header {
     padding:15px 20px;
     transition:0.3s;
     display:flex;
-    align-items:center;
     justify-content:space-between;
 }
 
@@ -148,221 +149,93 @@ header {
     overflow:hidden;
     transition: max-height 0.3s ease;
     background: var(--kart-bg);
-    padding:0 20px;
 }
 
-.accordion-content p { padding:15px 0; opacity:0.8; }
+.accordion-content p { padding:15px; }
 
-/* CİHAZ PARKURU */
+/* CİHAZ */
 .cihazlar-section { padding:100px 8%; text-align:center; }
-
-.section-title {
-    font-family:'Orbitron',sans-serif;
-    color: var(--beyaz);
-    margin-bottom:50px;
-    font-size:2rem;
-}
+.section-title { font-family:'Orbitron'; margin-bottom:50px; }
 
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
 
 .card {
     background:var(--kart-bg);
-    border:1px solid var(--gri);
     padding:30px;
     border-radius:20px;
     transition:0.4s;
 }
 
-.card:hover {
-    transform:translateY(-10px);
-    border-color:var(--lacivert);
-    box-shadow:0 10px 30px rgba(10,31,68,0.4);
-}
+.card:hover { transform:translateY(-10px); }
 
-.telsiz-img { width:100%; height:250px; object-fit:contain; margin-bottom:20px; }
-
-.card h3 { color: var(--beyaz); margin-bottom:10px; }
-
-.card p { font-size:0.9rem; opacity:0.7; }
+.telsiz-img { width:100%; height:250px; object-fit:contain; }
 
 /* REFERANSLAR */
 .references-section { padding:100px 8%; }
 
-.references-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:20px; align-items:center; }
-
-.references-grid img { width:100%; filter:brightness(0) invert(1); transition:0.3s; }
-
-.references-grid img:hover { filter:brightness(1) invert(0); }
+.references-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:20px;
+}
 
 /* FOOTER */
 footer {
     padding:60px 8%;
     background:#050505;
     text-align:center;
-    border-top:1px solid var(--gri);
 }
+</style>  
+</head>  
 
-.footer-link {
-    color:white;
-    text-decoration:none;
-    margin:0 15px;
-}
-
-.footer-link i { color: var(--lacivert); margin-right:8px; }
-
-/* WHATSAPP */
-.wp-btn {
-    position:fixed;
-    bottom:30px;
-    right:30px;
-    background:#25d366;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:30px;
-    color:white;
-    text-decoration:none;
-    animation:pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { box-shadow:0 0 0 0 rgba(37,211,102,0.7);}
-    70% { box-shadow:0 0 0 15px rgba(37,211,102,0);}
-    100% { box-shadow:0 0 0 0 rgba(37,211,102,0);}
-}
-
-/* SCROLL TO TOP */
-#scrollTop {
-    position:fixed;
-    bottom:110px;
-    right:30px;
-    background:var(--lacivert);
-    color:white;
-    width:50px;
-    height:50px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:24px;
-    cursor:pointer;
-    display:none;
-}
-</style>
-</head>
-<body>
+<body>  
 
 <header>
     <a href="#" class="logo-box">
-        <img src="logo.png" class="logo-img" onerror="this.style.display='none'">
+        <img src="logo.png" class="logo-img">
         <span class="logo-text">LİDER TELSİZ</span>
     </a>
-    <div class="nav-right">
-        <a href="tel:05395926070"><i class="fas fa-phone"></i> 0539 592 60 70</a>
-        <a href="#services"><i class="fas fa-cogs"></i> Hizmetlerimiz</a>
-    </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
     <div class="hero-slider">
         <div class="hero-slide active">
             <h1>KESİNTİSİZ İLETİŞİM</h1>
-            <p>Film setlerinden güvenlik ekiplerine kadar tüm profesyonel ihtiyaçlarınız için İstanbul genelinde güçlü ve kesintisiz telsiz kiralama hizmeti.</p>
-            <a href="https://wa.me/905395926070" class="btn-teklif">WHATSAPP'TAN TEKLİF AL</a>
-        </div>
-        <div class="hero-slide">
-            <h1>GÜVENLİ VE HIZLI</h1>
-            <p>Zorlu arazi koşullarında bile yüksek performanslı cihazlar ile iletişim sağlayın.</p>
-            <a href="https://wa.me/905395926070" class="btn-teklif">HIZLI TEKLİF AL</a>
+            <a href="#" class="btn-teklif">TEKLİF AL</a>
         </div>
     </div>
 </section>
 
-<!-- HİZMETLERİMİZ -->
-<section id="services" class="services-section">
+<section class="services-section">
     <h2 class="services-title">HİZMETLERİMİZ</h2>
-
-    <div class="accordion">📡 Profesyonel Telsiz Kiralama <i class="fas fa-chevron-down"></i></div>
-    <div class="accordion-content"><p>Film setleri, organizasyon ve güvenlik ekipleri için uzun menzilli ve kaliteli telsiz kiralama hizmeti sunuyoruz.</p></div>
-
-    <div class="accordion">🔧 Kurulum ve Destek <i class="fas fa-chevron-down"></i></div>
-    <div class="accordion-content"><p>Cihazların kurulumu ve teknik desteği uzman ekibimiz tarafından sağlanmaktadır.</p></div>
-
-    <div class="accordion">💼 Satış ve Danışmanlık <i class="fas fa-chevron-down"></i></div>
-    <div class="accordion-content"><p>Müşterilerimize uygun cihazları seçme, satış ve danışmanlık hizmeti veriyoruz.</p></div>
 </section>
 
-<!-- CİHAZ PARKURU -->
 <section class="cihazlar-section">
     <h2 class="section-title">CİHAZ PARKURUMUZ</h2>
-    <div class="grid">
-        <a href="telsiz1.png" data-lightbox="cihazlar"><div class="card"><img src="telsiz1.png" class="telsiz-img"><h3>Profesyonel Seri</h3><p>Yüksek ses kalitesi ve uzun mesafe çekim gücü.</p></div></a>
-        <a href="telsiz2.png" data-lightbox="cihazlar"><div class="card"><img src="telsiz2.png" class="telsiz-img"><h3>Set Serisi</h3><p>Film ve dizi setleri için sessiz, hafif tasarım.</p></div></a>
-        <a href="telsiz3.png" data-lightbox="cihazlar"><div class="card"><img src="telsiz3.png" class="telsiz-img"><h3>Saha Serisi</h3><p>Zorlu arazi koşullarına dayanıklı gövde.</p></div></a>
-        <a href="telsiz4.png" data-lightbox="cihazlar"><div class="card"><img src="telsiz4.png" class="telsiz-img"><h3>Güvenlik Serisi</h3><p>Kesintisiz haberleşme ve uzun batarya ömrü.</p></div></a>
-        <a href="telsiz5.png" data-lightbox="cihazlar"><div class="card"><img src="telsiz5.png" class="telsiz-img"><h3>Ekonomik Seri</h3><p>Küçük organizasyonlar için pratik çözümler.</p></div></a>
-    </div>
 </section>
 
 <!-- REFERANSLAR -->
 <section class="references-section">
-    <h2 class="services-title">REFERANSLARIMIZ</h2>
+    <h2 class="services-title">REFERANSLARIMIZ +50 PROJE</h2>
+
     <div class="references-grid">
-        <img src="ref1.png" alt="Müşteri 1">
-        <img src="ref2.png" alt="Müşteri 2">
-        <img src="ref3.png" alt="Müşteri 3">
-        <img src="ref4.png" alt="Müşteri 4">
+        <div class="ref-item">Maça Film</div>
+        <div class="ref-item">Sortcut Prod</div>
+        <div class="ref-item">Set Gripim</div>
+        <div class="ref-item">Octopus Film Yapım</div>
+        <div class="ref-item">Istanbul Line Films</div>
+        <div class="ref-item">Mimeda Medya</div>
+        <div class="ref-item">Z Medya</div>
     </div>
+
+    <p style="opacity:0.6; margin-top:30px; text-align:center;">
+        Türkiye genelinde birçok prodüksiyon ekibi tarafından tercih ediliyoruz.
+    </p>
 </section>
 
-<!-- FOOTER -->
 <footer>
-    <div>
-        <a href="tel:05395926070" class="footer-link"><i class="fas fa-phone"></i> 0539 592 60 70</a>
-        <a href="mailto:lidertelsiz@gmail.com" class="footer-link"><i class="fas fa-envelope"></i> lidertelsiz@gmail.com</a>
-    </div>
-    <p style="opacity:0.5; margin-top:20px;">© 2026 Lider Telsiz | İstanbul</p>
+    © 2026 Lider Telsiz
 </footer>
-
-<a href="https://wa.me/905395926070" class="wp-btn"><i class="fab fa-whatsapp"></i></a>
-<div id="scrollTop"><i class="fas fa-arrow-up"></i></div>
-
-<!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-<script>
-// Hero slider
-let slides = document.querySelectorAll('.hero-slide');
-let index = 0;
-setInterval(() => {
-    slides[index].classList.remove('active');
-    index = (index+1)%slides.length;
-    slides[index].classList.add('active');
-},5000);
-
-// Accordion
-const acc = document.querySelectorAll('.accordion');
-acc.forEach(a=>{
-    a.addEventListener('click', ()=>{
-        a.classList.toggle('active');
-        let panel = a.nextElementSibling;
-        if(panel.style.maxHeight) panel.style.maxHeight = null;
-        else panel.style.maxHeight = panel.scrollHeight+'px';
-    });
-});
-
-// Scroll top
-const scrollBtn = document.getElementById('scrollTop');
-window.onscroll = function(){
-    if(document.body.scrollTop>300 || document.documentElement.scrollTop>300){
-        scrollBtn.style.display="flex";
-    }else{ scrollBtn.style.display="none"; }
-};
-scrollBtn.addEventListener('click', ()=>{ window.scrollTo({top:0,behavior:'smooth'}); });
-</script>
 
 </body>
 </html>
