@@ -8,7 +8,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 
     <style>
         :root {
@@ -109,7 +108,7 @@
 
         /* --- HERO --- */
         .hero {
-            height: 100vh;
+            height: 60vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -118,13 +117,12 @@
             padding: 0 10%;
         }
 
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; color: var(--ana-renk); margin-bottom: 20px; }
-        .hero p { max-width: 700px; font-size: 1.2rem; color: var(--metin); margin-bottom: 40px; }
+        .hero h1 { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 900; color: var(--ana-renk); margin-bottom: 20px; }
 
         .btn-teklif {
             background: var(--ana-renk);
             color: white;
-            padding: 18px 45px;
+            padding: 15px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
@@ -132,19 +130,7 @@
             box-shadow: 0 10px 20px rgba(10, 31, 68, 0.2);
         }
 
-        /* --- HİZMETLER & CİHAZLAR --- */
-        .services-section { padding: 80px 8%; background: var(--acik-gri); }
-        .services-title { text-align: center; font-family: 'Orbitron'; margin-bottom: 50px; color: var(--ana-renk); }
-
-        .accordion { background: white; border: 1px solid var(--gri-border); padding: 20px; margin-bottom: 10px; cursor: pointer; border-radius: 10px; display: flex; justify-content: space-between; font-weight: 600; }
-        .accordion-content { max-height: 0; overflow: hidden; transition: 0.3s ease-out; background: white; padding: 0 20px; }
-
-        .cihazlar-section { padding: 80px 8%; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
-        .card { background: white; border: 1px solid var(--gri-border); padding: 30px; border-radius: 20px; transition: 0.3s; }
-        .telsiz-img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 15px; }
-
-        /* --- GÜNCELLENMİŞ REFERANSLAR (Görsel Düzeni + Orijinal İsimler) --- */
+        /* --- REFERANSLAR (GENİŞLETİLMİŞ) --- */
         .references-section {
             padding: 100px 8%;
             background-color: var(--ref-arka-plan); 
@@ -159,7 +145,7 @@
             margin-bottom: 15px; 
             text-transform: uppercase;
         }
-        .ref-header p { color: #374151; font-size: 1.05rem; line-height: 1.6; }
+        .ref-header p { color: #374151; font-size: 1rem; line-height: 1.6; }
 
         .references-grid {
             display: grid;
@@ -173,28 +159,27 @@
             background: white;
             aspect-ratio: 1 / 1;
             display: flex;
-            flex-direction: column; /* Yazı ve logoyu alt alta koymak için */
+            flex-direction: column; 
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 15px;
             transition: 0.3s;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            text-decoration: none;
         }
 
         .ref-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
 
         .ref-text {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 700;
             color: var(--ana-renk);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-align: center;
         }
 
         .ref-logo-small {
-            max-width: 60px;
-            max-height: 60px;
+            max-width: 70%;
+            max-height: 50%;
             object-fit: contain;
             filter: grayscale(100%);
             opacity: 0.6;
@@ -204,12 +189,11 @@
         .ref-card:hover .ref-logo-small {
             filter: grayscale(0%);
             opacity: 1;
-            transform: scale(1.1);
         }
 
         /* --- FOOTER --- */
-        footer { padding: 60px 8%; background: var(--ana-renk); color: white; text-align: center; }
-        .wp-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; color: white; z-index: 2000; text-decoration: none; }
+        footer { padding: 40px 8%; background: var(--ana-renk); color: white; text-align: center; }
+        .wp-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; color: white; z-index: 2000; text-decoration: none; }
 
         @media (max-width: 768px) {
             .references-grid { grid-template-columns: repeat(2, 1fr); }
@@ -224,8 +208,6 @@
         <div class="close-btn" onclick="toggleMenu()">&times;</div>
         <nav class="menu-links">
             <a href="#"><i class="fas fa-home"></i> Anasayfa</a>
-            <a href="#services"><i class="fas fa-tools"></i> Hizmetler</a>
-            <a href="#products"><i class="fas fa-walkie-talkie"></i> Cihazlar</a>
             <a href="#references"><i class="fas fa-star"></i> Referanslar</a>
             <a href="tel:05395926070"><i class="fas fa-phone"></i> İletişim</a>
         </nav>
@@ -237,17 +219,8 @@
 
     <section class="hero">
         <div>
-            <h1>KESİNTİSİZ İLETİŞİM</h1>
-            <p>Profesyonel film setleri ve organizasyonlar için telsiz kiralama çözümleri.</p>
+            <h1>REFERANSLARIMIZ</h1>
             <a href="https://wa.me/905395926070" class="btn-teklif">TEKLİF AL</a>
-        </div>
-    </section>
-
-    <section id="services" class="services-section">
-        <h2 class="services-title">HİZMETLERİMİZ</h2>
-        <div style="max-width: 800px; margin: 0 auto;">
-            <div class="accordion">Profesyonel Telsiz Kiralama <i class="fas fa-chevron-down"></i></div>
-            <div class="accordion-content"><p style="padding: 20px 0;">Sektör standartlarında, uzun menzilli cihazlar.</p></div>
         </div>
     </section>
 
@@ -258,54 +231,38 @@
         </div>
 
         <div class="references-grid">
-            <div class="ref-card">
-                <span class="ref-text">Maça Film</span>
-                <img src="M.png" class="ref-logo-small">
-            </div>
-            <div class="ref-card">
-                <span class="ref-text">Shortcut Prod</span>
-                <img src="Sh.png" class="ref-logo-small">
-            </div>
-            <div class="ref-card">
-                <span class="ref-text">Set Gripim</span>
-                <img src="https://setgripim.com/wp-content/uploads/2017/03/Logo_small-1.png" class="ref-logo-small">
-            </div>
-            <div class="ref-card">
-                <span class="ref-text">Just New Talent</span>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRADUWq0Cf6_TQWuS0arK_Ids5VajmIQAFm6Q&s" class="ref-logo-small">
-            </div>
-            <div class="ref-card">
-                <span class="ref-text">Istanbul Line Films</span>
-                <img src="https://media.licdn.com/dms/image/v2/C4D0BAQEPy0_jxGyt5g/company-logo_200_200/0/1630536020100?e=2147483647&v=beta&t=aIrKPX5WxFDA1I2R91OLmgMFceFzzexJUqOhj6iQSKM" class="ref-logo-small">
-            </div>
-            <div class="ref-card">
-                <span class="ref-text">Mimeda Medya</span>
-                <img src="https://egirisim.com/wp-content/uploads/2021/09/mimeda-medya.jpeg" class="ref-logo-small">
-            </div>
-            <div class="ref-card">
-                <span class="ref-text">Z Medya</span>
-                <img src="https://z-medya.com/assets/media/logo.png" class="ref-logo-small">
-            </div>
+            <div class="ref-card"><span class="ref-text">Maça Film</span><img src="M.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Shortcut Prod</span><img src="Sh.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Set Gripim</span><img src="https://setgripim.com/wp-content/uploads/2017/03/Logo_small-1.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Just New Talent</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRADUWq0Cf6_TQWuS0arK_Ids5VajmIQAFm6Q&s" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Istanbul Line Films</span><img src="https://media.licdn.com/dms/image/v2/C4D0BAQEPy0_jxGyt5g/company-logo_200_200/0/1630536020100?e=2147483647&v=beta&t=aIrKPX5WxFDA1I2R91OLmgMFceFzzexJUqOhj6iQSKM" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Mimeda Medya</span><img src="https://egirisim.com/wp-content/uploads/2021/09/mimeda-medya.jpeg" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Z Medya</span><img src="https://z-medya.com/assets/media/logo.png" class="ref-logo-small"></div>
+
+            <div class="ref-card"><span class="ref-text">Yeni Referans 1</span><img src="logo_yok.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Yeni Referans 2</span><img src="logo_yok.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Yeni Referans 3</span><img src="logo_yok.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Yeni Referans 4</span><img src="logo_yok.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Yeni Referans 5</span><img src="logo_yok.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Yeni Referans 6</span><img src="logo_yok.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Yeni Referans 7</span><img src="logo_yok.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Yeni Referans 8</span><img src="logo_yok.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Yeni Referans 9</span><img src="logo_yok.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Yeni Referans 10</span><img src="logo_yok.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Yeni Referans 11</span><img src="logo_yok.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Yeni Referans 12</span><img src="logo_yok.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Yeni Referans 13</span><img src="logo_yok.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Yeni Referans 14</span><img src="logo_yok.png" class="ref-logo-small"></div>
+            <div class="ref-card"><span class="ref-text">Yeni Referans 15</span><img src="logo_yok.png" class="ref-logo-small"></div>
         </div>
     </section>
 
-    <footer>
-        <p>© 2026 Lider Telsiz | İstanbul</p>
-    </footer>
+    <footer><p>© 2026 Lider Telsiz | İstanbul</p></footer>
 
     <a href="https://wa.me/905395926070" class="wp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
         function toggleMenu() { document.getElementById('sideMenu').classList.toggle('active'); }
-        const acc = document.querySelectorAll('.accordion');
-        acc.forEach(item => {
-            item.addEventListener('click', function() {
-                this.classList.toggle('active');
-                let panel = this.nextElementSibling;
-                if (panel.style.maxHeight) panel.style.maxHeight = null;
-                else panel.style.maxHeight = panel.scrollHeight + "px";
-            });
-        });
     </script>
 </body>
 </html>
