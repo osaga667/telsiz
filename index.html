@@ -33,28 +33,35 @@
         .logo-text { font-family: 'Orbitron'; color: var(--ana-renk); font-weight: 900; font-size: 1.4rem; text-decoration: none; }
 
         /* --- HERO --- */
-        .hero { height: 70vh; display: flex; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle, #fff, #f1f5f9); padding: 0 10%; }
+        .hero { height: 60vh; display: flex; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle, #fff, #f1f5f9); padding: 0 10%; }
         .hero h1 { font-size: 3.5rem; font-weight: 900; color: var(--ana-renk); }
 
-        /* --- CİHAZLAR (Geri Getirildi) --- */
+        /* --- CİHAZLAR (5'Lİ YAPI) --- */
         .section-padding { padding: 80px 8%; text-align: center; }
-        .section-title { font-family: 'Orbitron'; color: var(--ana-renk); margin-bottom: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: white; border: 1px solid var(--gri-border); padding: 30px; border-radius: 20px; transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); }
-        .telsiz-img { width: 100%; height: 200px; object-fit: contain; }
+        .section-title { font-family: 'Orbitron'; color: var(--ana-renk); margin-bottom: 40px; font-size: 2rem; }
+        .grid-5 { 
+            display: grid; 
+            grid-template-columns: repeat(5, 1fr); /* 5'li kolon */
+            gap: 20px; 
+            margin-top: 50px;
+        }
+        .card { background: white; border: 1px solid var(--gri-border); padding: 20px; border-radius: 15px; transition: 0.3s; text-align: center; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .telsiz-img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
+        .card h3 { font-size: 1rem; color: var(--ana-renk); margin-bottom: 10px; }
+        .card p { font-size: 0.85rem; color: #64748b; }
 
-        /* --- INTERKOL KİRALAMA (Set Tedarik - 3'lü Yapı) --- */
+        /* --- INTERKOL KİRALAMA (3'lü Yapı) --- */
         .interkol-section { background: var(--acik-gri); padding: 80px 8%; text-align: center; }
         .interkol-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; }
         .interkol-item { background: white; border-radius: 15px; overflow: hidden; border: 1px solid var(--gri-border); }
         .interkol-img { width: 100%; height: 250px; object-fit: cover; }
 
-        /* --- REFERANSLAR (Fotoğraftaki 8'li Düzen) --- */
+        /* --- REFERANSLAR (Görseldeki Tasarım) --- */
         .references-section { padding: 100px 8%; background-color: var(--ref-arka-plan); text-align: center; }
         .ref-header h2 { color: var(--vurgu-kirmizi); font-size: 2.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 15px; }
         .references-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-width: 1100px; margin: 0 auto; }
-        .ref-card { background: white; aspect-ratio: 1/1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 15px; transition: 0.3s; }
+        .ref-card { background: white; aspect-ratio: 1/1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 15px; transition: 0.3s; border-radius: 4px; }
         .ref-text { font-size: 0.85rem; font-weight: 700; color: var(--ana-renk); margin-bottom: 10px; }
         .ref-logo-small { max-width: 60px; max-height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.7; }
 
@@ -62,10 +69,13 @@
         footer { padding: 40px 8%; background: var(--ana-renk); color: white; text-align: center; }
         .wp-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; color: white; z-index: 2000; text-decoration: none; }
 
+        @media (max-width: 1024px) {
+            .grid-5 { grid-template-columns: repeat(3, 1fr); }
+        }
         @media (max-width: 768px) {
+            .grid-5 { grid-template-columns: repeat(2, 1fr); }
             .references-grid { grid-template-columns: repeat(2, 1fr); }
             .interkol-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -95,40 +105,49 @@
 
     <section id="cihazlar" class="section-padding">
         <h2 class="section-title">CİHAZ PARKURUMUZ</h2>
-        <div class="grid">
+        <div class="grid-5">
             <div class="card">
-                <img src="telsiz1.png" class="telsiz-img" alt="Telsiz 1">
-                <h3>Profesyonel Seri</h3>
-                <p>Uzun mesafe ve yüksek çekim gücü.</p>
+                <img src="sl1600.png" class="telsiz-img" alt="Motorola SL1600">
+                <h3>Motorola SL1600</h3>
+                <p>İnce, şık ve ultra taşınabilir tasarım.</p>
             </div>
             <div class="card">
-                <img src="telsiz2.png" class="telsiz-img" alt="Telsiz 2">
-                <h3>Set Serisi</h3>
-                <p>Film setleri için ideal hafif tasarım.</p>
+                <img src="dp1400.png" class="telsiz-img" alt="Motorola DP1400">
+                <h3>Motorola DP1400</h3>
+                <p>Dayanıklı yapısıyla her türlü saha koşuluna uygun.</p>
             </div>
             <div class="card">
-                <img src="telsiz3.png" class="telsiz-img" alt="Telsiz 3">
-                <h3>Saha Serisi</h3>
-                <p>Zorlu arazi koşullarına dayanıklı.</p>
+                <img src="hytera.png" class="telsiz-img" alt="Hytera">
+                <h3>Hytera Serisi</h3>
+                <p>Kristal netliğinde dijital ses kalitesi.</p>
+            </div>
+            <div class="card">
+                <img src="cp040.png" class="telsiz-img" alt="Motorola CP040">
+                <h3>Motorola CP040</h3>
+                <p>Klasik ve güvenilir analog haberleşme.</p>
+            </div>
+            <div class="card">
+                <img src="aselsan.png" class="telsiz-img" alt="Aselsan">
+                <h3>Aselsan 4700</h3>
+                <p>Yüksek güvenlikli ve geniş kapsama alanı.</p>
             </div>
         </div>
     </section>
 
     <section id="interkol" class="interkol-section">
         <h2 class="section-title">INTERKOL KİRALAMA</h2>
-        <p>Set içi iletişimde yüksek ses kalitesi sağlayan interkol sistemleri.</p>
         <div class="interkol-grid">
             <div class="interkol-item">
-                <img src="interkol1.png" class="interkol-img" alt="Interkol 1">
-                <div style="padding:15px;"><h4>Kablosuz Sistemler</h4></div>
+                <img src="interkol1.png" class="interkol-img">
+                <div style="padding:15px;"><h4>Hollyland Mars</h4></div>
             </div>
             <div class="interkol-item">
-                <img src="interkol2.png" class="interkol-img" alt="Interkol 2">
-                <div style="padding:15px;"><h4>Profesyonel Headset</h4></div>
+                <img src="interkol2.png" class="interkol-img">
+                <div style="padding:15px;"><h4>Clear-Com FSII</h4></div>
             </div>
             <div class="interkol-item">
-                <img src="interkol3.png" class="interkol-img" alt="Interkol 3">
-                <div style="padding:15px;"><h4>Hızlı Kurulum Ünitesi</h4></div>
+                <img src="interkol3.png" class="interkol-img">
+                <div style="padding:15px;"><h4>Riedel Bolero</h4></div>
             </div>
         </div>
     </section>
@@ -147,8 +166,7 @@
             <div class="ref-card"><span class="ref-text">Mimeda</span><img src="https://egirisim.com/wp-content/uploads/2021/09/mimeda-medya.jpeg" class="ref-logo-small"></div>
             <div class="ref-card"><span class="ref-text">Z Medya</span><img src="https://z-medya.com/assets/media/logo.png" class="ref-logo-small"></div>
             <div class="ref-card"><span class="ref-text">OGM Pictures</span><img src="https://ogmpictures.com/assets/img/logo-dark.png" class="ref-logo-small"></div>
-            
-            </div>
+        </div>
     </section>
 
     <footer><p>© 2026 Lider Telsiz | İstanbul</p></footer>
