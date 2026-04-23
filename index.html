@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lider Telsiz | Profesyonel Haberleşme Çözümleri</title>
+<meta name="description" content="İstanbul'da profesyonel telsiz kiralama hizmetleri. Film seti, organizasyon ve güvenlik ekipleri için hızlı çözüm.">
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,163 +13,694 @@
 
 <style>
 :root {
-    --ana-renk:#0a1f44;
-    --accent:#1e40af;
-    --beyaz:#fff;
-    --acik-gri:#f8fafc;
-    --gri-border:#e2e8f0;
-    --metin:#1e293b;
+    /* AYDINLIK TEMA RENKLERİ (Öncekiadımdan) */
+    --ana-renk: #0a1f44; /* Lacivert */
+    --accent: #1e40af; /* Daha canlı bir mavi */
+    --beyaz: #ffffff; /* Arka plan */
+    --acik-gri: #f8fafc; /* Hafif gölgeler */
+    --gri-border: #e2e8f0; /* Sınırlar */
+    --metin: #1e293b; /* Koyu gri metin */
 }
 
-/* SENİN TÜM CSS'İN KORUNDU */
+* { margin:0; padding:0; box-sizing:border-box; }
 
-/* 🔥 SADECE EKLENDİ: INTERCOM IMAGE HOVER */
-.card img{
-    transition: transform 0.4s ease;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--beyaz); /* ARKA PLAN BEYAZ */
+    color: var(--metin);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    transition: background-color 0.5s ease;
 }
-.card:hover img{
-    transform: scale(1.05);
+
+/* =========================================
+   [YENİ] YAN MENÜ VE HAMBURGER İKONU STİLLERİ
+   ========================================= */
+
+/* Menü Açma Butonu (Sol Üst) */
+.menu-toggle {
+    position: fixed;
+    top: 25px; /* Biraz daha aşağı aldım */
+    left: 25px;
+    width: 50px;
+    height: 50px;
+    background: var(--ana-renk);
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1100; /* Header'dan daha üstte */
+    transition: 0.3s all ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.menu-toggle:hover {
+    transform: scale(1.1);
+    background: var(--accent);
+}
+
+/* Yan Menü Paneli (Tabela) */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -350px; /* Başlangıçta gizli */
+    width: 320px;
+    height: 100%;
+    background: var(--ana-renk); /* Koyu lacivert tabela */
+    z-index: 1200; /* En üstte */
+    transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); /* Akıcı tabela hareketi */
+    padding: 100px 40px;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Menü Aktifken */
+.side-menu.active {
+    left: 0;
+}
+
+/* Kapatma Butonu (&times;) */
+.close-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    line-height: 1;
+    transition: 0.3s;
+}
+.close-btn:hover {
+    color: #bfdbfe;
+    transform: rotate(90deg);
+}
+
+/* Menü Linkleri */
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-links a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: 0.3s all ease;
+    padding: 5px 0;
+}
+
+/* İkonlar */
+.menu-links a i {
+    margin-right: 15px;
+    color: #3b82f6; /* Canlı mavi ikon */
+    width: 25px;
+    text-align: center;
+}
+
+/* Link Hover Efekti (Sağa Kayma) */
+.menu-links a:hover {
+    transform: translateX(10px);
+    color: #bfdbfe;
+}
+
+/* Teknik Servis Kutusu */
+.tech-service-box {
+    margin-top: auto; /* En alta yasla */
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: white;
+}
+
+.tech-service-box h4 {
+    font-family: 'Orbitron', sans-serif;
+    color: #3b82f6;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.tech-service-box p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.tech-service-box p i {
+    color: #3b82f6;
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* =========================================
+   HEADER VE DİĞER STİLLER (Önceki adımdan)
+   ========================================= */
+
+header {
+    padding: 15px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top:0;
+    z-index:1000;
+    border-bottom: 1px solid var(--gri-border);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    /* Hamburger menü için sol boşluğu artırdım */
+    padding-left: 90px;
+}
+
+/* Scroll yapınca header gölgesi */
+header.scrolled {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.logo-box {
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+
+.logo-img { height:50px; margin-right:10px; }
+
+.logo-text {
+    font-family:'Orbitron',sans-serif;
+    color: var(--ana-renk);
+    font-weight:900;
+    font-size:1.5rem;
+    transition: transform 0.3s ease;
+}
+.logo-box:hover .logo-text { transform: scale(1.05); }
+
+.nav-right {
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.nav-right a {
+    color: var(--ana-renk);
+    font-weight:600;
+    text-decoration:none;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* Nav Link Hover Efekti (Alt çizgi) */
+.nav-right a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+.nav-right a:hover::after { width: 100%; }
+.nav-right a:hover { color: var(--accent); }
+
+
+/* --- HERO --- */
+.hero {
+    height: 100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 10%;
+    background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%);
+    position: relative;
+    overflow:hidden;
+}
+
+.hero-slider { position:relative; width:100%; max-width:1200px; height:100%; display:flex; align-items:center; justify-content:center; z-index: 1; }
+
+.hero-slide {
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    transition: opacity 1s ease, transform 1s ease;
+    opacity:0;
+    transform: translateY(20px);
+}
+
+.hero-slide.active { opacity:1; transform: translateY(0); }
+
+.hero h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight:900;
+    margin-bottom:20px;
+    color: var(--ana-renk);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+}
+
+.hero p { max-width:600px; font-size:1.1rem; color: var(--metin); opacity:0.9; margin-bottom:30px; }
+
+.btn-teklif {
+    background: var(--ana-renk);
+    color: var(--beyaz);
+    padding: 15px 40px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:700;
+    transition: 0.3s all ease;
+    box-shadow: 0 4px 15px rgba(10, 31, 68, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Buton Hover Efekti */
+.btn-teklif:hover {
+    background: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(30, 64, 175, 0.3);
+}
+
+
+/* --- HİZMETLERİMİZ --- */
+.services-section { padding:100px 8%; background-color: var(--acik-gri); }
+
+.services-title {
+    font-family:'Orbitron',sans-serif;
+    font-size:2.5rem;
+    margin-bottom:60px;
+    text-align:center;
+    color: var(--ana-renk);
+}
+
+.accordion {
+    background: var(--beyaz);
+    border: 1px solid var(--gri-border);
+    border-radius:15px;
+    margin-bottom:15px;
+    cursor:pointer;
+    padding:20px 25px;
+    transition: 0.3s all ease;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-weight: 600;
+    color: var(--ana-renk);
+    position: relative;
+    overflow: hidden;
+}
+
+.accordion:hover {
+    background: var(--acik-gri);
+    border-color: var(--accent);
+    transform: translateX(5px);
+}
+
+.accordion i {
+    transition: transform 0.3s ease;
+    color: var(--accent);
+}
+.accordion.active i {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height:0;
+    overflow:hidden;
+    transition: max-height 0.3s ease-out;
+    background: var(--beyaz);
+    padding: 0 25px;
+}
+
+.accordion-content p { padding:20px 0; color: var(--metin); line-height: 1.6; }
+
+
+/* --- CİHAZ PARKURUMUZ --- */
+.cihazlar-section { padding:100px 8%; text-align:center; background-color: var(--beyaz); }
+
+.section-title {
+    font-family:'Orbitron',sans-serif;
+    color: var(--ana-renk);
+    margin-bottom:60px;
+    font-size:2.5rem;
+}
+
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; }
+
+.grid a { text-decoration: none; display: block; }
+
+.card {
+    background: var(--beyaz);
+    border: 1px solid var(--gri-border);
+    padding:35px;
+    border-radius:25px;
+    transition: 0.4s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.telsiz-img {
+    width:100%; height:250px;
+    object-fit:contain;
+    margin-bottom:25px;
+}
+
+.card h3 { color: var(--ana-renk); margin-bottom:12px; font-size: 1.3rem; }
+
+.card p { font-size:0.95rem; color: var(--metin); opacity:0.8; line-height: 1.5; }
+
+
+/* --- REFERANSLAR --- */
+.references-section { padding:100px 8%; background-color: var(--acik-gri); }
+
+.references-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    align-items:center;
+}
+
+.ref-item {
+    background: var(--beyaz);
+    border: 1px solid var(--gri-border);
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.ref-item:hover {
+    transform: translateY(-8px) scale(1.03);
+    border-color: var(--accent);
+}
+
+.ref-text {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ana-renk);
+}
+
+.ref-logo-small {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: 0.5s ease;
+}
+
+.ref-item:hover .ref-logo-small {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: rotate(360deg);
+}
+
+
+/* --- FOOTER --- */
+footer {
+    padding:60px 8%;
+    background: var(--ana-renk);
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.1);
+}
+
+.footer-link {
+    color: var(--beyaz);
+    text-decoration:none;
+    margin:0 15px;
+    font-weight: 500;
+}
+
+.footer-link i { color: #3b82f6; margin-right:8px; }
+
+footer p { color: var(--beyaz); opacity:0.6; margin-top:25px; font-size: 0.9rem; }
+
+
+/* --- YÜZEN BUTONLAR --- */
+.wp-btn {
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    background:#25d366;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:32px;
+    color:white;
+    text-decoration:none;
+    z-index: 100;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow:0 0 0 0 rgba(37,211,102,0.7);}
+    70% { box-shadow:0 0 0 15px rgba(37,211,102,0);}
+    100% { box-shadow:0 0 0 0 rgba(37,211,102,0);}
+}
+
+#scrollTop {
+    position:fixed;
+    bottom:110px;
+    right:35px;
+    background: var(--accent);
+    color:white;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    cursor:pointer;
+    display:none;
+    z-index: 99;
+}
+
+
+/* MOBIL UYUMLULUK AYARLARI */
+@media (max-width: 768px) {
+    header { padding: 10px 5%; padding-left: 80px; } /* Mobilde header boşluğu */
+    .nav-right { display: none; } /* Ana menüyü mobilde gizle (sadece hamburger kalsın) */
+    .logo-text { font-size: 1.1rem; }
+    .hero h1 { font-size: 2.2rem; }
+    .side-menu { width: 100%; left: -100%; } /* Mobilde tam ekran açılır menü */
 }
 </style>
 </head>
-
 <body>
 
-<!-- MENU AYNI KALDI -->
 <div class="menu-toggle" onclick="toggleMenu()">
     <i class="fas fa-bars"></i>
 </div>
 
 <div id="sideMenu" class="side-menu">
     <div class="close-btn" onclick="toggleMenu()">&times;</div>
-
+    
     <nav class="menu-links">
-        <a href="#"><i class="fas fa-home"></i> Anasayfa</a>
-        <a href="#services"><i class="fas fa-broadcast-tower"></i> Ürünlerimiz</a>
-
-        <!-- 🔥 EKLENDİ -->
-        <a href="#intercom"><i class="fas fa-headset"></i> Intercom Kiralama</a>
-
-        <a href="#references"><i class="fas fa-star"></i> Referanslar</a>
-        <a href="#contact"><i class="fas fa-envelope"></i> İletişim</a>
-
+        <a href="#" onclick="toggleMenu()"><i class="fas fa-home"></i> Anasayfa</a>
+        <a href="#services" onclick="toggleMenu()"><i class="fas fa-broadcast-tower"></i> Ürünlerimiz</a>
+        <a href="#references" onclick="toggleMenu()"><i class="fas fa-star"></i> Referanslar</a>
+        <a href="#contact" onclick="toggleMenu()"><i class="fas fa-envelope"></i> İletişim</a>
+        
         <div class="tech-service-box">
             <h4><i class="fas fa-tools"></i> Teknik Servis</h4>
             <p><i class="fas fa-phone"></i> 0539 592 60 70</p>
             <p><i class="fas fa-envelope"></i> teknik@lidertelsiz.com</p>
-            <p><i class="fas fa-clock"></i> 7/24 Teknik Destek</p>
+            <p><i class="fas fa-clock"></i> 7/24 Teknik Destek Hattı</p>
         </div>
     </nav>
 </div>
 
-<!-- HEADER AYNI -->
 <header id="mainHeader">
     <a href="#" class="logo-box">
-        <img src="logo.png" class="logo-img">
+        <img src="logo.png" class="logo-img" onerror="this.style.display='none'">
         <span class="logo-text">LİDER TELSİZ</span>
     </a>
-
     <div class="nav-right">
         <a href="tel:05395926070"><i class="fas fa-phone"></i> 0539 592 60 70</a>
         <a href="#services"><i class="fas fa-cogs"></i> Hizmetlerimiz</a>
     </div>
 </header>
 
-<!-- HERO AYNI -->
 <section class="hero">
     <div class="hero-slider">
         <div class="hero-slide active">
             <h1>KESİNTİSİZ İLETİŞİM</h1>
-            <p>Film setlerinden güvenlik ekiplerine profesyonel çözümler.</p>
+            <p>Film setlerinden güvenlik ekiplerine kadar tüm profesyonel ihtiyaçlarınız için İstanbul genelinde güçlü ve kesintisiz telsiz kiralama hizmeti.</p>
             <a href="https://wa.me/905395926070" class="btn-teklif">WHATSAPP'TAN TEKLİF AL</a>
+        </div>
+        <div class="hero-slide">
+            <h1>GÜVENLİ VE HIZLI</h1>
+            <p>Zorlu arazi koşullarında bile yüksek performanslı cihazlar ile iletişim sağlayın.</p>
+            <a href="https://wa.me/905395926070" class="btn-teklif">HIZLI TEKLİF AL</a>
         </div>
     </div>
 </section>
 
-<!-- SERVICES AYNI -->
 <section id="services" class="services-section">
     <h2 class="services-title">HİZMETLERİMİZ</h2>
 
-    <div class="accordion">📡 Profesyonel Telsiz Kiralama</div>
-    <div class="accordion-content"><p>Uzun menzilli telsiz kiralama.</p></div>
+    <div class="accordion"><span>📡 Profesyonel Telsiz Kiralama</span> <i class="fas fa-chevron-down"></i></div>
+    <div class="accordion-content"><p>Film setleri, organizasyon ve güvenlik ekipleri için uzun menzilli ve kaliteli telsiz kiralama hizmeti sunuyoruz.</p></div>
 
-    <div class="accordion">🔧 Kurulum ve Destek</div>
-    <div class="accordion-content"><p>7/24 teknik destek.</p></div>
+    <div class="accordion"><span>🔧 Kurulum ve Destek</span> <i class="fas fa-chevron-down"></i></div>
+    <div class="accordion-content"><p>Cihazların kurulumu ve teknik desteği uzman ekibimiz tarafından sağlanmaktadır.</p></div>
+
+    <div class="accordion"><span>💼 Satış ve Danışmanlık</span> <i class="fas fa-chevron-down"></i></div>
+    <div class="accordion-content"><p>Müşterilerimize uygun cihazları seçme, satış ve danışmanlık hizmeti veriyoruz.</p></div>
 </section>
 
-<!-- 🔥 INTERCOM EKLENDİ (YENİ AMA DİĞERLERİNE DOKUNMADAN) -->
-<section id="intercom" class="cihazlar-section">
-
-    <h2 class="section-title">INTERCOM KİRALAMA</h2>
-
-    <p style="text-align:center; max-width:700px; margin:0 auto 50px; opacity:0.8;">
-        Film setleri ve profesyonel organizasyonlar için kesintisiz intercom iletişim sistemleri.
-    </p>
-
-    <div class="grid">
-        <div class="card">
-            <img src="intercom1.jpg">
-            <h3>Kablolu Intercom</h3>
-            <p>Stabil ve gecikmesiz iletişim</p>
-        </div>
-
-        <div class="card">
-            <img src="intercom2.jpg">
-            <h3>Kablosuz Intercom</h3>
-            <p>Mobil kullanım için ideal</p>
-        </div>
-
-        <div class="card">
-            <img src="intercom3.jpg">
-            <h3>Headset Sistem</h3>
-            <p>Gürültülü ortamlarda net ses</p>
-        </div>
-    </div>
-</section>
-
-<!-- CİHAZ PARKURU %100 AYNI KORUNDU -->
 <section id="products" class="cihazlar-section">
     <h2 class="section-title">CİHAZ PARKURUMUZ</h2>
-
     <div class="grid">
-        <a href="telsiz1.png" data-lightbox="cihazlar">
+        <a href="telsiz1.png" data-lightbox="cihazlar" data-title="Profesyonel Seri">
             <div class="card">
-                <img src="telsiz1.png">
+                <img src="telsiz1.png" class="telsiz-img" alt="Profesyonel Telsiz">
                 <h3>Profesyonel Seri</h3>
+                <p>Yüksek ses kalitesi ve uzun mesafe çekim gücü.</p>
             </div>
         </a>
-
-        <a href="telsiz2.png" data-lightbox="cihazlar">
+        <a href="telsiz2.png" data-lightbox="cihazlar" data-title="Set Serisi">
             <div class="card">
-                <img src="telsiz2.png">
+                <img src="telsiz2.png" class="telsiz-img" alt="Set Telsizi">
                 <h3>Set Serisi</h3>
+                <p>Film ve dizi setleri için sessiz, hafif tasarım.</p>
+            </div>
+        </a>
+        <a href="telsiz3.png" data-lightbox="cihazlar" data-title="Saha Serisi">
+            <div class="card">
+                <img src="telsiz3.png" class="telsiz-img" alt="Saha Telsizi">
+                <h3>Saha Serisi</h3>
+                <p>Zorlu arazi koşullarına dayanıklı gövde.</p>
+            </div>
+        </a>
+        <a href="telsiz4.png" data-lightbox="cihazlar" data-title="Güvenlik Serisi">
+            <div class="card">
+                <img src="telsiz4.png" class="telsiz-img" alt="Güvenlik Telsizi">
+                <h3>Güvenlik Serisi</h3>
+                <p>Kesintisiz haberleşme ve uzun batarya ömrü.</p>
+            </div>
+        </a>
+        <a href="telsiz5.png" data-lightbox="cihazlar" data-title="Ekonomik Seri">
+            <div class="card">
+                <img src="telsiz5.png" class="telsiz-img" alt="Ekonomik Telsiz">
+                <h3>Ekonomik Seri</h3>
+                <p>Küçük organizasyonlar için pratik çözümler.</p>
             </div>
         </a>
     </div>
 </section>
 
-<!-- REFERANSLAR %100 KORUNDU -->
 <section id="references" class="references-section">
     <h2 class="services-title">REFERANSLARIMIZ</h2>
-
     <div class="references-grid">
-        <div class="ref-item"><span class="ref-text">Maça Film</span><img src="M.png"></div>
-        <div class="ref-item"><span class="ref-text">Shortcut Prod</span><img src="Sh.png"></div>
+        <div class="ref-item"><span class="ref-text">Maça Film</span><img src="M.png" class="ref-logo-small"></div>
+        <div class="ref-item"><span class="ref-text">Shortcut Prod</span><img src="Sh.png" class="ref-logo-small"></div>
+        <div class="ref-item"><span class="ref-text">Set Gripim</span><img src="https://setgripim.com/wp-content/uploads/2017/03/Logo_small-1.png" class="ref-logo-small"></div>
+        <div class="ref-item"><span class="ref-text">Just New Talent</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRADUWq0Cf6_TQWuS0arK_Ids5VajmIQAFm6Q&s" class="ref-logo-small"></div>
+        <div class="ref-item"><span class="ref-text">Istanbul Line Films</span><img src="https://media.licdn.com/dms/image/v2/C4D0BAQEPy0_jxGyt5g/company-logo_200_200/company-logo_200_200/0/1630536020100?e=2147483647&v=beta&t=aIrKPX5WxFDA1I2R91OLmgMFceFzzexJUqOhj6iQSKM" class="ref-logo-small"></div>
+        <div class="ref-item"><span class="ref-text">Mimeda Medya</span><img src="https://egirisim.com/wp-content/uploads/2021/09/mimeda-medya.jpeg" class="ref-logo-small"></div>
+        <div class="ref-item"><span class="ref-text">Z Medya</span><img src="https://z-medya.com/assets/media/logo.png" class="ref-logo-small"></div>
     </div>
 </section>
 
-<!-- FOOTER AYNI -->
 <footer id="contact">
-    <p>© 2026 Lider Telsiz</p>
+    <div>
+        <a href="tel:05395926070" class="footer-link"><i class="fas fa-phone"></i> 0539 592 60 70</a>
+        <a href="mailto:lidertelsiz@gmail.com" class="footer-link"><i class="fas fa-envelope"></i> lidertelsiz@gmail.com</a>
+    </div>
+    <p>© 2026 Lider Telsiz | İstanbul</p>
 </footer>
 
-<!-- WHATSAPP AYNI -->
-<a href="https://wa.me/905395926070" class="wp-btn"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/905395926070" class="wp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<div id="scrollTop"><i class="fas fa-arrow-up"></i></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 <script>
-function toggleMenu(){
-    document.getElementById("sideMenu").classList.toggle("active");
+
+// =========================================
+// [YENİ] MENÜ AÇMA/KAPAMA FONKSİYONU
+// =========================================
+function toggleMenu() {
+    const menu = document.getElementById('sideMenu');
+    menu.classList.toggle('active');
 }
+
+// Header Scroll Efekti
+const header = document.getElementById('mainHeader');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Hero slider
+let slides = document.querySelectorAll('.hero-slide');
+let index = 0;
+setInterval(() => {
+    if(slides.length > 0) {
+        slides[index].classList.remove('active');
+        index = (index+1)%slides.length;
+        slides[index].classList.add('active');
+    }
+}, 5000);
+
+// Accordion
+const acc = document.querySelectorAll('.accordion');
+acc.forEach(a => {
+    a.addEventListener('click', function() {
+        this.classList.toggle('active');
+        let panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
+});
+
+// Scroll top
+const scrollBtn = document.getElementById('scrollTop');
+window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.style.display = "flex";
+    } else {
+        scrollBtn.style.display = "none";
+    }
+};
+scrollBtn.addEventListener('click', () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+});
+
+// Lightbox Seçenekleri
+lightbox.option({
+    'resizeDuration': 200,
+    'wrapAround': true,
+    'albumLabel': "Cihaz %1 / %2"
+})
 </script>
 
 </body>
