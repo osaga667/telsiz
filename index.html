@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -10,16 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 <style>
 :root {
-    /* AYDINLIK TEMA RENKLERİ (Öncekiadımdan) */
+    /* AYDINLIK TEMA RENKLERİ (Önceki adımdan) */
     --ana-renk: #0a1f44; /* Lacivert */
     --accent: #1e40af; /* Daha canlı bir mavi */
     --beyaz: #ffffff; /* Arka plan */
     --acik-gri: #f8fafc; /* Hafif gölgeler */
     --gri-border: #e2e8f0; /* Sınırlar */
     --metin: #1e293b; /* Koyu gri metin */
+    /* [YENİ] Parlama efekti için renk */
+    --glass-shine: rgba(255, 255, 255, 0.8);
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -34,13 +36,45 @@ body {
 }
 
 /* =========================================
-   [YENİ] YAN MENÜ VE HAMBURGER İKONU STİLLERİ
+   [YENİ] GÖRSEL EFEKTLER VE ANİMASYONLAR
+   ========================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* [YENİ] Kartlar için Shimmer (Parlama) Efekti */
+.card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, var(--glass-shine), transparent);
+    transform: rotate(45deg);
+    transition: 0.5s;
+    opacity: 0;
+}
+.card:hover::after {
+    opacity: 1;
+    left: 50%;
+    top: 50%;
+}
+
+/* =========================================
+   YAN MENÜ VE HAMBURGER İKONU STİLLERİ
    ========================================= */
 
 /* Menü Açma Butonu (Sol Üst) */
 .menu-toggle {
     position: fixed;
-    top: 25px; /* Biraz daha aşağı aldım */
+    top: 25px; 
     left: 25px;
     width: 50px;
     height: 50px;
@@ -52,12 +86,12 @@ body {
     align-items: center;
     font-size: 24px;
     cursor: pointer;
-    z-index: 1100; /* Header'dan daha üstte */
+    z-index: 1100; 
     transition: 0.3s all ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 .menu-toggle:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(5deg);
     background: var(--accent);
 }
 
@@ -65,24 +99,22 @@ body {
 .side-menu {
     position: fixed;
     top: 0;
-    left: -350px; /* Başlangıçta gizli */
+    left: -350px; 
     width: 320px;
     height: 100%;
-    background: var(--ana-renk); /* Koyu lacivert tabela */
-    z-index: 1200; /* En üstte */
-    transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); /* Akıcı tabela hareketi */
+    background: var(--ana-renk); 
+    z-index: 1200; 
+    transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); 
     padding: 100px 40px;
     box-shadow: 10px 0 30px rgba(0,0,0,0.3);
     display: flex;
     flex-direction: column;
 }
 
-/* Menü Aktifken */
 .side-menu.active {
     left: 0;
 }
 
-/* Kapatma Butonu (&times;) */
 .close-btn {
     position: absolute;
     top: 25px;
@@ -98,7 +130,6 @@ body {
     transform: rotate(90deg);
 }
 
-/* Menü Linkleri */
 .menu-links {
     display: flex;
     flex-direction: column;
@@ -116,23 +147,20 @@ body {
     padding: 5px 0;
 }
 
-/* İkonlar */
 .menu-links a i {
     margin-right: 15px;
-    color: #3b82f6; /* Canlı mavi ikon */
+    color: #3b82f6; 
     width: 25px;
     text-align: center;
 }
 
-/* Link Hover Efekti (Sağa Kayma) */
 .menu-links a:hover {
     transform: translateX(10px);
     color: #bfdbfe;
 }
 
-/* Teknik Servis Kutusu */
 .tech-service-box {
-    margin-top: auto; /* En alta yasla */
+    margin-top: auto; 
     padding-top: 30px;
     border-top: 1px solid rgba(255,255,255,0.1);
     color: white;
@@ -161,7 +189,7 @@ body {
 }
 
 /* =========================================
-   HEADER VE DİĞER STİLLER (Önceki adımdan)
+   HEADER VE DİĞER STİLLER 
    ========================================= */
 
 header {
@@ -177,13 +205,12 @@ header {
     border-bottom: 1px solid var(--gri-border);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
-    /* Hamburger menü için sol boşluğu artırdım */
     padding-left: 90px;
 }
 
-/* Scroll yapınca header gölgesi */
 header.scrolled {
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 10px 8% 10px 90px;
 }
 
 .logo-box {
@@ -217,7 +244,6 @@ header.scrolled {
     padding: 5px 0;
 }
 
-/* Nav Link Hover Efekti (Alt çizgi) */
 .nav-right a::after {
     content: '';
     position: absolute;
@@ -244,6 +270,21 @@ header.scrolled {
     background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%);
     position: relative;
     overflow:hidden;
+}
+
+/* [YENİ] Hero için hafif bir hareketli arka plan objesi */
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--accent);
+    filter: blur(150px);
+    opacity: 0.1;
+    top: 10%;
+    left: 10%;
+    border-radius: 50%;
+    z-index: 0;
 }
 
 .hero-slider { position:relative; width:100%; max-width:1200px; height:100%; display:flex; align-items:center; justify-content:center; z-index: 1; }
@@ -281,9 +322,9 @@ header.scrolled {
     box-shadow: 0 4px 15px rgba(10, 31, 68, 0.2);
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
-/* Buton Hover Efekti */
 .btn-teklif:hover {
     background: var(--accent);
     transform: translateY(-3px);
@@ -317,12 +358,14 @@ header.scrolled {
     color: var(--ana-renk);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
 }
 
 .accordion:hover {
-    background: var(--acik-gri);
+    background: var(--beyaz);
     border-color: var(--accent);
-    transform: translateX(5px);
+    transform: translateX(10px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .accordion i {
@@ -339,6 +382,7 @@ header.scrolled {
     transition: max-height 0.3s ease-out;
     background: var(--beyaz);
     padding: 0 25px;
+    border-radius: 0 0 15px 15px;
 }
 
 .accordion-content p { padding:20px 0; color: var(--metin); line-height: 1.6; }
@@ -366,17 +410,24 @@ header.scrolled {
     transition: 0.4s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
 }
 
 .card:hover {
     transform: translateY(-12px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 40px rgba(10, 31, 68, 0.1);
+    border-color: var(--accent);
 }
 
 .telsiz-img {
     width:100%; height:250px;
     object-fit:contain;
     margin-bottom:25px;
+    transition: 0.5s ease;
+}
+
+.card:hover .telsiz-img {
+    transform: scale(1.1) rotate(-3deg);
 }
 
 .card h3 { color: var(--ana-renk); margin-bottom:12px; font-size: 1.3rem; }
@@ -409,6 +460,7 @@ header.scrolled {
 .ref-item:hover {
     transform: translateY(-8px) scale(1.03);
     border-color: var(--accent);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
 .ref-text {
@@ -446,7 +498,9 @@ footer {
     text-decoration:none;
     margin:0 15px;
     font-weight: 500;
+    transition: 0.3s;
 }
+.footer-link:hover { color: #3b82f6; }
 
 .footer-link i { color: #3b82f6; margin-right:8px; }
 
@@ -470,6 +524,7 @@ footer p { color: var(--beyaz); opacity:0.6; margin-top:25px; font-size: 0.9rem;
     text-decoration:none;
     z-index: 100;
     animation:pulse 2s infinite;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 @keyframes pulse {
@@ -494,16 +549,18 @@ footer p { color: var(--beyaz); opacity:0.6; margin-top:25px; font-size: 0.9rem;
     cursor:pointer;
     display:none;
     z-index: 99;
+    transition: 0.3s;
 }
+#scrollTop:hover { transform: translateY(-5px); background: var(--ana-renk); }
 
 
 /* MOBIL UYUMLULUK AYARLARI */
 @media (max-width: 768px) {
-    header { padding: 10px 5%; padding-left: 80px; } /* Mobilde header boşluğu */
-    .nav-right { display: none; } /* Ana menüyü mobilde gizle (sadece hamburger kalsın) */
+    header { padding: 10px 5%; padding-left: 80px; } 
+    .nav-right { display: none; } 
     .logo-text { font-size: 1.1rem; }
     .hero h1 { font-size: 2.2rem; }
-    .side-menu { width: 100%; left: -100%; } /* Mobilde tam ekran açılır menü */
+    .side-menu { width: 100%; left: -100%; } 
 }
 </style>
 </head>
@@ -545,9 +602,9 @@ footer p { color: var(--beyaz); opacity:0.6; margin-top:25px; font-size: 0.9rem;
 <section class="hero">
     <div class="hero-slider">
         <div class="hero-slide active">
-            <h1>KESİNTİSİZ İLETİŞİM</h1>
-            <p>Film setlerinden güvenlik ekiplerine kadar tüm profesyonel ihtiyaçlarınız için İstanbul genelinde güçlü ve kesintisiz telsiz kiralama hizmeti.</p>
-            <a href="https://wa.me/905395926070" class="btn-teklif">WHATSAPP'TAN TEKLİF AL</a>
+            <h1 class="animate__animated animate__fadeInDown">KESİNTİSİZ İLETİŞİM</h1>
+            <p class="animate__animated animate__fadeInUp">Film setlerinden güvenlik ekiplerine kadar tüm profesyonel ihtiyaçlarınız için İstanbul genelinde güçlü ve kesintisiz telsiz kiralama hizmeti.</p>
+            <a href="https://wa.me/905395926070" class="btn-teklif animate__animated animate__zoomIn">WHATSAPP'TAN TEKLİF AL</a>
         </div>
         <div class="hero-slide">
             <h1>GÜVENLİ VE HIZLI</h1>
@@ -557,7 +614,7 @@ footer p { color: var(--beyaz); opacity:0.6; margin-top:25px; font-size: 0.9rem;
     </div>
 </section>
 
-<section id="services" class="services-section">
+<section id="services" class="services-section reveal">
     <h2 class="services-title">HİZMETLERİMİZ</h2>
 
     <div class="accordion"><span>📡 Profesyonel Telsiz Kiralama</span> <i class="fas fa-chevron-down"></i></div>
@@ -570,7 +627,7 @@ footer p { color: var(--beyaz); opacity:0.6; margin-top:25px; font-size: 0.9rem;
     <div class="accordion-content"><p>Müşterilerimize uygun cihazları seçme, satış ve danışmanlık hizmeti veriyoruz.</p></div>
 </section>
 
-<section id="products" class="cihazlar-section">
+<section id="products" class="cihazlar-section reveal">
     <h2 class="section-title">CİHAZ PARKURUMUZ</h2>
     <div class="grid">
         <a href="telsiz1.png" data-lightbox="cihazlar" data-title="Profesyonel Seri">
@@ -611,7 +668,7 @@ footer p { color: var(--beyaz); opacity:0.6; margin-top:25px; font-size: 0.9rem;
     </div>
 </section>
 
-<section id="references" class="references-section">
+<section id="references" class="references-section reveal">
     <h2 class="services-title">REFERANSLARIMIZ</h2>
     <div class="references-grid">
         <div class="ref-item"><span class="ref-text">Maça Film</span><img src="M.png" class="ref-logo-small"></div>
@@ -639,9 +696,7 @@ footer p { color: var(--beyaz); opacity:0.6; margin-top:25px; font-size: 0.9rem;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 <script>
 
-// =========================================
-// [YENİ] MENÜ AÇMA/KAPAMA FONKSİYONU
-// =========================================
+// MENÜ AÇMA/KAPAMA FONKSİYONU
 function toggleMenu() {
     const menu = document.getElementById('sideMenu');
     menu.classList.toggle('active');
@@ -656,6 +711,20 @@ window.addEventListener('scroll', () => {
         header.classList.remove('scrolled');
     }
 });
+
+// [YENİ] Scroll Reveal (Kaydırdıkça Ortaya Çıkma)
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        }
+    }
+}
+window.addEventListener("scroll", reveal);
 
 // Hero slider
 let slides = document.querySelectorAll('.hero-slide');
@@ -705,3 +774,5 @@ lightbox.option({
 
 </body>
 </html>
+
+```
