@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İntercom Kiralama | Lider Telsiz</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --ana-renk: #0a1f44;
+            --accent: #1e40af;
+            --beyaz: #ffffff;
+            --acik-gri: #f8fafc;
+            --gri-border: #e2e8f0;
+            --metin: #1e293b;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--beyaz);
+            color: var(--metin);
+            line-height: 1.6;
+        }
+
+        /* Yan Menü (Index ile aynı stil) */
+        .menu-toggle {
+            position: fixed;
+            top: 25px; 
+            left: 25px;
+            width: 50px;
+            height: 50px;
+            background: var(--ana-renk);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -350px; 
+            width: 320px;
+            height: 100%;
+            background: var(--ana-renk); 
+            z-index: 1200; 
+            transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); 
+            padding: 100px 40px;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.3);
+        }
+
+        .side-menu.active { left: 0; }
+
+        .close-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .menu-links a {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .menu-links a i { margin-right: 15px; color: #3b82f6; width: 25px; }
+
+        /* Üst Header */
+        header {
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--gri-border);
+            padding-left: 90px;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--ana-renk);
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .btn-home {
+            text-decoration: none;
+            color: var(--ana-renk);
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid var(--ana-renk);
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .btn-home:hover {
+            background: var(--ana-renk);
+            color: white;
+        }
+
+        /* İçerik */
+        .container {
+            padding: 80px 8%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-mini {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-mini h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--ana-renk);
+            margin-bottom: 10px;
+        }
+
+        .info-card {
+            background: var(--acik-gri);
+            padding: 40px;
+            border-radius: 30px;
+            border-left: 8px solid var(--accent);
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .info-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        /* Görsel Galeri */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .photo-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--gri-border);
+            transition: 0.4s;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-card .desc {
+            padding: 20px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--ana-renk);
+            background: #fff;
+        }
+
+        footer {
+            padding: 40px;
+            background: var(--ana-renk);
+            color: white;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 40px 5%; }
+            header { padding-left: 80px; }
+            .btn-home { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div id="sideMenu" class="side-menu">
+        <div class="close-btn" onclick="toggleMenu()">&times;</div>
+        <nav class="menu-links">
+            <a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a>
+            <a href="index.html#services"><i class="fas fa-broadcast-tower"></i> Telsizler</a>
+            <a href="index.html#contact"><i class="fas fa-envelope"></i> İletişim</a>
+        </nav>
+    </div>
+
+    <header>
+        <a href="index.html" class="logo-text">LİDER TELSİZ</a>
+        <a href="index.html" class="btn-home"><i class="fas fa-chevron-left"></i> Geri Dön</a>
+    </header>
+
+    <div class="container">
+        <div class="hero-mini">
+            <h1>İNTERCOM SİSTEMLERİ</h1>
+            <p>Setlerde ve Canlı Yayınlarda Profesyonel İletişim Çözümü</p>
+        </div>
+
+        <div class="info-card">
+            <h3>İntercom Nedir?</h3>
+            <p>
+                İntercom sistemleri, standart telsizlerin aksine <b>"Full-Duplex"</b> haberleşme sağlar. 
+                Yani aynı anda hem konuşabilir hem de dinleyebilirsiniz; butona basmanıza gerek kalmaz. 
+                Özellikle film setlerinde yönetmen, ses ekibi ve kamera operatörleri arasındaki koordinasyonu 
+                sessiz, hızlı ve eller serbest (hands-free) bir şekilde yönetmek için vazgeçilmezdir.
+            </p>
+        </div>
+
+        <div class="photo-grid">
+            <div class="photo-card">
+                <img src="intercom1.png" alt="İntercom Cihazı 1" onerror="this.src='https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=600&auto=format&fit=crop'">
+                <div class="desc">Kablosuz Kulaklık Setleri</div>
+            </div>
+            <div class="photo-card">
+                <img src="intercom2.png" alt="İntercom Cihazı 2" onerror="this.src='https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=600&auto=format&fit=crop'">
+                <div class="desc">Merkezi İstasyon Üniteleri</div>
+            </div>
+            <div class="photo-card">
+                <img src="intercom3.png" alt="İntercom Cihazı 3" onerror="this.src='https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=600&auto=format&fit=crop'">
+                <div class="desc">Bel Tipi Alıcı Üniteler</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Lider Telsiz | Profesyonel İntercom Kiralama</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('sideMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
