@@ -33,7 +33,6 @@ body {
     transition: background-color 0.5s ease;
 }
 
-/* Scroll Reveal Animasyon Sınıfı */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -44,7 +43,6 @@ body {
     transform: translateY(0);
 }
 
-/* Kart Parlama Efekti */
 .card::after {
     content: '';
     position: absolute;
@@ -63,7 +61,6 @@ body {
     top: 50%;
 }
 
-/* Yan Menü Butonu */
 .menu-toggle {
     position: fixed;
     top: 25px; 
@@ -87,7 +84,6 @@ body {
     background: var(--accent);
 }
 
-/* Yan Menü Paneli */
 .side-menu {
     position: fixed;
     top: 0;
@@ -151,7 +147,6 @@ body {
     color: #bfdbfe;
 }
 
-/* İntercom Kutusu (Menü İçi) */
 .intercom-info-box {
     margin: 15px 0;
     padding: 15px;
@@ -214,7 +209,6 @@ body {
     text-align: center;
 }
 
-/* Üst Header */
 header {
     padding: 15px 8%;
     display: flex;
@@ -280,7 +274,6 @@ header.scrolled {
 .nav-right a:hover::after { width: 100%; }
 .nav-right a:hover { color: var(--accent); }
 
-/* Hero Kısmı */
 .hero {
     height: 100vh;
     display:flex;
@@ -352,7 +345,6 @@ header.scrolled {
     box-shadow: 0 6px 20px rgba(30, 64, 175, 0.3);
 }
 
-/* Bölümler */
 .services-section { padding:100px 8%; background-color: var(--acik-gri); }
 
 .services-title {
@@ -427,6 +419,12 @@ header.scrolled {
     position: relative;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+/* Set Kiralama Özel Kartı */
+.set-card {
+    background: #eff6ff;
+    border: 2px dashed var(--accent);
 }
 
 .card:hover {
@@ -518,7 +516,6 @@ footer {
 
 footer p { color: var(--beyaz); opacity:0.6; margin-top:25px; font-size: 0.9rem; }
 
-/* Sabit Butonlar */
 .wp-btn {
     position:fixed;
     bottom:30px;
@@ -661,6 +658,15 @@ footer p { color: var(--beyaz); opacity:0.6; margin-top:25px; font-size: 0.9rem;
                 <p>Film ve dizi setleri için sessiz, hafif tasarım.</p>
             </div>
         </a>
+        
+        <a href="set.html">
+            <div class="card set-card">
+                <i class="fas fa-film" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                <h3>Set Kiralama</h3>
+                <p>Prodüksiyon ekiplerine özel paketler ve set içi iletişim çözümleri. Detaylar için tıklayın.</p>
+            </div>
+        </a>
+
         <a href="telsiz3.png" data-lightbox="cihazlar" data-title="Saha Serisi">
             <div class="card">
                 <img src="telsiz3.png" class="telsiz-img" alt="Saha Telsizi">
@@ -712,13 +718,11 @@ footer p { color: var(--beyaz); opacity:0.6; margin-top:25px; font-size: 0.9rem;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 <script>
-// Yan Menü Fonksiyonu
 function toggleMenu() {
     const menu = document.getElementById('sideMenu');
     menu.classList.toggle('active');
 }
 
-// Header Scroll Efekti
 const header = document.getElementById('mainHeader');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -728,7 +732,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Kaydırma Animasyonu (Scroll Reveal)
 function reveal() {
     var reveals = document.querySelectorAll(".reveal");
     for (var i = 0; i < reveals.length; i++) {
@@ -742,7 +745,6 @@ function reveal() {
 }
 window.addEventListener("scroll", reveal);
 
-// Hero Slider Geçişleri
 let slides = document.querySelectorAll('.hero-slide');
 let index = 0;
 setInterval(() => {
@@ -753,7 +755,6 @@ setInterval(() => {
     }
 }, 5000);
 
-// Akordeon (Hizmetler)
 const acc = document.querySelectorAll('.accordion');
 acc.forEach(a => {
     a.addEventListener('click', function() {
@@ -767,7 +768,6 @@ acc.forEach(a => {
     });
 });
 
-// Yukarı Çık Butonu
 const scrollBtn = document.getElementById('scrollTop');
 window.onscroll = function() {
     if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -780,7 +780,6 @@ scrollBtn.addEventListener('click', () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
 });
 
-// Lightbox Ayarları
 lightbox.option({
     'resizeDuration': 200,
     'wrapAround': true,
@@ -790,5 +789,3 @@ lightbox.option({
 
 </body>
 </html>
-
-```
