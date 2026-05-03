@@ -1,578 +1,101 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lider Telsiz | Profesyonel Haberleşme Çözümleri</title>
-<meta name="description" content="İstanbul'da profesyonel telsiz kiralama hizmetleri. Film seti, organizasyon ve güvenlik ekipleri için hızlı çözüm.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lider Telsiz | Set Tedariği & Haberleşme</title>
+    
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    
+    <style>
+        :root { --ana-renk: #0a1f44; --accent: #1e40af; --beyaz: #ffffff; --metin: #1e293b; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Poppins', sans-serif; color: var(--metin); line-height: 1.6; }
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        /* Header & Logo */
+        header {
+            padding: 20px 8%;
+            background: var(--beyaz);
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: center;
+        }
+        .logo-text { font-family: 'Orbitron', sans-serif; color: var(--ana-renk); font-weight: 900; font-size: 1.8rem; }
 
-<style>
-:root {
-    --ana-renk: #0a1f44;
-    --accent: #1e40af;
-    --beyaz: #ffffff;
-    --acik-gri: #f8fafc;
-    --gri-border: #e2e8f0;
-    --metin: #1e293b;
-    --glass-shine: rgba(255, 255, 255, 0.8);
-}
+        /* Hero Bölümü */
+        .hero {
+            padding: 100px 8%;
+            text-align: center;
+            background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%);
+        }
+        .hero h1 { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--ana-renk); margin-bottom: 20px; }
 
-* { margin:0; padding:0; box-sizing:border-box; }
+        /* Set Tedariği Bölümü (Sadece Bu Kaldı) */
+        .set-section { padding: 60px 8%; display: flex; justify-content: center; }
+        .set-card {
+            max-width: 700px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            border-top: 6px solid var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .set-card h2 { font-family: 'Orbitron', sans-serif; color: var(--ana-renk); margin-bottom: 20px; font-size: 1.8rem; }
+        .set-card ul { list-style: none; margin-top: 25px; }
+        .set-card li { margin-bottom: 15px; display: flex; align-items: center; font-size: 1.1rem; }
+        .set-card i { color: #10b981; margin-right: 15px; font-size: 1.2rem; }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--beyaz);
-    color: var(--metin);
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    transition: background-color 0.5s ease;
-}
+        /* İletişim Butonu */
+        .cta-btn {
+            display: inline-block;
+            margin-top: 30px;
+            background: #25d366;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
 
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, var(--glass-shine), transparent);
-    transform: rotate(45deg);
-    transition: 0.5s;
-    opacity: 0;
-}
-.card:hover::after {
-    opacity: 1;
-    left: 50%;
-    top: 50%;
-}
-
-/* Yan Menü */
-.menu-toggle {
-    position: fixed;
-    top: 25px; 
-    left: 25px;
-    width: 50px;
-    height: 50px;
-    background: var(--ana-renk);
-    color: white;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 1100; 
-    transition: 0.3s all ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-.menu-toggle:hover {
-    transform: scale(1.1) rotate(5deg);
-    background: var(--accent);
-}
-
-.side-menu {
-    position: fixed;
-    top: 0;
-    left: -350px; 
-    width: 320px;
-    height: 100%;
-    background: var(--ana-renk); 
-    z-index: 1200; 
-    transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); 
-    padding: 80px 30px;
-    box-shadow: 10px 0 30px rgba(0,0,0,0.3);
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-}
-
-.side-menu.active {
-    left: 0;
-}
-
-.close-btn {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
-    line-height: 1;
-    transition: 0.3s;
-}
-
-.menu-links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.menu-links a {
-    display: flex;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: 0.3s all ease;
-    padding: 5px 0;
-}
-
-.menu-links a i {
-    margin-right: 15px;
-    color: #3b82f6; 
-    width: 25px;
-    text-align: center;
-}
-
-/* Menü Bilgi Kutuları */
-.info-box-menu {
-    margin: 10px 0;
-    padding: 15px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 10px;
-    border-left: 4px solid #3b82f6;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.info-box-menu:hover {
-    background: rgba(255,255,255,0.1);
-    transform: scale(1.02);
-}
-
-.info-box-menu h4 {
-    color: #3b82f6;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.85rem;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-}
-
-.info-box-menu h4 i { margin-right: 8px; }
-
-.info-box-menu p {
-    color: white;
-    font-size: 0.7rem;
-    line-height: 1.3;
-    opacity: 0.8;
-}
-
-.tech-service-box {
-    margin-top: 20px; 
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: white;
-}
-
-.tech-service-box h4 {
-    font-family: 'Orbitron', sans-serif;
-    color: #3b82f6;
-    margin-bottom: 10px;
-    font-size: 1rem;
-}
-
-.tech-service-box p {
-    font-size: 0.85rem;
-    opacity: 0.8;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-}
-
-.tech-service-box p i {
-    color: #3b82f6;
-    margin-right: 10px;
-    width: 20px;
-}
-
-/* Header */
-header {
-    padding: 15px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.95);
-    position: fixed;
-    width: 100%;
-    top:0;
-    z-index:1000;
-    border-bottom: 1px solid var(--gri-border);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    padding-left: 90px;
-}
-
-header.scrolled {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    padding: 10px 8% 10px 90px;
-}
-
-.logo-box {
-    display:flex;
-    align-items:center;
-    text-decoration:none;
-}
-
-.logo-img { height:50px; margin-right:10px; }
-
-.logo-text {
-    font-family:'Orbitron',sans-serif;
-    color: var(--ana-renk);
-    font-weight:900;
-    font-size:1.5rem;
-}
-
-/* Hero */
-.hero {
-    height: 100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:0 10%;
-    background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%);
-    position: relative;
-    overflow:hidden;
-}
-
-.hero h1 {
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight:900;
-    margin-bottom:20px;
-    color: var(--ana-renk);
-}
-
-.btn-teklif {
-    background: var(--ana-renk);
-    color: var(--beyaz);
-    padding: 15px 40px;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:700;
-    transition: 0.3s all ease;
-    box-shadow: 0 4px 15px rgba(10, 31, 68, 0.2);
-}
-
-/* Akordeon */
-.services-section { padding:100px 8%; background-color: var(--acik-gri); }
-
-.services-title {
-    font-family:'Orbitron',sans-serif;
-    font-size:2.5rem;
-    margin-bottom:60px;
-    text-align:center;
-    color: var(--ana-renk);
-}
-
-.accordion {
-    background: var(--beyaz);
-    border: 1px solid var(--gri-border);
-    border-radius:15px;
-    margin-bottom:15px;
-    cursor:pointer;
-    padding:20px 25px;
-    transition: 0.3s all ease;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    font-weight: 600;
-    color: var(--ana-renk);
-}
-
-.accordion:hover { border-color: var(--accent); transform: translateX(10px); }
-
-.accordion-content {
-    max-height:0;
-    overflow:hidden;
-    transition: max-height 0.3s ease-out;
-    background: var(--beyaz);
-    padding: 0 25px;
-}
-
-.accordion-content p { padding:20px 0; color: var(--metin); line-height: 1.6; }
-
-/* Cihazlar Grid */
-.cihazlar-section { padding:100px 8%; text-align:center; background-color: var(--beyaz); }
-
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin-top:50px;}
-
-.card {
-    background: var(--beyaz);
-    border: 1px solid var(--gri-border);
-    padding:35px;
-    border-radius:25px;
-    transition: 0.4s all ease;
-    position: relative;
-    overflow: hidden;
-    text-decoration: none;
-    display: block;
-}
-
-.card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 40px rgba(10, 31, 68, 0.1);
-    border-color: var(--accent);
-}
-
-.set-card {
-    background: #eff6ff;
-    border: 2px dashed var(--accent);
-}
-
-.telsiz-img {
-    width:100%; height:250px;
-    object-fit:contain;
-    margin-bottom:25px;
-}
-
-.card h3 { color: var(--ana-renk); margin-bottom:12px; font-size: 1.3rem; }
-.card p { font-size:0.95rem; color: var(--metin); opacity:0.8; }
-
-/* Referanslar */
-.references-section { padding:100px 8%; background-color: var(--acik-gri); }
-
-.references-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:25px;
-    align-items:center;
-}
-
-.ref-item {
-    background: var(--beyaz);
-    border: 1px solid var(--gri-border);
-    padding: 25px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: 0.4s;
-}
-
-.ref-item:hover { transform: scale(1.03); border-color: var(--accent); }
-.ref-text { font-size: 1.05rem; font-weight: 600; color: var(--ana-renk); }
-.ref-logo-small { width: 35px; height: 35px; object-fit: contain; }
-
-footer {
-    padding:60px 8%;
-    background: var(--ana-renk);
-    text-align:center;
-    color: white;
-}
-
-.wp-btn {
-    position:fixed;
-    bottom:30px;
-    right:30px;
-    background:#25d366;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:32px;
-    color:white;
-    z-index: 100;
-}
-
-#scrollTop {
-    position:fixed;
-    bottom:110px;
-    right:35px;
-    background: var(--accent);
-    color:white;
-    width:50px;
-    height:50px;
-    border-radius:50%;
-    display:none;
-    justify-content:center;
-    align-items:center;
-    z-index: 99;
-}
-
-@media (max-width: 768px) {
-    header { padding-left: 80px; } 
-    .side-menu { width: 100%; left: -100%; } 
-}
-</style>
+        footer { text-align: center; padding: 40px; font-size: 0.9rem; color: #64748b; }
+    </style>
 </head>
 <body>
 
-<div class="menu-toggle" onclick="toggleMenu()">
-    <i class="fas fa-bars"></i>
-</div>
+    <header>
+        <div class="logo-text">LİDER TELSİZ</div>
+    </header>
 
-<div id="sideMenu" class="side-menu">
-    <div class="close-btn" onclick="toggleMenu()">&times;</div>
-    
-    <nav class="menu-links">
-        <a href="#" onclick="toggleMenu()"><i class="fas fa-home"></i> Anasayfa</a>
-        
-        <div class="info-box-menu" onclick="window.location.href='intercom.html'">
-            <h4><i class="fas fa-headset"></i> İntercom Kiralama</h4>
-            <p>Ekipler arası kesintisiz iletişim altyapısı. Detaylar için tıklayın.</p>
+    <section class="hero">
+        <h1>Profesyonel Haberleşme Çözümleri</h1>
+        <p>Hızlı, Kesintisiz ve Güvenilir Set Ekipmanları</p>
+    </section>
+
+    <section class="set-section">
+        <div class="set-card">
+            <h2>Set Tedariği</h2>
+            <p>Dizi, sinema ve reklam projelerinizde profesyonel ekiplerin haberleşme trafiğini en yüksek kalitede yönetiyoruz.</p>
+            
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Akustik Tüp Kulaklıklar (Şeffaf & Konforlu)</li>
+                <li><i class="fas fa-check-circle"></i> Yedek Batarya ve Şarj Üniteleri</li>
+                <li><i class="fas fa-check-circle"></i> Günlük/Haftalık/Aylık Kiralama Opsiyonları</li>
+                <li><i class="fas fa-check-circle"></i> 7/24 Teknik Destek ve Hızlı Değişim</li>
+            </ul>
+
+            <a href="https://wa.me" class="cta-btn">
+                <i class="fab fa-whatsapp"></i> WhatsApp ile Teklif Al
+            </a>
         </div>
+    </section>
 
-        <div class="info-box-menu" onclick="window.location.href='set.html'" style="border-left-color: #25d366;">
-            <h4><i class="fas fa-film"></i> Set Tedariği</h4>
-            <p>Prodüksiyonlar için profesyonel lojistik ve saha desteği.</p>
-        </div>
-
-        <div class="info-box-menu" onclick="window.location.href='serit.html'" style="border-left-color: #f1c40f;">
-            <h4><i class="fas fa-ruler-horizontal"></i> Şerit Bariyer</h4>
-            <p>Organizasyonlar için yönlendirme ve bariyer sistemleri.</p>
-        </div>
-
-        <a href="#products" onclick="toggleMenu()"><i class="fas fa-broadcast-tower"></i> Ürünlerimiz</a>
-        <a href="#references" onclick="toggleMenu()"><i class="fas fa-star"></i> Referanslar</a>
-        <a href="#contact" onclick="toggleMenu()"><i class="fas fa-envelope"></i> İletişim</a>
-        
-        <div class="tech-service-box">
-            <h4><i class="fas fa-tools"></i> Teknik Servis</h4>
-            <p><i class="fas fa-phone"></i> 0539 592 60 70</p>
-            <p><i class="fas fa-clock"></i> 7/24 Teknik Destek</p>
-        </div>
-    </nav>
-</div>
-
-<header id="mainHeader">
-    <a href="#" class="logo-box">
-        <img src="logo.png" class="logo-img" onerror="this.style.display='none'">
-        <span class="logo-text">LİDER TELSİZ</span>
-    </a>
-</header>
-
-<section class="hero">
-    <h1 class="animate__animated animate__fadeInDown">KESİNTİSİZ İLETİŞİM</h1>
-    <p>Film setlerinden güvenlik ekiplerine kadar profesyonel çözümler.</p><br>
-    <a href="https://wa.me/905395926070" class="btn-teklif">TEKLİF AL</a>
-</section>
-
-<section id="services" class="services-section reveal">
-    <h2 class="services-title">HİZMETLERİMİZ</h2>
-
-    <div class="accordion"><span>📡 Profesyonel Telsiz Kiralama</span> <i class="fas fa-chevron-down"></i></div>
-    <div class="accordion-content"><p>Film setleri, organizasyon ve güvenlik ekipleri için uzun menzilli kiralama hizmeti sunuyoruz.</p></div>
-
-    <div class="accordion"><span>🔧 Kurulum ve Destek</span> <i class="fas fa-chevron-down"></i></div>
-    <div class="accordion-content"><p>Cihazların kurulumu ve teknik desteği uzman ekibimiz tarafından sağlanmaktadır.</p></div>
-
-    <div class="accordion"><span>💼 Satış ve Danışmanlık</span> <i class="fas fa-chevron-down"></i></div>
-    <div class="accordion-content"><p>Müşterilerimize en uygun cihaz seçimi ve satış sonrası danışmanlık hizmeti veriyoruz.</p></div>
-</section>
-
-<section id="products" class="cihazlar-section reveal">
-    <h2 class="services-title">CİHAZ PARKURUMUZ</h2>
-    <div class="grid">
-        <a href="telsiz1.png" data-lightbox="cihazlar" class="card">
-            <img src="telsiz1.png" class="telsiz-img">
-            <h3>Profesyonel Seri</h3>
-            <p>Yüksek ses kalitesi ve uzun mesafe çekim gücü.</p>
-        </a>
-        <a href="telsiz2.png" data-lightbox="cihazlar" class="card">
-            <img src="telsiz2.png" class="telsiz-img">
-            <h3>Set Serisi</h3>
-            <p>Film setleri için sessiz ve ergonomik tasarım.</p>
-        </a>
-        
-        <a href="set.html" class="card set-card">
-            <i class="fas fa-truck-loading" style="font-size:3rem; color:var(--accent); margin-bottom:20px; display:block;"></i>
-            <h3>Set Tedariği</h3>
-            <p>Prodüksiyon ekiplerine özel lojistik ve tam saha destek paketleri.</p>
-        </a>
-
-        <a href="serit.html" class="card" style="border: 2px dashed #f1c40f;">
-            <i class="fas fa-ruler-horizontal" style="font-size:3rem; color:#f1c40f; margin-bottom:20px; display:block;"></i>
-            <h3>Şerit Bariyer</h3>
-            <p>Etkinlikler için profesyonel yönlendirme ve bariyer kiralama.</p>
-        </a>
-
-        <a href="telsiz3.png" data-lightbox="cihazlar" class="card">
-            <img src="telsiz3.png" class="telsiz-img">
-            <h3>Saha Serisi</h3>
-            <p>Zorlu arazi ve dış mekan koşullarına özel gövde.</p>
-        </a>
-        <a href="telsiz4.png" data-lightbox="cihazlar" class="card">
-            <img src="https://raw.githubusercontent.com/osaga667/telsiz/refs/heads/main/telsiz4.png" class="telsiz-img">
-            <h3>Güvenlik Serisi</h3>
-            <p>Uzun batarya ömrü ve kesintisiz haberleşme.</p>
-        </a>
-        <a href="telsiz5.png" data-lightbox="cihazlar" class="card">
-            <img src="telsiz5.png" class="telsiz-img">
-            <h3>Ekonomik Seri</h3>
-            <p>Küçük organizasyonlar için pratik ve hızlı çözüm.</p>
-        </a>
-    </div>
-</section>
-
-<section id="references" class="references-section reveal">
-    <h2 class="services-title">REFERANSLARIMIZ</h2>
-    <div class="references-grid">
-        <div class="ref-item"><span class="ref-text">Maça Film</span><img src="M.png" class="ref-logo-small"></div>
-        <div class="ref-item"><span class="ref-text">Shortcut Prod</span><img src="Sh.png" class="ref-logo-small"></div>
-        <div class="ref-item"><span class="ref-text">Set Gripim</span><img src="https://setgripim.com/wp-content/uploads/2017/03/Logo_small-1.png" class="ref-logo-small"></div>
-        <div class="ref-item"><span class="ref-text">Just New Talent</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRADUWq0Cf6_TQWuS0arK_Ids5VajmIQAFm6Q&s" class="ref-logo-small"></div>
-        <div class="ref-item"><span class="ref-text">Istanbul Line Films</span><img src="https://media.licdn.com/dms/image/v2/C4D0BAQEPy0_jxGyt5g/company-logo_200_200/0/1630536020100?e=2147483647&v=beta&t=aIrKPX5WxFDA1I2R91OLmgMFceFzzexJUqOhj6iQSKM" class="ref-logo-small"></div>
-        <div class="ref-item"><span class="ref-text">Mimeda Medya</span><img src="https://egirisim.com/wp-content/uploads/2021/09/mimeda-medya.jpeg" class="ref-logo-small"></div>
-        <div class="ref-item"><span class="ref-text">Z Medya</span><img src="https://z-medya.com/assets/media/logo.png" class="ref-logo-small"></div>
-    </div>
-</section>
-
-<footer id="contact">
-    <p>0539 592 60 70 | lidertelsiz@gmail.com</p>
-    <p>© 2026 Lider Telsiz | İstanbul</p>
-</footer>
-
-<a href="https://wa.me/905395926070" class="wp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<div id="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"><i class="fas fa-arrow-up"></i></div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-<script>
-function toggleMenu() { document.getElementById('sideMenu').classList.toggle('active'); }
-
-window.addEventListener('scroll', () => {
-    const h = document.getElementById('mainHeader');
-    const s = document.getElementById('scrollTop');
-    window.scrollY > 50 ? h.classList.add('scrolled') : h.classList.remove('scrolled');
-    window.scrollY > 300 ? s.style.display = "flex" : s.style.display = "none";
-    
-    var reveals = document.querySelectorAll(".reveal");
-    for (var i = 0; i < reveals.length; i++) {
-        var wh = window.innerHeight;
-        var et = reveals[i].getBoundingClientRect().top;
-        if (et < wh - 100) reveals[i].classList.add("active");
-    }
-});
-
-const acc = document.querySelectorAll('.accordion');
-acc.forEach(a => {
-    a.addEventListener('click', function() {
-        this.classList.toggle('active');
-        let panel = this.nextElementSibling;
-        panel.style.maxHeight ? panel.style.maxHeight = null : panel.style.maxHeight = panel.scrollHeight + "px";
-    });
-});
-</script>
+    <footer>
+        &copy; 2024 Lider Telsiz. Tüm Hakları Saklıdır. <br> İstanbul / Türkiye
+    </footer>
 
 </body>
 </html>
+
