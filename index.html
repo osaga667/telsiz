@@ -1,11 +1,11 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lider Telsiz | Profesyonel Set Tedariği</title>
     
-    <!-- Yazı Tipleri ve İkonlar -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
     
@@ -26,138 +26,137 @@
             line-height: 1.6;
         }
 
-        /* Navigasyon / Header */
-        header {
+        /* Merkeze Alınmış Logo Alanı */
+        .header-brand {
+            padding: 40px 20px;
             background: var(--beyaz);
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            text-align: center; /* Logoyu merkeze alır */
+            border-bottom: 1px solid #e2e8f0;
         }
 
-        .logo-area { display: flex; align-items: center; text-decoration: none; }
-        .logo-img { height: 50px; margin-right: 15px; }
-        .logo-text { font-family: 'Orbitron', sans-serif; color: var(--ana-renk); font-weight: 900; font-size: 1.5rem; }
+        .logo-main {
+            height: 120px; /* Logo boyutunu büyüttük */
+            width: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); /* Logoya hafif derinlik verir */
+        }
 
-        /* Ana Bölüm (Hero) */
+        .brand-text {
+            display: block;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--ana-renk);
+            font-weight: 900;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+        }
+
+        /* Hero Bölümü */
         .hero {
-            padding: 80px 8%;
+            padding: 60px 8%;
             text-align: center;
-            background: linear-gradient(135deg, #0a1f44 0%, #1e40af 100%);
-            color: white;
+            background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+            color: var(--ana-renk);
         }
 
-        .hero h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto 30px; }
+        .hero h1 { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; margin-bottom: 10px; opacity: 0.8; }
+        .hero p { font-size: 1.2rem; font-weight: 400; color: var(--accent); }
 
-        /* Set Tedariği Kartı */
-        .content-section { padding: 60px 8%; display: flex; justify-content: center; }
+        /* Ana Kart */
+        .content-section { padding: 40px 8% 80px; display: flex; justify-content: center; }
         
         .main-card {
             background: white;
             width: 100%;
-            max-width: 800px;
+            max-width: 700px;
             padding: 40px;
             border-radius: 30px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-            border-top: 8px solid var(--accent);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e2e8f0;
+            text-align: center;
         }
 
         .main-card h2 { 
             font-family: 'Orbitron', sans-serif; 
             color: var(--ana-renk); 
-            font-size: 2rem; 
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
+            font-size: 1.8rem; 
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 15px;
+            display: inline-block;
         }
-        
-        .main-card h2 i { margin-right: 15px; color: var(--accent); }
 
-        .feature-list { list-style: none; margin-bottom: 35px; }
+        .feature-list { list-style: none; margin-bottom: 40px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; }
         .feature-list li { 
-            margin-bottom: 18px; 
+            margin-bottom: 15px; 
             display: flex; 
             align-items: center; 
             font-size: 1.1rem; 
-            color: #475569;
         }
         .feature-list i { color: #10b981; margin-right: 15px; font-size: 1.3rem; }
 
-        /* İletişim Butonları */
-        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
+        /* Butonlar */
+        .btn-group { display: flex; gap: 15px; flex-direction: column; }
         
         .btn {
-            padding: 15px 30px;
-            border-radius: 12px;
+            padding: 18px 30px;
+            border-radius: 15px;
             text-decoration: none;
             font-weight: 700;
             display: flex;
             align-items: center;
+            justify-content: center;
             transition: 0.3s all ease;
+            font-size: 1.1rem;
         }
 
         .btn-whatsapp { background: #25d366; color: white; }
-        .btn-whatsapp:hover { background: #128c7e; transform: translateY(-3px); }
+        .btn-whatsapp:hover { background: #128c7e; transform: scale(1.02); }
         
         .btn-phone { background: var(--ana-renk); color: white; }
-        .btn-phone:hover { background: #000; transform: translateY(-3px); }
+        .btn-phone:hover { background: #000; transform: scale(1.02); }
 
-        .btn i { margin-right: 10px; font-size: 1.2rem; }
+        .btn i { margin-right: 10px; font-size: 1.4rem; }
 
         footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.9rem; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .main-card { padding: 25px; }
-            .btn { width: 100%; justify-content: center; }
-        }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="#" class="logo-area">
-            <!-- Logonuz burada görünecek -->
-            <img src="logo.png" alt="Lider Telsiz Logo" class="logo-img">
-            <span class="logo-text">LİDER TELSİZ</span>
-        </a>
-    </header>
+    <!-- Logo ve Marka Alanı (Merkezlenmiş) -->
+    <div class="header-brand">
+        <img src="logo.png" alt="Lider Telsiz Logo" class="logo-main">
+        <span class="brand-text">LİDER TELSİZ</span>
+    </div>
 
     <section class="hero">
-        <h1>Profesyonel Haberleşme</h1>
-        <p>Film setlerinden büyük organizasyonlara kadar kesintisiz iletişim çözümleri sunuyoruz.</p>
+        <h1>PROFESYONEL HABERLEŞME</h1>
+        <p>Set Tedariği & Kiralama Çözümleri</p>
     </section>
 
     <section class="content-section">
         <div class="main-card">
-            <h2><i class="fas fa-broadcast-tower"></i> Set Tedariği</h2>
-            <p style="margin-bottom: 25px; font-size: 1.1rem;">Lider Telsiz olarak, set ekibinizin ihtiyacı olan tüm donanımı hızlı ve güvenilir şekilde sağlıyoruz.</p>
+            <h2>Set Tedariği</h2>
             
             <ul class="feature-list">
-                <li><i class="fas fa-check-circle"></i> Yüksek Kaliteli Akustik Kulaklıklar</li>
-                <li><i class="fas fa-check-circle"></i> Uzun Ömürlü Yedek Bataryalar</li>
-                <li><i class="fas fa-check-circle"></i> Hijyenik ve Bakımlı Ekipmanlar</li>
-                <li><i class="fas fa-check-circle"></i> 7/24 Teknik Destek & Yerinde Teslimat</li>
+                <li><i class="fas fa-check-circle"></i> Akustik Kulaklık Setleri</li>
+                <li><i class="fas fa-check-circle"></i> Yedek Batarya Desteği</li>
+                <li><i class="fas fa-check-circle"></i> 7/24 Teknik Destek</li>
+                <li><i class="fas fa-check-circle"></i> Hızlı Saha Teslimatı</li>
             </ul>
 
             <div class="btn-group">
                 <a href="https://wa.me" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Yazın
+                    <i class="fab fa-whatsapp"></i> WhatsApp ile Teklif Al
                 </a>
                 <a href="tel:+905395926070" class="btn btn-phone">
-                    <i class="fas fa-phone-alt"></i> Hemen Arayın
+                    <i class="fas fa-phone-alt"></i> 0539 592 60 70
                 </a>
             </div>
         </div>
     </section>
 
     <footer>
-        &copy; 2024 Lider Telsiz | 0539 592 60 70 <br> İstanbul / Türkiye
+        &copy; 2024 Lider Telsiz <br> İstanbul / Türkiye
     </footer>
 
 </body>
