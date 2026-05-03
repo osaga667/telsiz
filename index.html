@@ -1,165 +1,182 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lider Telsiz | Profesyonel Set Tedariği</title>
-    
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="https://cloudflare.com">
-    
-    <style>
-        :root {
-            --ana-renk: #0a1f44;
-            --accent: #1e40af;
-            --beyaz: #ffffff;
-            --metin: #1e293b;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lider Telsiz | Profesyonel Haberleşme Çözümleri</title>
+<meta name="description" content="İstanbul'da profesyonel telsiz kiralama hizmetleri. Film seti, organizasyon ve güvenlik ekipleri için hızlı çözüm.">
 
-        * { margin:0; padding:0; box-sizing:border-box; }
+<link href="https://googleapis.com" rel="stylesheet">
+<link rel="stylesheet" href="https://cloudflare.com">
+<link rel="stylesheet" href="https://cloudflare.com"/>
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8fafc;
-            color: var(--metin);
-            line-height: 1.6;
-        }
+<style>
+:root {
+    --ana-renk: #0a1f44;
+    --accent: #1e40af;
+    --beyaz: #ffffff;
+    --acik-gri: #f8fafc;
+    --gri-border: #e2e8f0;
+    --metin: #1e293b;
+    --glass-shine: rgba(255, 255, 255, 0.8);
+}
 
-        /* Merkeze Alınmış Logo Alanı */
-        .header-brand {
-            padding: 40px 20px;
-            background: var(--beyaz);
-            text-align: center; /* Logoyu merkeze alır */
-            border-bottom: 1px solid #e2e8f0;
-        }
+* { margin:0; padding:0; box-sizing:border-box; }
 
-        .logo-main {
-            height: 120px; /* Logo boyutunu büyüttük */
-            width: auto;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); /* Logoya hafif derinlik verir */
-        }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--beyaz);
+    color: var(--metin);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
 
-        .brand-text {
-            display: block;
-            font-family: 'Orbitron', sans-serif;
-            color: var(--ana-renk);
-            font-weight: 900;
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-        }
+/* Yan Menü */
+.menu-toggle {
+    position: fixed;
+    top: 25px; 
+    left: 25px;
+    width: 50px;
+    height: 50px;
+    background: var(--ana-renk);
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1100;
+    transition: 0.3s all ease;
+}
 
-        /* Hero Bölümü */
-        .hero {
-            padding: 60px 8%;
-            text-align: center;
-            background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
-            color: var(--ana-renk);
-        }
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -350px; 
+    width: 320px;
+    height: 100%;
+    background: var(--ana-renk); 
+    z-index: 1200; 
+    transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); 
+    padding: 80px 30px;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.3);
+    overflow-y: auto;
+}
 
-        .hero h1 { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; margin-bottom: 10px; opacity: 0.8; }
-        .hero p { font-size: 1.2rem; font-weight: 400; color: var(--accent); }
+.side-menu.active { left: 0; }
 
-        /* Ana Kart */
-        .content-section { padding: 40px 8% 80px; display: flex; justify-content: center; }
-        
-        .main-card {
-            background: white;
-            width: 100%;
-            max-width: 700px;
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15);
-            border: 1px solid #e2e8f0;
-            text-align: center;
-        }
+.close-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
 
-        .main-card h2 { 
-            font-family: 'Orbitron', sans-serif; 
-            color: var(--ana-renk); 
-            font-size: 1.8rem; 
-            margin-bottom: 30px;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 15px;
-            display: inline-block;
-        }
+.menu-links a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 15px 0;
+    transition: 0.3s;
+}
 
-        .feature-list { list-style: none; margin-bottom: 40px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; }
-        .feature-list li { 
-            margin-bottom: 15px; 
-            display: flex; 
-            align-items: center; 
-            font-size: 1.1rem; 
-        }
-        .feature-list i { color: #10b981; margin-right: 15px; font-size: 1.3rem; }
+.menu-links a i { margin-right: 15px; color: #3b82f6; width: 25px; text-align: center; }
 
-        /* Butonlar */
-        .btn-group { display: flex; gap: 15px; flex-direction: column; }
-        
-        .btn {
-            padding: 18px 30px;
-            border-radius: 15px;
-            text-decoration: none;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s all ease;
-            font-size: 1.1rem;
-        }
+/* Header */
+header {
+    padding: 15px 8% 15px 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top:0;
+    z-index:1000;
+    border-bottom: 1px solid var(--gri-border);
+    backdrop-filter: blur(10px);
+}
 
-        .btn-whatsapp { background: #25d366; color: white; }
-        .btn-whatsapp:hover { background: #128c7e; transform: scale(1.02); }
-        
-        .btn-phone { background: var(--ana-renk); color: white; }
-        .btn-phone:hover { background: #000; transform: scale(1.02); }
+.logo-box { display:flex; align-items:center; text-decoration:none; }
+.logo-img { height:50px; margin-right:10px; }
+.logo-text { font-family:'Orbitron',sans-serif; color: var(--ana-renk); font-weight:900; font-size:1.5rem; }
 
-        .btn i { margin-right: 10px; font-size: 1.4rem; }
+/* Hero */
+.hero {
+    height: 100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 10%;
+    background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%);
+}
 
-        footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.9rem; }
-    </style>
+.hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight:900; margin-bottom:20px; color: var(--ana-renk); }
+
+.btn-teklif {
+    background: var(--ana-renk);
+    color: var(--beyaz);
+    padding: 15px 40px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:700;
+    transition: 0.3s all ease;
+    box-shadow: 0 4px 15px rgba(10, 31, 68, 0.2);
+}
+
+/* Footer */
+footer { background: var(--ana-renk); color: white; text-align: center; padding: 40px; }
+</style>
 </head>
 <body>
 
-    <!-- Logo ve Marka Alanı (Merkezlenmiş) -->
-    <div class="header-brand">
-        <img src="logo.png" alt="Lider Telsiz Logo" class="logo-main">
-        <span class="brand-text">LİDER TELSİZ</span>
+    <!-- Menü Tetikleyici -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
     </div>
 
-    <section class="hero">
-        <h1>PROFESYONEL HABERLEŞME</h1>
-        <p>Set Tedariği & Kiralama Çözümleri</p>
-    </section>
-
-    <section class="content-section">
-        <div class="main-card">
-            <h2>Set Tedariği</h2>
-            
-            <ul class="feature-list">
-                <li><i class="fas fa-check-circle"></i> Akustik Kulaklık Setleri</li>
-                <li><i class="fas fa-check-circle"></i> Yedek Batarya Desteği</li>
-                <li><i class="fas fa-check-circle"></i> 7/24 Teknik Destek</li>
-                <li><i class="fas fa-check-circle"></i> Hızlı Saha Teslimatı</li>
-            </ul>
-
-            <div class="btn-group">
-                <a href="https://wa.me" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp ile Teklif Al
-                </a>
-                <a href="tel:+905395926070" class="btn btn-phone">
-                    <i class="fas fa-phone-alt"></i> 0539 592 60 70
-                </a>
-            </div>
+    <!-- Yan Menü -->
+    <div class="side-menu" id="sideMenu">
+        <span class="close-btn" onclick="toggleMenu()">&times;</span>
+        <div class="menu-links">
+            <a href="#"><i class="fas fa-home"></i> Ana Sayfa</a>
+            <a href="https://wa.me"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="tel:+905395926070"><i class="fas fa-phone"></i> 0539 592 60 70</a>
         </div>
+    </div>
+
+    <header>
+        <a href="#" class="logo-box">
+            <img src="logo.png" alt="Logo" class="logo-img">
+            <span class="logo-text">LİDER TELSİZ</span>
+        </a>
+    </header>
+
+    <section class="hero">
+        <h1 class="animate__animated animate__fadeInDown">Profesyonel Haberleşme Çözümleri</h1>
+        <p style="margin-bottom:30px; font-size:1.2rem;">İstanbul'un her noktasına hızlı telsiz kiralama ve set tedariği.</p>
+        <a href="https://wa.me" class="btn-teklif">Hızlı Teklif Al</a>
     </section>
 
     <footer>
-        &copy; 2024 Lider Telsiz <br> İstanbul / Türkiye
+        <p>&copy; 2024 Lider Telsiz - Tüm Hakları Saklıdır.</p>
+        <p>İletişim: 0539 592 60 70</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('sideMenu').classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
-
 
