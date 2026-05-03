@@ -1,265 +1,211 @@
+!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İntercom Kiralama | Lider Telsiz</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --ana-renk: #0a1f44;
-            --accent: #1e40af;
-            --beyaz: #ffffff;
-            --acik-gri: #f8fafc;
-            --gri-border: #e2e8f0;
-            --metin: #1e293b;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lider Telsiz | Profesyonel Haberleşme Çözümleri</title>
+<meta name="description" content="İstanbul'da profesyonel telsiz kiralama hizmetleri. Film seti, organizasyon ve güvenlik ekipleri için hızlı çözüm.">
 
-        * { margin:0; padding:0; box-sizing:border-box; }
+<!-- Kaynaklar -->
+<link href="https://googleapis.com" rel="stylesheet">
+<link rel="stylesheet" href="https://cloudflare.com">
+<link rel="stylesheet" href="https://cloudflare.com">
+<link rel="stylesheet" href="https://cloudflare.com"/>
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--beyaz);
-            color: var(--metin);
-            line-height: 1.6;
-        }
+<style>
+:root {
+    --ana-renk: #0a1f44;
+    --accent: #1e40af;
+    --beyaz: #ffffff;
+    --acik-gri: #f8fafc;
+    --gri-border: #e2e8f0;
+    --metin: #1e293b;
+    --glass-shine: rgba(255, 255, 255, 0.8);
+}
 
-        /* Yan Menü (Index ile aynı stil) */
-        .menu-toggle {
-            position: fixed;
-            top: 25px; 
-            left: 25px;
-            width: 50px;
-            height: 50px;
-            background: var(--ana-renk);
-            color: white;
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 1100;
-        }
+* { margin:0; padding:0; box-sizing:border-box; }
 
-        .side-menu {
-            position: fixed;
-            top: 0;
-            left: -350px; 
-            width: 320px;
-            height: 100%;
-            background: var(--ana-renk); 
-            z-index: 1200; 
-            transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); 
-            padding: 100px 40px;
-            box-shadow: 10px 0 30px rgba(0,0,0,0.3);
-        }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--beyaz);
+    color: var(--metin);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
 
-        .side-menu.active { left: 0; }
+/* Yan Menü Tasarımı */
+.menu-toggle {
+    position: fixed; top: 25px; left: 25px; width: 50px; height: 50px;
+    background: var(--ana-renk); color: white; border-radius: 12px;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 24px; cursor: pointer; z-index: 1100; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
 
-        .close-btn {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            font-size: 40px;
-            color: white;
-            cursor: pointer;
-        }
+.side-menu {
+    position: fixed; top: 0; left: -350px; width: 320px; height: 100%;
+    background: var(--ana-renk); z-index: 1200; transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); 
+    padding: 80px 30px; box-shadow: 10px 0 30px rgba(0,0,0,0.3); overflow-y: auto;
+}
 
-        .menu-links a {
-            display: flex;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            transition: 0.3s;
-        }
+.side-menu.active { left: 0; }
+.close-btn { position: absolute; top: 25px; right: 25px; font-size: 40px; color: white; cursor: pointer; }
 
-        .menu-links a i { margin-right: 15px; color: #3b82f6; width: 25px; }
+.menu-links a {
+    display: flex; align-items: center; color: white; text-decoration: none;
+    font-size: 1.1rem; font-weight: 600; padding: 12px 0; transition: 0.3s;
+}
+.menu-links a i { margin-right: 15px; color: #3b82f6; width: 25px; text-align: center; }
 
-        /* Üst Header */
-        header {
-            padding: 15px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid var(--gri-border);
-            padding-left: 90px;
-        }
+.info-box-menu {
+    margin: 15px 0; padding: 15px; background: rgba(255,255,255,0.05);
+    border-radius: 10px; border-left: 4px solid #3b82f6; cursor: pointer; transition: 0.3s;
+}
+.info-box-menu h4 { color: #3b82f6; font-family: 'Orbitron'; font-size: 0.85rem; margin-bottom: 5px; display: flex; align-items: center; }
+.info-box-menu p { color: white; font-size: 0.7rem; opacity: 0.8; }
 
-        .logo-text {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--ana-renk);
-            font-weight: 900;
-            font-size: 1.5rem;
-            text-decoration: none;
-        }
+/* Header */
+header {
+    padding: 15px 8% 15px 90px; display: flex; justify-content: space-between;
+    align-items: center; background: rgba(255, 255, 255, 0.95);
+    position: fixed; width: 100%; top:0; z-index:1000; border-bottom: 1px solid var(--gri-border);
+    backdrop-filter: blur(10px);
+}
+.logo-box { display:flex; align-items:center; text-decoration:none; }
+.logo-img { height:50px; margin-right:10px; }
+.logo-text { font-family:'Orbitron',sans-serif; color: var(--ana-renk); font-weight:900; font-size:1.5rem; }
 
-        .btn-home {
-            text-decoration: none;
-            color: var(--ana-renk);
-            font-weight: 600;
-            padding: 10px 20px;
-            border: 2px solid var(--ana-renk);
-            border-radius: 50px;
-            transition: 0.3s;
-        }
+/* Hero */
+.hero {
+    height: 100vh; display:flex; flex-direction:column; justify-content:center;
+    align-items:center; text-align:center; padding:0 10%;
+    background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%);
+}
+.hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight:900; color: var(--ana-renk); margin-bottom: 20px; }
 
-        .btn-home:hover {
-            background: var(--ana-renk);
-            color: white;
-        }
+/* Akordeon */
+.section-padding { padding: 100px 8%; }
+.accordion {
+    background: var(--beyaz); border: 1px solid var(--gri-border); border-radius:15px;
+    margin-bottom:15px; cursor:pointer; padding:20px 25px; transition: 0.3s;
+    display:flex; align-items:center; justify-content:space-between; font-weight: 600; color: var(--ana-renk);
+}
+.accordion:hover { border-color: var(--accent); transform: translateX(10px); }
+.panel { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: var(--beyaz); padding: 0 25px; }
 
-        /* İçerik */
-        .container {
-            padding: 80px 8%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+/* Cihazlar Grid */
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin-top:50px;}
+.card { background: var(--beyaz); border: 1px solid var(--gri-border); padding:35px; border-radius:25px; transition: 0.4s; position: relative; text-decoration: none; overflow: hidden; }
+.card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(10,31,68,0.1); border-color: var(--accent); }
+.set-card { background: #eff6ff; border: 2px dashed var(--accent); }
+.telsiz-img { width:100%; height:250px; object-fit:contain; margin-bottom:25px; }
 
-        .hero-mini {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+/* Referanslar */
+.references-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; margin-top:40px; }
+.ref-item { background: var(--beyaz); border: 1px solid var(--gri-border); padding: 25px; border-radius: 15px; display: flex; align-items: center; justify-content: space-between; transition: 0.4s; }
+.ref-item:hover { transform: scale(1.03); border-color: var(--accent); }
 
-        .hero-mini h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            color: var(--ana-renk);
-            margin-bottom: 10px;
-        }
-
-        .info-card {
-            background: var(--acik-gri);
-            padding: 40px;
-            border-radius: 30px;
-            border-left: 8px solid var(--accent);
-            margin-bottom: 60px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .info-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
-
-        /* Görsel Galeri */
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .photo-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--gri-border);
-            transition: 0.4s;
-        }
-
-        .photo-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .photo-card img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .photo-card .desc {
-            padding: 20px;
-            text-align: center;
-            font-weight: 700;
-            color: var(--ana-renk);
-            background: #fff;
-        }
-
-        footer {
-            padding: 40px;
-            background: var(--ana-renk);
-            color: white;
-            text-align: center;
-            margin-top: 80px;
-        }
-
-        @media (max-width: 768px) {
-            .container { padding: 40px 5%; }
-            header { padding-left: 80px; }
-            .btn-home { display: none; }
-        }
-    </style>
+footer { background: var(--ana-renk); color: white; padding: 60px 8%; text-align: center; }
+</style>
 </head>
 <body>
 
-    <div class="menu-toggle" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-    </div>
-
-    <div id="sideMenu" class="side-menu">
-        <div class="close-btn" onclick="toggleMenu()">&times;</div>
-        <nav class="menu-links">
-            <a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a>
-            <a href="index.html#services"><i class="fas fa-broadcast-tower"></i> Telsizler</a>
-            <a href="index.html#contact"><i class="fas fa-envelope"></i> İletişim</a>
-        </nav>
+    <!-- Yan Menü Sistemi -->
+    <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <div class="side-menu" id="sideMenu">
+        <span class="close-btn" onclick="toggleMenu()">&times;</span>
+        <div class="menu-links">
+            <a href="#"><i class="fas fa-home"></i> Ana Sayfa</a>
+            <a href="#hizmetler"><i class="fas fa-tools"></i> Hizmetlerimiz</a>
+            <a href="#cihazlar"><i class="fas fa-broadcast-tower"></i> Cihazlar</a>
+            <a href="#referanslar"><i class="fas fa-users"></i> Referanslar</a>
+            <a href="https://wa.me"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+        
+        <div class="info-box-menu">
+            <h4><i class="fas fa-truck"></i> HIZLI TEDARİK</h4>
+            <p>Set alanlarına anında cihaz ve batarya desteği.</p>
+        </div>
+        <div class="info-box-menu">
+            <h4><i class="fas fa-headset"></i> TEKNİK SERVİS</h4>
+            <p>Her marka telsiz için profesyonel onarım çözümleri.</p>
+        </div>
     </div>
 
     <header>
-        <a href="index.html" class="logo-text">LİDER TELSİZ</a>
-        <a href="index.html" class="btn-home"><i class="fas fa-chevron-left"></i> Geri Dön</a>
+        <div class="logo-box">
+            <img src="logo.png" alt="Lider Telsiz Logo" class="logo-img">
+            <span class="logo-text">LİDER TELSİZ</span>
+        </div>
     </header>
 
-    <div class="container">
-        <div class="hero-mini">
-            <h1>İNTERCOM SİSTEMLERİ</h1>
-            <p>Setlerde ve Canlı Yayınlarda Profesyonel İletişim Çözümü</p>
-        </div>
+    <section class="hero">
+        <h1 class="animate__animated animate__fadeInDown">Profesyonel Haberleşme Çözümleri</h1>
+        <p style="margin-bottom:30px; font-size:1.2rem;">Kiralama, Satış ve Teknik Servis</p>
+        <a href="tel:+905395926070" class="btn-teklif" style="background: var(--ana-renk); color: white;">Hemen Ara: 0539 592 60 70</a>
+    </section>
 
-        <div class="info-card">
-            <h3>İntercom Nedir?</h3>
-            <p>
-                İntercom sistemleri, standart telsizlerin aksine <b>"Full-Duplex"</b> haberleşme sağlar. 
-                Yani aynı anda hem konuşabilir hem de dinleyebilirsiniz; butona basmanıza gerek kalmaz. 
-                Özellikle film setlerinde yönetmen, ses ekibi ve kamera operatörleri arasındaki koordinasyonu 
-                sessiz, hızlı ve eller serbest (hands-free) bir şekilde yönetmek için vazgeçilmezdir.
-            </p>
-        </div>
+    <!-- Hizmetler Akordeon -->
+    <section id="hizmetler" class="section-padding" style="background: var(--acik-gri);">
+        <h2 style="text-align: center; font-family: 'Orbitron'; margin-bottom: 50px;">Hizmetlerimiz</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="accordion" onclick="togglePanel(this)">Set Tedariği & Film Çözümleri <i class="fas fa-plus"></i></div>
+            <div class="panel"><p style="padding: 20px 0;">Dizi ve film setleri için akustik kulaklıklar, yedek bataryalar ve yüksek performanslı telsiz grupları sağlıyoruz.</p></div>
 
-        <div class="photo-grid">
-            <div class="photo-card">
-                <img src="intercom1.png" alt="İntercom Cihazı 1" onerror="this.src='intercom1.png">
-                <div class="desc">Kablosuz Kulaklık Setleri</div>
+            <div class="accordion" onclick="togglePanel(this)">Organizasyon & Etkinlik <i class="fas fa-plus"></i></div>
+            <div class="panel"><p style="padding: 20px 0;">Fuar, konser ve büyük organizasyonlar için günlük telsiz kiralama hizmeti.</p></div>
+        </div>
+    </section>
+
+    <!-- Cihazlar Grid -->
+    <section id="cihazlar" class="section-padding">
+        <h2 style="text-align: center; font-family: 'Orbitron'; margin-bottom: 50px;">Cihazlarımız</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="telsiz1.png" alt="Telsiz" class="telsiz-img">
+                <h3>Dijital El Telsizi</h3>
+                <p>Yüksek ses kalitesi ve uzun menzil özelliği.</p>
             </div>
-            <div class="photo-card">
-                <img src="intercom2.png" alt="İntercom Cihazı 2" onerror="this.src='https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=600&auto=format&fit=crop'">
-                <div class="desc">Merkezi İstasyon Üniteleri</div>
-            </div>
-            <div class="photo-card">
-                <img src="intercom3.png" alt="İntercom Cihazı 3" onerror="this.src='https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=600&auto=format&fit=crop'">
-                <div class="desc">Bel Tipi Alıcı Üniteler</div>
+            <div class="card set-card">
+                <img src="set.png" alt="Set Tedariği" class="telsiz-img">
+                <h3>Set Tedarik Paketi</h3>
+                <p>Kulaklık ve yedek batarya dahil tam paket çözüm.</p>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Referanslar -->
+    <section id="referanslar" class="section-padding" style="background: var(--acik-gri);">
+        <h2 style="text-align: center; font-family: 'Orbitron'; margin-bottom: 50px;">Referanslarımız</h2>
+        <div class="references-grid">
+            <div class="ref-item">Film & Dizi Setleri <i class="fas fa-film"></i></div>
+            <div class="ref-item">Güvenlik Ekipleri <i class="fas fa-shield-alt"></i></div>
+            <div class="ref-item">Organizasyon Şirketleri <i class="fas fa-star"></i></div>
+            <div class="ref-item">Lojistik & İnşaat <i class="fas fa-hard-hat"></i></div>
+        </div>
+    </section>
 
     <footer>
-        <p>© 2026 Lider Telsiz | Profesyonel İntercom Kiralama</p>
+        <p>&copy; 2024 Lider Telsiz | 0539 592 60 70</p>
+        <p style="margin-top: 10px;">İstanbul, Türkiye</p>
     </footer>
 
     <script>
         function toggleMenu() {
             document.getElementById('sideMenu').classList.toggle('active');
         }
+
+        function togglePanel(acc) {
+            acc.classList.toggle("active");
+            var panel = acc.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        }
     </script>
+
 </body>
 </html>
+
