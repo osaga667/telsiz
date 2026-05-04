@@ -21,7 +21,6 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            /* ARKA FON GÖRSELİ */
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('arkafon.png'); 
             background-size: cover;
             background-position: center;
@@ -32,7 +31,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Üst Menü */
         header {
             position: fixed;
             top: 0; width: 100%;
@@ -44,7 +42,7 @@
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
 
-        .logo-img { height: 65px; width: auto; } /* MARKA LOGOSU */
+        .logo-img { height: 65px; width: auto; }
 
         .nav-links { display: flex; list-style: none; gap: 30px; }
         .nav-links a {
@@ -58,7 +56,6 @@
         }
         .nav-links a:hover { color: var(--accent); }
 
-        /* Hero */
         .hero {
             height: 100vh;
             display: flex; flex-direction: column; justify-content: center;
@@ -68,7 +65,6 @@
             font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; 
             color: white; font-family: 'Orbitron'; 
             text-shadow: 3px 3px 20px rgba(0,0,0,0.9);
-            letter-spacing: 2px;
         }
         .hero p { color: white; margin: 20px 0 40px; font-size: 1.4rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); font-weight: 500; }
 
@@ -78,15 +74,12 @@
             box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
             display: inline-block;
         }
-        .btn-teklif:hover { transform: scale(1.05); background: #2563eb; }
 
-        /* Hizmetler Bölümü */
         .section-padding { padding: 100px 8%; }
         .section-title {
             text-align: center; font-family: 'Orbitron'; margin-bottom: 60px; 
             color: var(--ana-renk); background: rgba(255,255,255,0.95); 
             padding: 20px; border-radius: 20px; width: 100%; font-size: 2.2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .hizmet-listesi { display: flex; flex-direction: column; gap: 60px; max-width: 1200px; margin: 0 auto; }
@@ -107,20 +100,17 @@
         .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--ana-renk); font-size: 2rem; margin-bottom: 25px; border-left: 6px solid var(--accent); padding-left: 20px; }
         .hizmet-icerik p { line-height: 1.8; font-size: 1.15rem; color: #475569; margin-bottom: 30px; }
 
-        /* Hakkımızda & Referanslar */
         .white-box {
             background: white; padding: 70px 10%; border-radius: 40px;
             text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.15);
         }
 
-        footer { background: var(--ana-renk); color: white; padding: 60px; text-align: center; font-family: 'Orbitron'; letter-spacing: 1px; }
+        footer { background: var(--ana-renk); color: white; padding: 60px; text-align: center; font-family: 'Orbitron'; }
 
-        /* Mobil */
         @media (max-width: 950px) {
             .hizmet-kart, .hizmet-kart:nth-child(even) { flex-direction: column; }
             .nav-links { display: none; }
             .hizmet-resim { width: 100%; height: 300px; }
-            .hizmet-icerik { padding: 40px 30px; }
         }
     </style>
 </head>
@@ -141,7 +131,7 @@
     </header>
 
     <section class="hero">
-        <h1 class="animate__animated animate__fadeInDown">LİDER TELSİZ</h1>
+        <h1>LİDER TELSİZ</h1>
         <p>Haberleşme Sistemlerinde Profesyonel Çözüm Ortağınız</p>
         <a href="tel:+905395926070" class="btn-teklif">TEKLİF ALIN</a>
     </section>
@@ -150,8 +140,9 @@
         <h2 class="section-title">Hizmetlerimiz</h2>
         <div class="hizmet-listesi">
             
+            <!-- Telsiz Kiralama Bölümü -->
             <div class="hizmet-kart">
-                <div class="hizmet-resim"><img src="telsiz4.png" alt="Telsiz Kiralama"></div>
+                <div class="hizmet-resim"><img src="telsizkiralama.png" alt="Telsiz Kiralama"></div>
                 <div class="hizmet-icerik">
                     <h3>Telsiz Kiralama ve Satışı</h3>
                     <p>En yüksek çekim gücüne sahip profesyonel dijital ve analog telsiz modelleriyle iletişim sorununuzu çözüyoruz. Satış ve uzun dönemli kiralama seçeneklerimizle her bütçeye uygun çözümler üretiyoruz.</p>
@@ -159,6 +150,7 @@
                 </div>
             </div>
 
+            <!-- Intercom Bölümü -->
             <div class="hizmet-kart">
                 <div class="hizmet-resim"><img src="intercom3.png" alt="Intercom"></div>
                 <div class="hizmet-icerik">
@@ -168,8 +160,9 @@
                 </div>
             </div>
 
+            <!-- Set Tedarik Bölümü -->
             <div class="hizmet-kart">
-                <div class="hizmet-resim"><img src="arkafon.png" alt="Set Tedarik"></div>
+                <div class="hizmet-resim"><img src="tedarik.png" alt="Set Tedarik"></div>
                 <div class="hizmet-icerik">
                     <h3>Set Tedarik Hizmeti</h3>
                     <p>Film ve dizi setlerinin tüm teknik haberleşme altyapısını profesyonelce kuruyoruz. Batarya şarj istasyonları, yedek cihazlar ve uzman saha personelimizle operasyonunuzu hızlandırıyoruz.</p>
@@ -190,12 +183,12 @@
     <section id="referanslar" class="section-padding">
         <h2 class="section-title">Referanslar</h2>
         <div class="white-box">
-            <p style="font-size: 1.1rem; color: #475569;">Türkiye'nin en büyük yapım şirketleri, organizasyon ajansları ve güvenlik birimleriyle başarılı projeler yürüttük. Referanslarımız hakkında daha fazla bilgi almak için lütfen bizimle iletişime geçin.</p>
+            <p>Referanslarımız ve iş ortaklarımız hakkında detaylı bilgi için bizimle iletişime geçebilirsiniz.</p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 LİDER TELSİZ - PROFESYONEL HABERLEŞME ÇÖZÜMLERİ</p>
+        <p>&copy; 2024 LİDER TELSİZ - TÜM HAKLARI SAKLIDIR</p>
     </footer>
 
 </body>
