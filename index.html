@@ -105,6 +105,55 @@
             text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.15);
         }
 
+        /* REFERANSLAR KAYAN SLIDER */
+        .slider {
+            height: 180px;
+            margin: auto;
+            position: relative;
+            width: 100%;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background: rgba(255,255,255,0.95);
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .slide-track {
+            display: flex;
+            width: calc(250px * 16); /* Logo sayısı x 2 (döngü için) x genişlik */
+            animation: scroll 25s linear infinite;
+        }
+
+        .slide {
+            height: 150px;
+            width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .slide img {
+            max-width: 100%;
+            max-height: 90px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: 0.4s ease;
+        }
+
+        .slide img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-250px * 8)); }
+        }
+
         footer { background: var(--ana-renk); color: white; padding: 60px; text-align: center; font-family: 'Orbitron'; }
 
         @media (max-width: 950px) {
@@ -132,7 +181,7 @@
 
     <section class="hero">
         <h1>LİDER TELSİZ</h1>
-        <p>Haberleşme Sistemlerinde Profesyonel Çözüm Ortağınız</p>
+        <p>Profesyonel Haberleşmede Güvenilir Çözüm Ortağınız</p>
         <a href="tel:+905395926070" class="btn-teklif">TEKLİF ALIN</a>
     </section>
 
@@ -144,7 +193,7 @@
                 <div class="hizmet-resim"><img src="telsizkiralama.png" alt="Telsiz Kiralama"></div>
                 <div class="hizmet-icerik">
                     <h3>Telsiz Kiralama ve Satışı</h3>
-                    <p>En yüksek çekim gücüne sahip profesyonel dijital ve analog telsiz modelleriyle iletişim sorununuzu çözüyoruz. Satış ve uzun dönemli kiralama seçeneklerimizle her bütçeye uygun çözümler üretiyoruz.</p>
+                    <p>Profesyonel dijital ve analog telsiz modelleriyle iletişim sorununuzu çözüyoruz. Her bütçeye uygun kiralama ve satış seçenekleriyle yanınızdayız.</p>
                     <a href="tel:+905395926070" class="btn-teklif" style="padding: 12px 35px; font-size: 0.85rem;">DETAYLI BİLGİ</a>
                 </div>
             </div>
@@ -153,7 +202,7 @@
                 <div class="hizmet-resim"><img src="intercom3.png" alt="Intercom"></div>
                 <div class="hizmet-icerik">
                     <h3>İnterkom Kulaklık Kiralama</h3>
-                    <p>Canlı yayınlar, stüdyo çalışmaları ve büyük set operasyonları için profesyonel interkom sistemleri. Gürültü engelleyici kulaklıklarımızla en kalabalık ortamlarda bile iletişiminiz asla kopmasın.</p>
+                    <p>Canlı yayınlar ve set operasyonları için profesyonel interkom sistemleri. Gürültü engelleyici kulaklıklarla kesintisiz haberleşme altyapısı.</p>
                     <a href="tel:+905395926070" class="btn-teklif" style="padding: 12px 35px; font-size: 0.85rem;">DETAYLI BİLGİ</a>
                 </div>
             </div>
@@ -162,7 +211,7 @@
                 <div class="hizmet-resim"><img src="tedarikmlz.png" alt="Set Tedarik"></div>
                 <div class="hizmet-icerik">
                     <h3>Set Tedarik Hizmeti</h3>
-                    <p>Film ve dizi setlerinin tüm teknik haberleşme altyapısını profesyonelce kuruyoruz. Batarya şarj istasyonları, yedek cihazlar ve uzman saha personelimizle operasyonunuzu hızlandırıyoruz.</p>
+                    <p>Film ve dizi setlerinin teknik haberleşme altyapısını profesyonelce kuruyoruz. Batarya şarj üniteleri ve yedek cihaz desteğiyle operasyonunuza hız katıyoruz.</p>
                     <a href="tel:+905395926070" class="btn-teklif" style="padding: 12px 35px; font-size: 0.85rem;">BİZE ULAŞIN</a>
                 </div>
             </div>
@@ -173,14 +222,34 @@
     <section id="hakkimizda" class="section-padding">
         <h2 class="section-title">Hakkımızda</h2>
         <div class="white-box">
-            <p style="font-size: 1.25rem; line-height: 2; color: #334155;">Lider Telsiz, İstanbul merkezli olarak profesyonel haberleşme sektöründe güvenilirliği temsil etmektedir. Dizi, sinema, konser ve dev organizasyonlarda edindiğimiz tecrübeyle, müşterilerimize en kaliteli cihazları ve kesintisiz teknik desteği sunmaktan gurur duyuyoruz.</p>
+            <p style="font-size: 1.25rem; line-height: 2; color: #334155;">Lider Telsiz, İstanbul merkezli olarak profesyonel haberleşme sektöründe güvenilirliği temsil etmektedir. Dizi, sinema, konser ve dev organizasyonlarda edindiğimiz tecrübeyle müşterilerimizin en zorlu projelerinde yanındayız.</p>
         </div>
     </section>
 
     <section id="referanslar" class="section-padding">
-        <h2 class="section-title">Referanslar</h2>
-        <div class="white-box">
-            <p>Referanslarımız ve iş ortaklarımız hakkında detaylı bilgi için bizimle iletişime geçebilirsiniz.</p>
+        <h2 class="section-title">Referanslarımız</h2>
+        
+        <div class="slider">
+            <div class="slide-track">
+                <!-- 4 Logo (Pürüzsüz döngü için 2'şer kez ekliyoruz) -->
+                <div class="slide"><img src="ref1.png" alt="Referans 1"></div>
+                <div class="slide"><img src="ref2.png" alt="Referans 2"></div>
+                <div class="slide"><img src="ref3.png" alt="Referans 3"></div>
+                <div class="slide"><img src="ref4.png" alt="Referans 4"></div>
+                <div class="slide"><img src="ref1.png" alt="Referans 1"></div>
+                <div class="slide"><img src="ref2.png" alt="Referans 2"></div>
+                <div class="slide"><img src="ref3.png" alt="Referans 3"></div>
+                <div class="slide"><img src="ref4.png" alt="Referans 4"></div>
+                <!-- Ekstra döngü garantisi -->
+                <div class="slide"><img src="ref1.png" alt="Referans 1"></div>
+                <div class="slide"><img src="ref2.png" alt="Referans 2"></div>
+                <div class="slide"><img src="ref3.png" alt="Referans 3"></div>
+                <div class="slide"><img src="ref4.png" alt="Referans 4"></div>
+                <div class="slide"><img src="ref1.png" alt="Referans 1"></div>
+                <div class="slide"><img src="ref2.png" alt="Referans 2"></div>
+                <div class="slide"><img src="ref3.png" alt="Referans 3"></div>
+                <div class="slide"><img src="ref4.png" alt="Referans 4"></div>
+            </div>
         </div>
     </section>
 
