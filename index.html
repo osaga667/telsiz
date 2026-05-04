@@ -15,23 +15,59 @@
             --accent: #3b82f6;
             --beyaz: #ffffff;
             --metin: #1e293b;
-            --whatsapp: #25d366;
         }
 
         * { margin:0; padding:0; box-sizing:border-box; }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('arkafon.png'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
             color: var(--metin);
             overflow-x: hidden;
             scroll-behavior: smooth;
+            background-color: #000;
         }
 
+        /* --- DEĞİŞEN ARKA PLAN SİSTEMİ (SLIDER) --- */
+        .bg-slider {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+        }
+
+        .bg-slide {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0;
+            transition: opacity 2s ease-in-out; /* Geçiş yumuşaklığı */
+            animation: sliderAnim 14s infinite; /* Toplam döngü süresi */
+        }
+
+        /* 1. Resim Ayarı */
+        .slide1 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('arkafon.png');
+            animation-delay: 0s;
+        }
+
+        /* 2. Resim Ayarı */
+        .slide2 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('arkafon2.png');
+            animation-delay: 7s;
+        }
+
+        @keyframes sliderAnim {
+            0% { opacity: 0; }
+            10% { opacity: 1; } /* Belirme süresi */
+            45% { opacity: 1; } /* Ekranda kalma süresi */
+            55% { opacity: 0; } /* Kaybolma süresi */
+            100% { opacity: 0; }
+        }
+
+        /* --- HEADER & MENU --- */
         header {
             position: fixed;
             top: 0; width: 100%;
@@ -46,6 +82,7 @@
         .logo-img { height: 65px; width: auto; }
 
         .nav-links { display: flex; list-style: none; gap: 30px; }
+        .dropdown { position: relative; display: inline-block; }
         .nav-links a {
             text-decoration: none;
             color: var(--ana-renk);
@@ -54,103 +91,55 @@
             text-transform: uppercase;
             font-family: 'Orbitron', sans-serif;
             transition: 0.3s;
+            padding: 15px 0;
+            display: block;
         }
+        .dropdown-content {
+            display: none; position: absolute; background-color: white; min-width: 260px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 1; border-radius: 8px;
+            top: 100%; left: 0; padding: 10px 0;
+        }
+        .dropdown-content a {
+            color: var(--metin); padding: 12px 20px; text-decoration: none; display: block;
+            font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 500;
+            text-transform: none; border-bottom: 1px solid #f1f5f9;
+        }
+        .dropdown-content a:hover { background-color: #f8fafc; color: var(--accent); padding-left: 25px; }
+        .dropdown:hover .dropdown-content { display: block; animation: fadeIn 0.3s; }
         .nav-links a:hover { color: var(--accent); }
 
-        .hero {
-            height: 100vh;
-            display: flex; flex-direction: column; justify-content: center;
-            align-items: center; text-align: center; padding: 0 10%;
-        }
-        .hero h1 { 
-            font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; 
-            color: white; font-family: 'Orbitron'; 
-            text-shadow: 3px 3px 20px rgba(0,0,0,0.9);
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- SECTIONS --- */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; color: white; font-family: 'Orbitron'; text-shadow: 3px 3px 20px rgba(0,0,0,0.9); }
         .hero p { color: white; margin: 20px 0 40px; font-size: 1.4rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); font-weight: 500; }
 
-        .btn-teklif {
-            background: var(--accent); color: white; padding: 20px 50px;
-            border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
-            display: inline-block;
-        }
+        .btn-teklif { background: var(--accent); color: white; padding: 20px 50px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4); display: inline-block; }
 
         .section-padding { padding: 100px 8%; }
-        .section-title {
-            text-align: center; font-family: 'Orbitron'; margin-bottom: 60px; 
-            color: var(--ana-renk); background: rgba(255,255,255,0.95); 
-            padding: 20px; border-radius: 20px; width: 100%; font-size: 2.2rem;
-        }
+        .section-title { text-align: center; font-family: 'Orbitron'; margin-bottom: 60px; color: var(--ana-renk); background: rgba(255,255,255,0.95); padding: 20px; border-radius: 20px; width: 100%; font-size: 2.2rem; }
 
         .hizmet-listesi { display: flex; flex-direction: column; gap: 60px; max-width: 1200px; margin: 0 auto; }
-
-        .hizmet-kart {
-            display: flex; align-items: center;
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 40px; overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            transition: 0.4s;
-        }
+        .hizmet-kart { display: flex; align-items: center; background: rgba(255, 255, 255, 0.98); border-radius: 40px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.3); transition: 0.4s; }
         .hizmet-kart:nth-child(even) { flex-direction: row-reverse; }
-
         .hizmet-resim { flex: 1; height: 400px; }
         .hizmet-resim img { width: 100%; height: 100%; object-fit: cover; }
-
         .hizmet-icerik { flex: 1.2; padding: 60px; }
         .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--ana-renk); font-size: 2rem; margin-bottom: 25px; border-left: 6px solid var(--accent); padding-left: 20px; }
         .hizmet-icerik p { line-height: 1.8; font-size: 1.15rem; color: #475569; margin-bottom: 30px; }
 
-        /* REFERANSLAR */
-        .slider {
-            height: 180px;
-            margin: auto;
-            position: relative;
-            width: 100%;
-            display: grid;
-            place-items: center;
-            overflow: hidden;
-            background: rgba(255,255,255,0.95);
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .slide-track {
-            display: flex;
-            width: calc(250px * 16);
-            animation: scroll 25s linear infinite;
-        }
-
+        /* --- REFERANSLAR --- */
+        .slider { height: 180px; margin: auto; position: relative; width: 100%; display: grid; place-items: center; overflow: hidden; background: rgba(255,255,255,0.95); border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .slide-track { display: flex; width: calc(250px * 16); animation: scroll 25s linear infinite; }
         .slide { height: 150px; width: 250px; display: flex; align-items: center; justify-content: center; padding: 20px; }
         .slide img { max-width: 100%; max-height: 90px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: 0.4s ease; }
         .slide img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 8)); } }
 
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-250px * 8)); }
-        }
-
-        .whatsapp-fixed {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: var(--whatsapp);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 35px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 2000;
-            transition: 0.3s;
-            text-decoration: none;
-        }
-        .whatsapp-fixed:hover { transform: scale(1.1); background-color: #128c7e; }
-
+        /* --- FOOTER --- */
         footer { background: var(--ana-renk); color: white; padding: 60px; text-align: center; font-family: 'Orbitron'; }
+        .footer-logo { height: 80px; width: auto; margin-bottom: 20px; filter: brightness(0) invert(1); }
 
         @media (max-width: 950px) {
             .hizmet-kart, .hizmet-kart:nth-child(even) { flex-direction: column; }
@@ -161,11 +150,11 @@
 </head>
 <body>
 
-    <a href="https://wa.me" target="_blank" 
-       style="position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; border-radius: 50px; padding: 15px 25px; text-decoration: none; font-weight: bold; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 9999; display: flex; align-items: center; gap: 10px; font-family: 'Poppins', sans-serif; transition: 0.3s;">
-      <i class="fab fa-whatsapp" style="font-size: 24px;"></i> 
-      WhatsApp Destek
-    </a>
+    <!-- Arka Plan Katmanları -->
+    <div class="bg-slider">
+        <div class="bg-slide slide1"></div>
+        <div class="bg-slide slide2"></div>
+    </div>
 
     <header>
         <a href="index.html" class="logo-box">
@@ -175,7 +164,22 @@
             <ul class="nav-links">
                 <li><a href="index.html">Ana Sayfa</a></li>
                 <li><a href="#hizmetler">Hizmetler</a></li>
-                <li><a href="urunlerimiz.html">Ürünlerimiz</a></li> <!-- YENİ EKLENEN LİNK -->
+                <li class="dropdown">
+                    <a href="urunlerimiz.html">Ürünlerimiz <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 3px;"></i></a>
+                    <div class="dropdown-content">
+                        <a href="urunlerimiz.html">Tüm Ürünler</a>
+                        <a href="#">Güvenlik Bariyerleri</a>
+                        <a href="#">Pmr Lisanssız El Telsizi</a>
+                        <a href="#">Profesyonel El Telsizleri</a>
+                        <a href="#">Araç Telsizleri</a>
+                        <a href="#">Bas Konuş Telsizler</a>
+                        <a href="#">Atex / Exproof El Telsizleri</a>
+                        <a href="#">Röle Sistemleri</a>
+                        <a href="#">Tetra Sistemleri</a>
+                        <a href="#">Aksesuar & Yedek Parça</a>
+                        <a href="#">X-Ray Cihazları</a>
+                    </div>
+                </li>
                 <li><a href="#referanslar">Referanslar</a></li>
             </ul>
         </nav>
@@ -190,34 +194,30 @@
     <section id="hizmetler" class="section-padding">
         <h2 class="section-title">Hizmetlerimiz</h2>
         <div class="hizmet-listesi">
-            
             <div class="hizmet-kart">
                 <div class="hizmet-resim"><img src="telsizkiralama.png" alt="Telsiz Kiralama"></div>
                 <div class="hizmet-icerik">
                     <h3>Telsiz Kiralama ve Satışı</h3>
-                    <p>Profesyonel dijital ve analog telsiz modelleriyle iletişim sorununuzu çözüyoruz. Her bütçeye uygun kiralama ve satış seçenekleriyle yanınızdayız.</p>
+                    <p>Profesyonel telsiz modelleriyle iletişim sorununuzu çözüyoruz. Her bütçeye uygun kiralama ve satış seçenekleriyle yanınızdayız.</p>
                     <a href="https://wa.me" class="btn-teklif" style="padding: 12px 35px; font-size: 0.85rem;">DETAYLI BİLGİ</a>
                 </div>
             </div>
-
             <div class="hizmet-kart">
                 <div class="hizmet-resim"><img src="intercom3.png" alt="Intercom"></div>
                 <div class="hizmet-icerik">
                     <h3>İnterkom Kulaklık Kiralama</h3>
-                    <p>Canlı yayınlar ve set operasyonları için profesyonel interkom sistemleri. Gürültü engelleyici kulaklıklarla kesintisiz haberleşme altyapısı.</p>
+                    <p>Canlı yayınlar ve set operasyonları için profesyonel interkom sistemleri. Gürültü engelleyici kulaklıklarla kesintisiz haberleşme.</p>
                     <a href="https://wa.me" class="btn-teklif" style="padding: 12px 35px; font-size: 0.85rem;">DETAYLI BİLGİ</a>
                 </div>
             </div>
-
             <div class="hizmet-kart">
                 <div class="hizmet-resim"><img src="tedarikmlz.png" alt="Set Tedarik"></div>
                 <div class="hizmet-icerik">
                     <h3>Set Tedarik Hizmeti</h3>
-                    <p>Film ve dizi setlerinin teknik haberleşme altyapısını profesyonelce kuruyoruz. Batarya şarj üniteleri ve yedek cihaz desteğiyle operasyonunuza hız katıyoruz.</p>
+                    <p>Film ve dizi setlerinin teknik haberleşme altyapısını profesyonelce kuruyoruz. Batarya ve yedek cihaz desteğiyle operasyonunuza hız katıyoruz.</p>
                     <a href="https://wa.me" class="btn-teklif" style="padding: 12px 35px; font-size: 0.85rem;">BİZE ULAŞIN</a>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -225,22 +225,29 @@
         <h2 class="section-title">Referanslarımız</h2>
         <div class="slider">
             <div class="slide-track">
-                <div class="slide"><img src="ref1.png" alt="Referans 1"></div>
-                <div class="slide"><img src="ref2.png" alt="Referans 2"></div>
-                <div class="slide"><img src="ref3.png" alt="Referans 3"></div>
-                <div class="slide"><img src="ref4.png" alt="Referans 4"></div>
-                <!-- Kopyalar -->
-                <div class="slide"><img src="ref1.png" alt="Referans 1"></div>
-                <div class="slide"><img src="ref2.png" alt="Referans 2"></div>
-                <div class="slide"><img src="ref3.png" alt="Referans 3"></div>
-                <div class="slide"><img src="ref4.png" alt="Referans 4"></div>
+                <div class="slide"><img src="ref1.png" alt="Ref 1"></div>
+                <div class="slide"><img src="ref2.png" alt="Ref 2"></div>
+                <div class="slide"><img src="ref3.png" alt="Ref 3"></div>
+                <div class="slide"><img src="ref4.png" alt="Ref 4"></div>
+                <div class="slide"><img src="ref1.png" alt="Ref 1"></div>
+                <div class="slide"><img src="ref2.png" alt="Ref 2"></div>
+                <div class="slide"><img src="ref3.png" alt="Ref 3"></div>
+                <div class="slide"><img src="ref4.png" alt="Ref 4"></div>
             </div>
         </div>
     </section>
 
     <footer>
+        <img src="markalogo.png" alt="Lider Telsiz" class="footer-logo">
         <p>&copy; 2024 LİDER TELSİZ - TÜM HAKLARI SAKLIDIR</p>
     </footer>
+
+    <!-- WhatsApp Butonu -->
+    <a href="https://wa.me" target="_blank" 
+       style="position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; border-radius: 50px; padding: 15px 25px; text-decoration: none; font-weight: bold; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 9999; display: flex; align-items: center; gap: 10px; font-family: 'Poppins', sans-serif; transition: 0.3s;">
+      <i class="fab fa-whatsapp" style="font-size: 24px;"></i> 
+      WhatsApp Destek
+    </a>
 
 </body>
 </html>
