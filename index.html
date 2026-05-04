@@ -21,8 +21,8 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            /* ARKA FON LOGOSU */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('arkafonlogo.png'); 
+            /* ARKA FON GÖRSELİ */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('arkafon.png'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -44,9 +44,9 @@
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
 
-        .logo-img { height: 60px; width: auto; } /* MARKA LOGOSU */
+        .logo-img { height: 65px; width: auto; } /* MARKA LOGOSU */
 
-        .nav-links { display: flex; list-style: none; gap: 25px; }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
         .nav-links a {
             text-decoration: none;
             color: var(--ana-renk);
@@ -67,14 +67,16 @@
         .hero h1 { 
             font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; 
             color: white; font-family: 'Orbitron'; 
-            text-shadow: 3px 3px 20px rgba(0,0,0,0.8);
+            text-shadow: 3px 3px 20px rgba(0,0,0,0.9);
+            letter-spacing: 2px;
         }
-        .hero p { color: white; margin: 20px 0 40px; font-size: 1.3rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); font-weight: 500; }
+        .hero p { color: white; margin: 20px 0 40px; font-size: 1.4rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); font-weight: 500; }
 
         .btn-teklif {
             background: var(--accent); color: white; padding: 20px 50px;
             border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s;
             box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            display: inline-block;
         }
         .btn-teklif:hover { transform: scale(1.05); background: #2563eb; }
 
@@ -82,40 +84,43 @@
         .section-padding { padding: 100px 8%; }
         .section-title {
             text-align: center; font-family: 'Orbitron'; margin-bottom: 60px; 
-            color: var(--ana-renk); background: rgba(255,255,255,0.9); 
-            padding: 20px; border-radius: 15px; width: 100%; font-size: 2rem;
+            color: var(--ana-renk); background: rgba(255,255,255,0.95); 
+            padding: 20px; border-radius: 20px; width: 100%; font-size: 2.2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .hizmet-listesi { display: flex; flex-direction: column; gap: 50px; max-width: 1200px; margin: 0 auto; }
+        .hizmet-listesi { display: flex; flex-direction: column; gap: 60px; max-width: 1200px; margin: 0 auto; }
 
         .hizmet-kart {
             display: flex; align-items: center;
             background: rgba(255, 255, 255, 0.98);
-            border-radius: 30px; overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border-radius: 40px; overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
             transition: 0.4s;
         }
         .hizmet-kart:nth-child(even) { flex-direction: row-reverse; }
 
-        .hizmet-resim { flex: 1; min-height: 350px; background: #cbd5e1; }
+        .hizmet-resim { flex: 1; height: 400px; }
         .hizmet-resim img { width: 100%; height: 100%; object-fit: cover; }
 
-        .hizmet-icerik { flex: 1.2; padding: 50px; }
-        .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--ana-renk); font-size: 1.8rem; margin-bottom: 20px; }
-        .hizmet-icerik p { line-height: 1.8; font-size: 1.1rem; color: #475569; margin-bottom: 30px; }
+        .hizmet-icerik { flex: 1.2; padding: 60px; }
+        .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--ana-renk); font-size: 2rem; margin-bottom: 25px; border-left: 6px solid var(--accent); padding-left: 20px; }
+        .hizmet-icerik p { line-height: 1.8; font-size: 1.15rem; color: #475569; margin-bottom: 30px; }
 
         /* Hakkımızda & Referanslar */
         .white-box {
-            background: white; padding: 60px; border-radius: 30px;
-            text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            background: white; padding: 70px 10%; border-radius: 40px;
+            text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.15);
         }
 
-        footer { background: var(--ana-renk); color: white; padding: 50px; text-align: center; font-family: 'Orbitron'; }
+        footer { background: var(--ana-renk); color: white; padding: 60px; text-align: center; font-family: 'Orbitron'; letter-spacing: 1px; }
 
         /* Mobil */
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
             .hizmet-kart, .hizmet-kart:nth-child(even) { flex-direction: column; }
             .nav-links { display: none; }
+            .hizmet-resim { width: 100%; height: 300px; }
+            .hizmet-icerik { padding: 40px 30px; }
         }
     </style>
 </head>
@@ -136,9 +141,9 @@
     </header>
 
     <section class="hero">
-        <h1 class="animate__animated animate__zoomIn">LİDER TELSİZ</h1>
-        <p>Haberleşme Sistemlerinde Profesyonel Çözümler</p>
-        <a href="tel:+905395926070" class="btn-teklif">HEMEN ARA</a>
+        <h1 class="animate__animated animate__fadeInDown">LİDER TELSİZ</h1>
+        <p>Haberleşme Sistemlerinde Profesyonel Çözüm Ortağınız</p>
+        <a href="tel:+905395926070" class="btn-teklif">TEKLİF ALIN</a>
     </section>
 
     <section id="hizmetler" class="section-padding">
@@ -146,29 +151,29 @@
         <div class="hizmet-listesi">
             
             <div class="hizmet-kart">
-                <div class="hizmet-resim"><img src="telsiz-kiralama.jpg" alt="Telsiz Kiralama"></div>
+                <div class="hizmet-resim"><img src="telsiz4.png" alt="Telsiz Kiralama"></div>
                 <div class="hizmet-icerik">
                     <h3>Telsiz Kiralama ve Satışı</h3>
-                    <p>En kaliteli dijital ve analog telsiz modelleriyle setlerinize ve organizasyonlarınıza güç katıyoruz. Satış sonrası teknik destek ile yanınızdayız.</p>
-                    <a href="tel:+905395926070" class="btn-teklif" style="padding: 10px 30px; font-size: 0.8rem;">BİLGİ AL</a>
+                    <p>En yüksek çekim gücüne sahip profesyonel dijital ve analog telsiz modelleriyle iletişim sorununuzu çözüyoruz. Satış ve uzun dönemli kiralama seçeneklerimizle her bütçeye uygun çözümler üretiyoruz.</p>
+                    <a href="tel:+905395926070" class="btn-teklif" style="padding: 12px 35px; font-size: 0.85rem;">DETAYLI BİLGİ</a>
                 </div>
             </div>
 
             <div class="hizmet-kart">
-                <div class="hizmet-resim"><img src="intercom.jpg" alt="Intercom"></div>
+                <div class="hizmet-resim"><img src="intercom3.png" alt="Intercom"></div>
                 <div class="hizmet-icerik">
-                    <h3>İnterkom & Kulaklık</h3>
-                    <p>Gürültülü ortamlarda bile kristal netliğinde iletişim. Set ekipleri ve canlı yayın operasyonları için profesyonel kulaklık çözümleri.</p>
-                    <a href="tel:+905395926070" class="btn-teklif" style="padding: 10px 30px; font-size: 0.8rem;">BİLGİ AL</a>
+                    <h3>İnterkom Kulaklık Kiralama</h3>
+                    <p>Canlı yayınlar, stüdyo çalışmaları ve büyük set operasyonları için profesyonel interkom sistemleri. Gürültü engelleyici kulaklıklarımızla en kalabalık ortamlarda bile iletişiminiz asla kopmasın.</p>
+                    <a href="tel:+905395926070" class="btn-teklif" style="padding: 12px 35px; font-size: 0.85rem;">DETAYLI BİLGİ</a>
                 </div>
             </div>
 
             <div class="hizmet-kart">
-                <div class="hizmet-resim"><img src="set-tedarik.jpg" alt="Set Tedarik"></div>
+                <div class="hizmet-resim"><img src="arkafon.png" alt="Set Tedarik"></div>
                 <div class="hizmet-icerik">
                     <h3>Set Tedarik Hizmeti</h3>
-                    <p>Film ve dizi setlerinin tüm haberleşme altyapısını anahtar teslim kuruyoruz. Batarya desteğinden saha personeline kadar tam hizmet.</p>
-                    <a href="tel:+905395926070" class="btn-teklif" style="padding: 10px 30px; font-size: 0.8rem;">BİLGİ AL</a>
+                    <p>Film ve dizi setlerinin tüm teknik haberleşme altyapısını profesyonelce kuruyoruz. Batarya şarj istasyonları, yedek cihazlar ve uzman saha personelimizle operasyonunuzu hızlandırıyoruz.</p>
+                    <a href="tel:+905395926070" class="btn-teklif" style="padding: 12px 35px; font-size: 0.85rem;">BİZE ULAŞIN</a>
                 </div>
             </div>
 
@@ -178,19 +183,19 @@
     <section id="hakkimizda" class="section-padding">
         <h2 class="section-title">Hakkımızda</h2>
         <div class="white-box">
-            <p style="font-size: 1.2rem; line-height: 2;">Lider Telsiz, İstanbul merkezli olarak profesyonel haberleşme sektöründe öncü bir rol üstlenmektedir. Deneyimli ekibimizle film setleri, büyük organizasyonlar ve güvenli haberleşme gerektiren her alanda en iyi cihazları ve teknik desteği sağlıyoruz.</p>
+            <p style="font-size: 1.25rem; line-height: 2; color: #334155;">Lider Telsiz, İstanbul merkezli olarak profesyonel haberleşme sektöründe güvenilirliği temsil etmektedir. Dizi, sinema, konser ve dev organizasyonlarda edindiğimiz tecrübeyle, müşterilerimize en kaliteli cihazları ve kesintisiz teknik desteği sunmaktan gurur duyuyoruz.</p>
         </div>
     </section>
 
     <section id="referanslar" class="section-padding">
         <h2 class="section-title">Referanslar</h2>
         <div class="white-box">
-            <p>Çalıştığımız seçkin yapım şirketleri ve organizasyon partnerlerimizle haberleşmeyi kusursuz kılıyoruz.</p>
+            <p style="font-size: 1.1rem; color: #475569;">Türkiye'nin en büyük yapım şirketleri, organizasyon ajansları ve güvenlik birimleriyle başarılı projeler yürüttük. Referanslarımız hakkında daha fazla bilgi almak için lütfen bizimle iletişime geçin.</p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 LIDER TELSIZ - TÜM HAKLARI SAKLIDIR</p>
+        <p>&copy; 2024 LİDER TELSİZ - PROFESYONEL HABERLEŞME ÇÖZÜMLERİ</p>
     </footer>
 
 </body>
