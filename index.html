@@ -45,10 +45,8 @@
         }
 
         .mobile-toggle { 
-            display: none; /* BİLGİSAYARDA GİZLİ */
-            font-size: 28px; 
-            color: var(--ana-renk); 
-            cursor: pointer; 
+            display: none; /* Bilgisayarda gizli */
+            font-size: 28px; color: var(--ana-renk); cursor: pointer; 
         }
 
         .logo-img { height: clamp(45px, 8vw, 65px); width: auto; }
@@ -57,24 +55,19 @@
         .nav-links a {
             text-decoration: none; color: var(--ana-renk); font-weight: 700;
             font-size: 0.85rem; text-transform: uppercase; font-family: 'Orbitron';
-            transition: 0.3s;
         }
-        .nav-links a:hover { color: var(--accent); }
 
         /* --- YAN MENÜ (DRAWER) --- */
         .side-drawer {
             position: fixed; top: 0; left: -320px; width: 300px; height: 100%;
-            background: var(--ana-renk); z-index: 2000; transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); 
+            background: var(--ana-renk); z-index: 2000; transition: 0.5s; 
             padding: 50px 30px; box-shadow: 10px 0 30px rgba(0,0,0,0.5);
         }
         .side-drawer.active { left: 0; }
         .drawer-close { color: white; font-size: 40px; text-align: right; cursor: pointer; display: block; margin-bottom: 40px; }
         .drawer-links { list-style: none; }
         .drawer-links li { margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
-        .drawer-links a { 
-            color: white; text-decoration: none; font-family: 'Orbitron'; font-size: 1.1rem; 
-            display: flex; align-items: center; gap: 15px;
-        }
+        .drawer-links a { color: white; text-decoration: none; font-family: 'Orbitron'; font-size: 1.1rem; }
 
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1500; display: none; }
         .overlay.active { display: block; }
@@ -94,6 +87,7 @@
         .hizmet-resim img { width: 100%; height: 100%; object-fit: cover; }
         .hizmet-icerik { flex: 1.2; padding: 50px; min-width: 300px; }
         .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--ana-renk); margin-bottom: 25px; font-size: clamp(1.4rem, 4vw, 2rem); border-left: 6px solid var(--accent); padding-left: 20px; }
+        .hizmet-icerik p { line-height: 1.8; font-size: 1.15rem; color: #475569; margin-bottom: 30px; }
 
         .slider { height: 180px; background: rgba(255,255,255,0.95); border-radius: 30px; overflow: hidden; display: flex; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         .slide-track { display: flex; width: calc(250px * 16); animation: scroll 25s linear infinite; }
@@ -106,8 +100,8 @@
 
         /* MOBİL AYARLAR */
         @media (max-width: 900px) {
-            .nav-links { display: none; } /* Üst menü mobilde gizlenir */
-            .mobile-toggle { display: block; } /* Izgara menü mobilde görünür */
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
             header { padding: 10px 5%; }
             .section-padding { padding: 60px 5%; }
             .hizmet-resim { height: 300px; }
@@ -126,10 +120,10 @@
     <div class="side-drawer" id="drawer">
         <div class="drawer-close" onclick="toggleMenu()">&times;</div>
         <ul class="drawer-links">
-            <li><a href="index.html" onclick="toggleMenu()"><i class="fas fa-home"></i> Ana Sayfa</a></li>
-            <li><a href="urunlerimiz.html"><i class="fas fa-shopping-cart"></i> Ürünlerimiz</a></li>
-            <li><a href="#hizmetler" onclick="toggleMenu()"><i class="fas fa-tools"></i> Hizmetlerimiz</a></li>
-            <li><a href="#referanslar" onclick="toggleMenu()"><i class="fas fa-users"></i> Referanslar</a></li>
+            <li><a href="index.html" onclick="toggleMenu()">Ana Sayfa</a></li>
+            <li><a href="urunlerimiz.html">Ürünlerimiz</a></li>
+            <li><a href="#hizmetler" onclick="toggleMenu()">Hizmetler</a></li>
+            <li><a href="#referanslar" onclick="toggleMenu()">Referanslar</a></li>
         </ul>
     </div>
 
@@ -148,29 +142,41 @@
 
     <section class="hero">
         <h1>LİDER TELSİZ</h1>
-        <p>Profesyonel Haberleşme Sistemlerinde Güvenilir Çözüm Ortağınız</p>
+        <p>Haberleşme Sistemlerinde Profesyonel Çözüm Ortağınız</p>
         <a href="tel:+905395926070" style="background:var(--accent); color:white; padding:20px 50px; border-radius:50px; text-decoration:none; font-weight:bold; box-shadow: 0 10px 30px rgba(59,130,246,0.4);">0539 592 60 70</a>
     </section>
 
     <section id="hizmetler" class="section-padding">
         <h2 class="section-title">Hizmetlerimiz</h2>
         <div class="hizmet-listesi">
+            
             <div class="hizmet-kart">
                 <div class="hizmet-resim"><img src="telsizkiralama.png" alt="Telsiz Kiralama"></div>
                 <div class="hizmet-icerik">
                     <h3>Telsiz Kiralama ve Satışı</h3>
-                    <p>Profesyonel telsiz modelleriyle iletişim sorununuzu çözüyoruz. Her bütçeye uygun seçeneklerle yanınızdayız.</p>
+                    <p>En yüksek çekim gücüne sahip profesyonel dijital ve analog telsiz modelleriyle iletişim sorununuzu çözüyoruz. Her bütçeye uygun seçeneklerle yanınızdayız.</p>
                     <a href="https://wa.me" style="background: var(--accent); color: white; padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block;">DETAYLI BİLGİ</a>
                 </div>
             </div>
+
             <div class="hizmet-kart">
                 <div class="hizmet-resim"><img src="intercom3.png" alt="Intercom"></div>
                 <div class="hizmet-icerik">
                     <h3>İnterkom Kulaklık Kiralama</h3>
-                    <p>Canlı yayınlar ve set operasyonları için profesyonel interkom sistemleri ve kulaklık çözümleri.</p>
+                    <p>Canlı yayınlar ve set operasyonları için profesyonel interkom sistemleri. Gürültü engelleyici kulaklıklarla kesintisiz haberleşme altyapısı.</p>
                     <a href="https://wa.me" style="background: var(--accent); color: white; padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block;">DETAYLI BİLGİ</a>
                 </div>
             </div>
+
+            <div class="hizmet-kart">
+                <div class="hizmet-resim"><img src="tedarikmlz.png" alt="Set Tedarik"></div>
+                <div class="hizmet-icerik">
+                    <h3>Set Tedarik Hizmeti</h3>
+                    <p>Film ve dizi setlerinin teknik haberleşme altyapısını profesyonelce kuruyoruz. Batarya ve yedek cihaz desteğiyle operasyonunuza hız katıyoruz.</p>
+                    <a href="https://wa.me" style="background: var(--accent); color: white; padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block;">BİZE ULAŞIN</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
