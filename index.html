@@ -7,105 +7,60 @@
     
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
-    <link rel="stylesheet" href="https://cloudflare.com"/>
 
     <style>
-        :root {
-            --ana-renk: #0a1f44;
-            --accent: #3b82f6;
-            --metin: #1e293b;
-        }
-
+        :root { --ana-renk: #0a1f44; --accent: #3b82f6; --metin: #1e293b; }
         * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: #000; overflow-x: hidden; scroll-behavior: smooth; }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #000;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* --- ARKA PLAN SLIDER --- */
+        /* ARKA PLAN SLIDER */
         .bg-slider { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
-        .bg-slide {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center; background-attachment: fixed;
-            opacity: 0; animation: sliderAnim 14s infinite;
-        }
+        .bg-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; animation: sliderAnim 14s infinite; }
         .slide1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('arkafon.png'); }
         .slide2 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('arkafon2.png'); animation-delay: 7s; }
         @keyframes sliderAnim { 0%, 100% { opacity: 0; } 10%, 45% { opacity: 1; } 55%, 90% { opacity: 0; } }
 
-        /* --- HEADER --- */
-        header {
-            position: fixed; top: 0; width: 100%;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 8%; background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
+        /* HEADER */
+        header { position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 10px 8%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; }
+        
+        /* LOGO STİLİ */
+        .logo-img { height: clamp(50px, 10vw, 70px); width: auto; transition: 0.3s ease; }
+        .logo-img:hover { filter: drop-shadow(0px 0px 8px rgba(59, 130, 246, 0.5)); transform: scale(1.05); }
 
-        .mobile-toggle { 
-            display: none; /* Bilgisayarda gizli */
-            font-size: 28px; color: var(--ana-renk); cursor: pointer; 
-        }
-
-        .logo-img { height: clamp(45px, 8vw, 65px); width: auto; }
-
+        /* MASAÜSTÜ MENÜ */
         .nav-links { display: flex; list-style: none; gap: 25px; }
-        .nav-links a {
-            text-decoration: none; color: var(--ana-renk); font-weight: 700;
-            font-size: 0.85rem; text-transform: uppercase; font-family: 'Orbitron';
-        }
+        .nav-links a { text-decoration: none; color: var(--ana-renk); font-weight: 700; font-family: 'Orbitron'; font-size: 0.85rem; }
 
-        /* --- YAN MENÜ (DRAWER) --- */
-        .side-drawer {
-            position: fixed; top: 0; left: -320px; width: 300px; height: 100%;
-            background: var(--ana-renk); z-index: 2000; transition: 0.5s; 
-            padding: 50px 30px; box-shadow: 10px 0 30px rgba(0,0,0,0.5);
-        }
-        .side-drawer.active { left: 0; }
-        .drawer-close { color: white; font-size: 40px; text-align: right; cursor: pointer; display: block; margin-bottom: 40px; }
-        .drawer-links { list-style: none; }
-        .drawer-links li { margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
-        .drawer-links a { color: white; text-decoration: none; font-family: 'Orbitron'; font-size: 1.1rem; }
+        /* MOBİL IZGARA BUTONU */
+        .mobile-menu-btn { display: none; font-size: 28px; color: var(--ana-renk); cursor: pointer; }
 
+        /* YAN MENÜ (SOL) */
+        .side-menu { position: fixed; top: 0; left: -300px; width: 280px; height: 100%; background: var(--ana-renk); z-index: 2000; transition: 0.4s; padding: 40px 20px; }
+        .side-menu.active { left: 0; }
+        .side-menu a { color: white; text-decoration: none; display: block; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-family: 'Orbitron'; }
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1500; display: none; }
         .overlay.active { display: block; }
 
-        /* --- İÇERİK --- */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; }
-        .hero h1 { font-size: clamp(2rem, 8vw, 4.5rem); color: white; font-family: 'Orbitron'; text-shadow: 2px 2px 20px rgba(0,0,0,0.8); }
-        .hero p { color: white; margin: 20px 0; font-size: clamp(1rem, 4vw, 1.4rem); }
-
+        /* İÇERİK BÖLÜMLERİ */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; }
         .section-padding { padding: 100px 8%; }
-        .section-title { text-align: center; font-family: 'Orbitron'; margin-bottom: 60px; color: var(--ana-renk); background: rgba(255,255,255,0.95); padding: 20px; border-radius: 20px; font-size: clamp(1.5rem, 5vw, 2.2rem); }
-        
-        .hizmet-listesi { display: flex; flex-direction: column; gap: 60px; max-width: 1200px; margin: 0 auto; }
-        .hizmet-kart { display: flex; flex-wrap: wrap; background: rgba(255,255,255,0.98); border-radius: 40px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.3); }
+        .hizmet-kart { display: flex; flex-wrap: wrap; background: white; border-radius: 30px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
         .hizmet-kart:nth-child(even) { flex-direction: row-reverse; }
         .hizmet-resim { flex: 1; min-width: 300px; height: 400px; }
         .hizmet-resim img { width: 100%; height: 100%; object-fit: cover; }
-        .hizmet-icerik { flex: 1.2; padding: 50px; min-width: 300px; }
-        .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--ana-renk); margin-bottom: 25px; font-size: clamp(1.4rem, 4vw, 2rem); border-left: 6px solid var(--accent); padding-left: 20px; }
-        .hizmet-icerik p { line-height: 1.8; font-size: 1.15rem; color: #475569; margin-bottom: 30px; }
+        .hizmet-icerik { flex: 1.2; padding: 40px; min-width: 300px; }
 
-        .slider { height: 180px; background: rgba(255,255,255,0.95); border-radius: 30px; overflow: hidden; display: flex; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .slide-track { display: flex; width: calc(250px * 16); animation: scroll 25s linear infinite; }
-        .slide { width: 250px; padding: 30px; }
-        .slide img { width: 100%; filter: grayscale(100%); opacity: 0.6; }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 8)); } }
-
-        footer { background: var(--ana-renk); color: white; padding: 60px 8%; text-align: center; }
-        .footer-logo { height: 70px; margin-bottom: 20px; filter: brightness(0) invert(1); }
-
-        /* MOBİL AYARLAR */
         @media (max-width: 900px) {
             .nav-links { display: none; }
-            .mobile-toggle { display: block; }
+            .mobile-menu-btn { display: block; }
             header { padding: 10px 5%; }
-            .section-padding { padding: 60px 5%; }
-            .hizmet-resim { height: 300px; }
+            .hizmet-resim { height: 250px; }
         }
+
+        /* FOOTER LOGO */
+        .footer-logo { height: 90px; width: auto; margin-bottom: 20px; filter: brightness(0) invert(1); }
+
+        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 9999; display: flex; align-items: center; gap: 10px; }
     </style>
 </head>
 <body>
@@ -116,105 +71,79 @@
     </div>
 
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-
-    <div class="side-drawer" id="drawer">
-        <div class="drawer-close" onclick="toggleMenu()">&times;</div>
-        <ul class="drawer-links">
-            <li><a href="index.html" onclick="toggleMenu()">Ana Sayfa</a></li>
-            <li><a href="urunlerimiz.html">Ürünlerimiz</a></li>
-            <li><a href="#hizmetler" onclick="toggleMenu()">Hizmetler</a></li>
-            <li><a href="#referanslar" onclick="toggleMenu()">Referanslar</a></li>
-        </ul>
+    <div class="side-menu" id="sideMenu">
+        <div style="color:white; font-size:30px; text-align:right; cursor:pointer;" onclick="toggleMenu()">&times;</div>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="urunlerimiz.html">Ürünlerimiz</a>
+        <a href="#hizmetler" onclick="toggleMenu()">Hizmetler</a>
+        <a href="#referanslar" onclick="toggleMenu()">Referanslar</a>
     </div>
 
     <header>
-        <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-        <a href="index.html"><img src="markalogo.png" alt="Lider Telsiz" class="logo-img"></a>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="urunlerimiz.html">Ürünlerimiz</a></li>
-                <li><a href="#hizmetler">Hizmetler</a></li>
-                <li><a href="#referanslar">Referanslar</a></li>
-            </ul>
-        </nav>
+        <div class="mobile-menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <!-- YENİ ŞEFFAF LOGON -->
+        <img src="markalogo7.png" alt="Lider Telsiz Logo" class="logo-img">
+        <ul class="nav-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="urunlerimiz.html">Ürünlerimiz</a></li>
+            <li><a href="#hizmetler">Hizmetler</a></li>
+            <li><a href="#referanslar">Referanslar</a></li>
+        </ul>
     </header>
 
     <section class="hero">
-        <h1>LİDER TELSİZ</h1>
-        <p>Haberleşme Sistemlerinde Profesyonel Çözüm Ortağınız</p>
-        <a href="tel:+905395926070" style="background:var(--accent); color:white; padding:20px 50px; border-radius:50px; text-decoration:none; font-weight:bold; box-shadow: 0 10px 30px rgba(59,130,246,0.4);">0539 592 60 70</a>
+        <h1 style="font-family:'Orbitron'; font-size: clamp(2rem, 8vw, 4rem); text-shadow: 2px 2px 20px #000;">LİDER TELSİZ</h1>
+        <p style="margin-top: 10px;">Haberleşme Çözümleri</p>
+        <a href="tel:+905395926070" style="background:var(--accent); color:white; padding:15px 40px; border-radius:50px; text-decoration:none; margin-top:30px; font-weight:bold; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">0539 592 60 70</a>
     </section>
 
     <section id="hizmetler" class="section-padding">
-        <h2 class="section-title">Hizmetlerimiz</h2>
-        <div class="hizmet-listesi">
-            
-            <div class="hizmet-kart">
-                <div class="hizmet-resim"><img src="telsizkiralama.png" alt="Telsiz Kiralama"></div>
-                <div class="hizmet-icerik">
-                    <h3>Telsiz Kiralama ve Satışı</h3>
-                    <p>En yüksek çekim gücüne sahip profesyonel dijital ve analog telsiz modelleriyle iletişim sorununuzu çözüyoruz. Her bütçeye uygun seçeneklerle yanınızdayız.</p>
-                    <a href="https://wa.me" style="background: var(--accent); color: white; padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block;">DETAYLI BİLGİ</a>
-                </div>
+        <h2 style="text-align:center; color:white; font-family:'Orbitron'; margin-bottom:50px; font-size: 2.2rem;">Hizmetlerimiz</h2>
+        
+        <div class="hizmet-kart">
+            <div class="hizmet-resim"><img src="telsizkiralama.png"></div>
+            <div class="hizmet-icerik">
+                <h3 style="font-family:'Orbitron'; color:var(--ana-renk); margin-bottom:15px;">Telsiz Kiralama & Satış</h3>
+                <p>Profesyonel dijital ve analog telsiz modelleriyle iletişim sorununuzu çözüyoruz.</p>
             </div>
-
-            <div class="hizmet-kart">
-                <div class="hizmet-resim"><img src="intercom3.png" alt="Intercom"></div>
-                <div class="hizmet-icerik">
-                    <h3>İnterkom Kulaklık Kiralama</h3>
-                    <p>Canlı yayınlar ve set operasyonları için profesyonel interkom sistemleri. Gürültü engelleyici kulaklıklarla kesintisiz haberleşme altyapısı.</p>
-                    <a href="https://wa.me" style="background: var(--accent); color: white; padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block;">DETAYLI BİLGİ</a>
-                </div>
-            </div>
-
-            <div class="hizmet-kart">
-                <div class="hizmet-resim"><img src="tedarikmlz.png" alt="Set Tedarik"></div>
-                <div class="hizmet-icerik">
-                    <h3>Set Tedarik Hizmeti</h3>
-                    <p>Film ve dizi setlerinin teknik haberleşme altyapısını profesyonelce kuruyoruz. Batarya ve yedek cihaz desteğiyle operasyonunuza hız katıyoruz.</p>
-                    <a href="https://wa.me" style="background: var(--accent); color: white; padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block;">BİZE ULAŞIN</a>
-                </div>
-            </div>
-
         </div>
-    </section>
 
-    <section id="referanslar" class="section-padding">
-        <h2 class="section-title">Referanslarımız</h2>
-        <div class="slider">
-            <div class="slide-track">
-                <div class="slide"><img src="ref1.png"></div>
-                <div class="slide"><img src="ref2.png"></div>
-                <div class="slide"><img src="ref3.png"></div>
-                <div class="slide"><img src="ref4.png"></div>
-                <div class="slide"><img src="ref1.png"></div>
-                <div class="slide"><img src="ref2.png"></div>
-                <div class="slide"><img src="ref3.png"></div>
-                <div class="slide"><img src="ref4.png"></div>
+        <div class="hizmet-kart">
+            <div class="hizmet-resim"><img src="intercom3.png"></div>
+            <div class="hizmet-icerik">
+                <h3 style="font-family:'Orbitron'; color:var(--ana-renk); margin-bottom:15px;">Intercom Kiralama</h3>
+                <p>Kesintisiz set haberleşmesi ve canlı yayın haberleşme sistemleri.</p>
+            </div>
+        </div>
+
+        <div class="hizmet-kart">
+            <div class="hizmet-resim"><img src="tedarikmlz.png"></div>
+            <div class="hizmet-icerik">
+                <h3 style="font-family:'Orbitron'; color:var(--ana-renk); margin-bottom:15px;">Set Tedarik Hizmeti</h3>
+                <p>Film ve dizi setleri için profesyonel teknik altyapı ve batarya desteği.</p>
             </div>
         </div>
     </section>
 
-    <footer>
-        <img src="markalogo.png" class="footer-logo">
-        <p>&copy; 2024 LİDER TELSİZ - TÜM HAKLARI SAKLIDIR</p>
+    <footer style="background:var(--ana-renk); color:white; padding:60px; text-align:center;">
+        <!-- FOOTER LOGO ( markalogo7.png ) -->
+        <img src="markalogo7.png" style="height:80px; filter: brightness(0) invert(1); margin-bottom:20px;"><br>
+        &copy; 2024 LİDER TELSİZ - TÜM HAKLARI SAKLIDIR
     </footer>
 
-    <a href="https://wa.me" target="_blank" 
-       style="position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; border-radius: 50px; padding: 15px 25px; text-decoration: none; font-weight: bold; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 9999; display: flex; align-items: center; gap: 10px; font-family: 'Poppins', sans-serif; transition: 0.3s;">
-      <i class="fab fa-whatsapp" style="font-size: 24px;"></i> 
-      WhatsApp Destek
+    <a href="https://wa.me" target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp" style="font-size:24px;"></i> WhatsApp Destek
     </a>
 
     <script>
         function toggleMenu() {
-            document.getElementById('drawer').classList.toggle('active');
+            document.getElementById('sideMenu').classList.toggle('active');
             document.getElementById('overlay').classList.toggle('active');
         }
     </script>
 </body>
 </html>
+
 
 
 
