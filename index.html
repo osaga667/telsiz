@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lider Telsiz | Profesyonel Haberleşme Çözümleri</title>
     
-    <!-- Fonts & Icons -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
     <link rel="stylesheet" href="https://cloudflare.com"/>
@@ -23,13 +22,12 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            /* ARKA PLAN RESMİ GÜNCELLEMESİ (.jpg olarak ayarlandı) */
-            background-image: url('arkalogo.jpg'); 
+            /* Arka Plan Görseli */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('arkalogo.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            background-color: #000; /* Resim yüklenene kadar siyah görünsün */
             
             color: var(--metin);
             overflow-x: hidden;
@@ -41,71 +39,68 @@
             position: fixed; top: 20px; left: 20px; width: 50px; height: 50px;
             background: var(--ana-renk); color: white; border-radius: 12px;
             display: flex; justify-content: center; align-items: center;
-            font-size: 24px; cursor: pointer; z-index: 1100; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            font-size: 24px; cursor: pointer; z-index: 1100;
         }
 
         .side-menu {
             position: fixed; top: 0; left: -350px; width: 320px; height: 100%;
-            background: rgba(10, 31, 68, 0.95); z-index: 1200; transition: 0.5s; 
-            padding: 80px 30px; backdrop-filter: blur(10px);
+            background: rgba(10, 31, 68, 0.98); z-index: 1200; transition: 0.5s; 
+            padding: 80px 30px;
         }
-
         .side-menu.active { left: 0; }
         .close-btn { position: absolute; top: 20px; right: 25px; font-size: 35px; color: white; cursor: pointer; }
-
-        .menu-links a {
-            display: flex; align-items: center; color: white; text-decoration: none;
-            font-size: 1.1rem; font-weight: 600; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .menu-links a i { margin-right: 15px; color: var(--mavi-light); width: 25px; }
+        .menu-links a { display: flex; align-items: center; color: white; text-decoration: none; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .menu-links a i { margin-right: 15px; color: var(--mavi-light); }
 
         /* Header */
         header {
             padding: 15px 5% 15px 90px; display: flex; justify-content: space-between;
-            align-items: center; background: rgba(255, 255, 255, 0.8);
-            position: fixed; width: 100%; top:0; z-index:1000; backdrop-filter: blur(10px);
+            align-items: center; background: rgba(255, 255, 255, 0.9);
+            position: fixed; width: 100%; top:0; z-index:1000; backdrop-filter: blur(8px);
         }
         .logo-text { font-family:'Orbitron', sans-serif; color: var(--ana-renk); font-weight:900; font-size: 1.4rem; }
 
-        /* Hero - Arka planın daha iyi görünmesi için şeffaflık artırıldı */
+        /* Hero - Resmin en iyi göründüğü yer */
         .hero {
             height: 100vh; display:flex; flex-direction:column; justify-content:center;
             align-items:center; text-align:center; padding:0 10%;
-            background: rgba(255, 255, 255, 0.2); /* Daha şeffaf */
+            background: transparent; /* Resmi tamamen gösterir */
         }
-        .hero h1 { font-size: clamp(2rem, 6vw, 3.5rem); font-weight:900; color: var(--ana-renk); font-family: 'Orbitron'; text-shadow: 0 2px 10px rgba(255,255,255,0.8); }
+        .hero h1 { 
+            font-size: clamp(2rem, 6vw, 3.5rem); font-weight:900; 
+            color: white; font-family: 'Orbitron'; 
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.8); /* Siyah resim üzerinde beyaz yazı parlasın */
+        }
+        .hero p { color: white; margin: 15px 0 30px; font-size: 1.2rem; text-shadow: 1px 1px 10px rgba(0,0,0,0.8); }
         
         .btn-teklif {
-            background: var(--ana-renk); color: white; padding: 18px 40px;
+            background: var(--mavi-light); color: white; padding: 18px 40px;
             border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
-        /* Hizmetler & Cihazlar */
+        /* Hizmetler & Cihazlar (İçerik okunması için beyaz kutular) */
         .section-padding { padding: 80px 8%; }
         .section-title {
             text-align: center; font-family: 'Orbitron'; margin-bottom: 40px; 
-            color: var(--ana-renk); background: rgba(255,255,255,0.8); 
-            display: block; padding: 15px; border-radius: 12px;
+            color: var(--ana-renk); background: rgba(255,255,255,0.95); 
+            display: block; padding: 15px; border-radius: 15px;
         }
 
         .accordion {
-            background: rgba(255, 255, 255, 0.9); border-radius: 12px;
-            margin-bottom: 12px; cursor: pointer; padding: 20px 25px; 
+            background: white; border-radius: 12px;
+            margin-bottom: 12px; cursor: pointer; padding: 22px 25px; 
             display: flex; justify-content: space-between; align-items: center;
-            font-weight: 600; color: var(--ana-renk);
+            font-weight: 600; color: var(--ana-renk); box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
-        .panel { 
-            max-height: 0; overflow: hidden; transition: 0.3s ease-out; 
-            background: rgba(255, 255, 255, 0.85); border-radius: 0 0 12px 12px;
-        }
+        .panel { background: rgba(255, 255, 255, 0.9); border-radius: 0 0 12px 12px; overflow: hidden; max-height: 0; transition: 0.3s ease-out; }
         .panel p { padding: 20px; font-weight: 500; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .card { 
-            background: rgba(255, 255, 255, 0.9); padding: 30px; 
-            border-radius: 20px; text-align: center; backdrop-filter: blur(5px);
+            background: white; padding: 30px; 
+            border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         .telsiz-img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 20px; }
 
@@ -126,7 +121,7 @@
             <a href="#"><i class="fas fa-home"></i> Ana Sayfa</a>
             <a href="#hizmetler"><i class="fas fa-tools"></i> Hizmetlerimiz</a>
             <a href="#cihazlar"><i class="fas fa-broadcast-tower"></i> Cihazlar</a>
-            <a href="https://wa.me"><i class="fab fa-whatsapp"></i> WhatsApp Destek</a>
+            <a href="https://wa.me"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
     </div>
 
@@ -138,18 +133,18 @@
 
     <section class="hero">
         <h1 class="animate__animated animate__fadeInDown">Profesyonel Haberleşme Çözümleri</h1>
-        <p style="margin: 20px 0 30px 0; font-size: 1.2rem; font-weight: 600; color: #000;">Kiralama, Satış ve Teknik Servis</p>
-        <a href="tel:+905395926070" class="btn-teklif">Hemen Ara: 0539 592 60 70</a>
+        <p>Dizi, Film ve Organizasyon Setleri İçin Tam Destek</p>
+        <a href="tel:+905395926070" class="btn-teklif">0539 592 60 70</a>
     </section>
 
     <section id="hizmetler" class="section-padding">
         <h2 class="section-title">Hizmetlerimiz</h2>
         <div style="max-width: 800px; margin: 0 auto;">
             <div class="accordion" onclick="togglePanel(this)">Set Tedariği & Film Çözümleri <i class="fas fa-plus"></i></div>
-            <div class="panel"><p>Dizi, sinema ve reklam setleri için profesyonel kulaklık ve telsiz kiralama.</p></div>
+            <div class="panel"><p>Profesyonel set ekipleri için yüksek performanslı telsiz ve aksesuar kiralama.</p></div>
 
             <div class="accordion" onclick="togglePanel(this)">Organizasyon & Etkinlik <i class="fas fa-plus"></i></div>
-            <div class="panel"><p>Fuar ve konserler için kısa dönemli haberleşme sistemleri.</p></div>
+            <div class="panel"><p>Konser, fuar ve geniş alan etkinlikleri için kesintisiz iletişim altyapısı.</p></div>
         </div>
     </section>
 
@@ -158,13 +153,13 @@
         <div class="grid">
             <div class="card">
                 <img src="telsiz1.png" alt="Dijital Telsiz" class="telsiz-img">
-                <h3>Dijital Telsiz</h3>
-                <p>Kristal netliğinde ses kalitesi.</p>
+                <h3>Dijital El Telsizi</h3>
+                <p>Gürültü engelleme ve geniş kapsama alanı.</p>
             </div>
             <div class="card">
                 <img src="telsiz2.png" alt="Analog Telsiz" class="telsiz-img">
-                <h3>Analog Profesyonel</h3>
-                <p>Dayanıklı kasa ve uzun menzil.</p>
+                <h3>Set Ekipmanı</h3>
+                <p>Dayanıklı batarya ve ergonomik tasarım.</p>
             </div>
         </div>
     </section>
@@ -184,4 +179,5 @@
     </script>
 </body>
 </html>
+
 
