@@ -15,6 +15,7 @@
             --accent: #3b82f6;
             --beyaz: #ffffff;
             --metin: #1e293b;
+            --whatsapp: #25d366;
         }
 
         * { margin:0; padding:0; box-sizing:border-box; }
@@ -38,7 +39,7 @@
         .slide2 { background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('arkafon2.png'); animation-delay: 7s; }
         @keyframes sliderAnim { 0%, 100% { opacity: 0; } 10%, 45% { opacity: 1; } 55%, 90% { opacity: 0; } }
 
-        /* --- HEADER & NAV --- */
+        /* --- HEADER & TOP NAV --- */
         header {
             position: fixed; top: 0; width: 100%;
             display: flex; justify-content: space-between; align-items: center;
@@ -46,110 +47,132 @@
             backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
 
-        .logo-img { height: clamp(40px, 10vw, 60px); width: auto; }
+        /* Izgara Menü Butonu (Sol) */
+        .side-menu-btn {
+            font-size: 24px; color: var(--ana-renk); cursor: pointer;
+            transition: 0.3s; width: 40px;
+        }
 
-        /* Masaüstü Menü */
+        .logo-img { height: clamp(40px, 8vw, 60px); width: auto; }
+
+        /* Üst Nav (Bilgisayar için sağda kalır) */
         .nav-links { display: flex; list-style: none; gap: 20px; }
         .nav-links a {
             text-decoration: none; color: var(--ana-renk); font-weight: 700;
-            font-size: 0.85rem; text-transform: uppercase; font-family: 'Orbitron'; transition: 0.3s;
+            font-size: 0.85rem; text-transform: uppercase; font-family: 'Orbitron';
         }
 
-        /* Dropdown Masaüstü */
-        .dropdown { position: relative; }
-        .dropdown-content {
-            display: none; position: absolute; background: white; min-width: 240px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 8px; top: 100%; left: 0; padding: 10px 0;
+        /* --- SOL YAN MENÜ (DRAWER) --- */
+        .side-drawer {
+            position: fixed; top: 0; left: -300px; width: 280px; height: 100%;
+            background: var(--ana-renk); z-index: 2000; transition: 0.5s ease-in-out;
+            padding: 30px; box-shadow: 5px 0 25px rgba(0,0,0,0.3);
         }
-        .dropdown-content a {
-            padding: 10px 20px; text-transform: none; font-family: 'Poppins'; border-bottom: 1px solid #f1f5f9;
+        .side-drawer.active { left: 0; }
+
+        .drawer-close { color: white; font-size: 30px; cursor: pointer; display: block; text-align: right; margin-bottom: 30px; }
+
+        .drawer-links { list-style: none; }
+        .drawer-links li { margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .drawer-links a {
+            color: white; text-decoration: none; font-size: 1.1rem; font-family: 'Orbitron';
+            display: flex; align-items: center; gap: 15px; transition: 0.3s;
         }
-        .dropdown:hover .dropdown-content { display: block; }
+        .drawer-links a:hover { color: var(--accent); padding-left: 10px; }
 
-        /* Mobil Menü İkonu */
-        .mobile-btn { display: none; font-size: 24px; color: var(--ana-renk); cursor: pointer; }
+        .overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); z-index: 1500; display: none;
+        }
+        .overlay.active { display: block; }
 
-        /* --- HERO --- */
+        /* --- MOBİL AYARLAR --- */
+        @media (max-width: 850px) {
+            .nav-links { display: none; } /* Üstteki linkleri mobilde gizle, yan menüye odaklan */
+        }
+
+        /* --- DİĞER BÖLÜMLER (HERO, HİZMETLER VB.) --- */
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 5%; }
-        .hero h1 { font-size: clamp(1.8rem, 8vw, 4rem); font-weight: 900; color: white; font-family: 'Orbitron'; text-shadow: 2px 2px 15px rgba(0,0,0,0.8); }
-        .hero p { color: white; margin: 15px 0 30px; font-size: clamp(1rem, 4vw, 1.3rem); text-shadow: 1px 1px 8px rgba(0,0,0,0.8); }
-        .btn-teklif { background: var(--accent); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.9rem; }
+        .hero h1 { font-size: clamp(2rem, 8vw, 4rem); font-weight: 900; color: white; font-family: 'Orbitron'; text-shadow: 2px 2px 15px rgba(0,0,0,0.8); }
+        .hero p { color: white; margin: 15px 0 30px; font-size: clamp(1rem, 4vw, 1.3rem); }
+        .btn-teklif { background: var(--accent); color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; }
 
-        /* --- HİZMETLER --- */
         .section-padding { padding: 80px 5%; }
-        .section-title { text-align: center; font-family: 'Orbitron'; margin-bottom: 40px; color: var(--ana-renk); background: rgba(255,255,255,0.95); padding: 15px; border-radius: 15px; font-size: clamp(1.2rem, 5vw, 2rem); }
+        .section-title { text-align: center; font-family: 'Orbitron'; margin-bottom: 40px; color: var(--ana-renk); background: rgba(255,255,255,0.95); padding: 15px; border-radius: 15px; }
 
         .hizmet-listesi { display: flex; flex-direction: column; gap: 40px; max-width: 1100px; margin: 0 auto; }
         .hizmet-kart { display: flex; align-items: center; background: white; border-radius: 25px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
         .hizmet-kart:nth-child(even) { flex-direction: row-reverse; }
-        .hizmet-resim { flex: 1; height: 300px; }
+        .hizmet-resim { flex: 1; height: 350px; }
         .hizmet-resim img { width: 100%; height: 100%; object-fit: cover; }
-        .hizmet-icerik { flex: 1.2; padding: 30px; }
-        .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--ana-renk); font-size: clamp(1.1rem, 4vw, 1.6rem); margin-bottom: 15px; }
-        .hizmet-icerik p { font-size: 0.95rem; line-height: 1.6; color: #475569; }
+        .hizmet-icerik { flex: 1.2; padding: 40px; }
+        .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--ana-renk); margin-bottom: 15px; }
 
-        /* --- REFERANSLAR --- */
+        @media (max-width: 850px) {
+            .hizmet-kart, .hizmet-kart:nth-child(even) { flex-direction: column; }
+            .hizmet-resim { width: 100%; height: 250px; }
+        }
+
         .slider { height: 120px; overflow: hidden; background: white; border-radius: 20px; display: flex; align-items: center; }
         .slide-track { display: flex; width: calc(200px * 16); animation: scroll 20s linear infinite; }
         .slide { width: 200px; padding: 20px; }
         .slide img { width: 100%; height: auto; max-height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-200px * 8)); } }
 
-        /* --- MOBİL AYARLAR --- */
-        @media (max-width: 850px) {
-            .mobile-btn { display: block; }
-            .nav-links {
-                display: none; position: absolute; top: 100%; left: 0; width: 100%;
-                flex-direction: column; background: white; padding: 20px; gap: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            }
-            .nav-links.active { display: flex; }
-            .dropdown-content { position: static; box-shadow: none; padding-left: 20px; display: block; background: #f8fafc; }
-            .hizmet-kart, .hizmet-kart:nth-child(even) { flex-direction: column; }
-            .hizmet-resim { width: 100%; height: 200px; }
-            .whatsapp-text { display: none; } /* Mobilde sadece ikon kalsın dersen */
-        }
-
         footer { background: var(--ana-renk); color: white; padding: 40px 5%; text-align: center; }
         .footer-logo { height: 50px; margin-bottom: 15px; filter: brightness(0) invert(1); }
 
         .whatsapp-fixed {
-            position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white;
-            padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold;
-            display: flex; align-items: center; gap: 8px; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white;
+            padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold;
+            display: flex; align-items: center; gap: 10px; z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
     </style>
 </head>
 <body>
 
+    <!-- Arka Plan Slider -->
     <div class="bg-slider">
         <div class="bg-slide slide1"></div>
         <div class="bg-slide slide2"></div>
     </div>
 
+    <!-- Karartma Katmanı -->
+    <div class="overlay" id="overlay" onclick="toggleDrawer()"></div>
+
+    <!-- SOL YAN MENÜ (Izgara Menü) -->
+    <div class="side-drawer" id="sideDrawer">
+        <span class="drawer-close" onclick="toggleDrawer()">&times;</span>
+        <ul class="drawer-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+            <li><a href="urunlerimiz.html"><i class="fas fa-box-open"></i> Ürünlerimiz</a></li>
+            <li><a href="#hizmetler"><i class="fas fa-tools"></i> Hizmetlerimiz</a></li>
+            <li><a href="#referanslar"><i class="fas fa-users"></i> Referanslar</a></li>
+            <li><a href="tel:+905395926070"><i class="fas fa-phone"></i> İletişim</a></li>
+        </ul>
+    </div>
+
     <header>
+        <!-- Sol taraftaki ızgara menü butonu -->
+        <div class="side-menu-btn" onclick="toggleDrawer()"><i class="fas fa-bars"></i></div>
+        
         <a href="index.html"><img src="markalogo.png" alt="Lider Telsiz" class="logo-img"></a>
-        <div class="mobile-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        
+        <!-- Üst menü (Bilgisayarda görünür) -->
         <nav>
-            <ul class="nav-links" id="menu">
+            <ul class="nav-links">
                 <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="urunlerimiz.html">Ürünlerimiz</a></li>
                 <li><a href="#hizmetler">Hizmetler</a></li>
-                <li class="dropdown">
-                    <a href="urunlerimiz.html">Ürünlerimiz <i class="fas fa-caret-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="urunlerimiz.html">Tüm Ürünler</a>
-                        <a href="#">Telsizler</a>
-                        <a href="#">Aksesuarlar</a>
-                    </div>
-                </li>
                 <li><a href="#referanslar">Referanslar</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero">
-        <h1 class="animate__animated animate__fadeIn">LİDER TELSİZ</h1>
-        <p>Profesyonel Haberleşme Çözüm Ortağınız</p>
-        <a href="tel:+905395926070" class="btn-teklif">HEMEN ARA</a>
+        <h1 class="animate__animated animate__fadeInDown">LİDER TELSİZ</h1>
+        <p>Haberleşme Sistemlerinde Profesyonel Çözüm Ortağınız</p>
+        <a href="tel:+905395926070" class="btn-teklif">TEKLİF ALIN</a>
     </section>
 
     <section id="hizmetler" class="section-padding">
@@ -159,21 +182,21 @@
                 <div class="hizmet-resim"><img src="telsizkiralama.png" alt=""></div>
                 <div class="hizmet-icerik">
                     <h3>Telsiz Kiralama & Satış</h3>
-                    <p>En güncel dijital ve analog cihazlar ile her projeye uygun haberleşme çözümleri.</p>
+                    <p>En yüksek çekim gücüne sahip dijital ve analog telsiz modelleriyle iletişim sorununuzu çözüyoruz.</p>
                 </div>
             </div>
             <div class="hizmet-kart">
                 <div class="hizmet-resim"><img src="intercom3.png" alt=""></div>
                 <div class="hizmet-icerik">
-                    <h3>Intercom Kiralama</h3>
-                    <p>Canlı yayın ve set operasyonları için kesintisiz kablosuz iletişim altyapısı.</p>
+                    <h3>İnterkom Kulaklık Kiralama</h3>
+                    <p>Set ekipleri ve canlı yayınlar için kristal netliğinde haberleşme altyapısı sağlıyoruz.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="referanslar" class="section-padding">
-        <h2 class="section-title">Referanslar</h2>
+        <h2 class="section-title">Referanslarımız</h2>
         <div class="slider">
             <div class="slide-track">
                 <div class="slide"><img src="ref1.png" alt=""></div>
@@ -190,25 +213,17 @@
 
     <footer>
         <img src="markalogo.png" alt="" class="footer-logo">
-        <p>&copy; 2024 LİDER TELSİZ</p>
+        <p>&copy; 2024 LİDER TELSİZ - TÜM HAKLARI SAKLIDIR</p>
     </footer>
 
     <a href="https://wa.me" target="_blank" class="whatsapp-fixed">
-        <i class="fab fa-whatsapp" style="font-size: 20px;"></i> <span class="whatsapp-text">WhatsApp</span>
+        <i class="fab fa-whatsapp" style="font-size: 24px;"></i> WhatsApp
     </a>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('menu').classList.toggle('active');
-        }
-        // Sayfa tıklandığında menüyü kapat
-        window.onclick = function(event) {
-            if (!event.target.matches('.mobile-btn') && !event.target.matches('.fa-bars')) {
-                var menu = document.getElementById('menu');
-                if (menu.classList.contains('active')) {
-                    menu.classList.remove('active');
-                }
-            }
+        function toggleDrawer() {
+            document.getElementById('sideDrawer').classList.toggle('active');
+            document.getElementById('overlay').classList.toggle('active');
         }
     </script>
 </body>
