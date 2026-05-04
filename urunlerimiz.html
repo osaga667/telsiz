@@ -5,60 +5,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ürünlerimiz | Lider Telsiz</title>
+    
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
+
     <style>
         :root { --ana-renk: #0a1f44; --accent: #3b82f6; --metin: #1e293b; }
         * { margin:0; padding:0; box-sizing:border-box; }
+        
         body { 
             font-family: 'Poppins', sans-serif; 
-            background-color: #f8fafc;
-            background-image: linear-gradient(rgba(255,255,255,0.93), rgba(255,255,255,0.93)), url('arkafon.png');
+            background: #f8fafc;
+            background-image: linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.94)), url('arkafon.png');
             background-attachment: fixed;
             background-size: cover;
         }
+
+        /* Header */
         header {
             padding: 15px 8%; background: white; display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;
         }
-        .logo-img { height: 50px; }
+        .logo-img { height: 55px; }
         .back-btn { text-decoration: none; color: var(--ana-renk); font-weight: 700; font-family: 'Orbitron'; font-size: 0.8rem; }
-        .container { padding: 50px 8%; }
-        .urun-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+
+        .container { padding: 60px 8%; max-width: 1400px; margin: 0 auto; }
+        
+        .page-title { text-align: center; font-family: 'Orbitron'; font-size: 2.5rem; color: var(--ana-renk); margin-bottom: 40px; }
+
+        /* Kategori Filtreleri */
+        .filter-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
+        .filter-btn { 
+            padding: 10px 25px; border: 2px solid var(--ana-renk); background: transparent; 
+            color: var(--ana-renk); border-radius: 50px; cursor: pointer; font-weight: 600; 
+            font-family: 'Orbitron'; font-size: 0.75rem; transition: 0.3s;
+        }
+        .filter-btn.active, .filter-btn:hover { background: var(--ana-renk); color: white; }
+
+        /* Ürün Grid */
+        .urun-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        
         .urun-kart { 
-            background: white; border-radius: 20px; padding: 20px; text-align: center; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; transition: 0.3s;
+            background: white; border-radius: 25px; padding: 20px; text-align: center; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; transition: 0.4s;
+            display: flex; flex-direction: column; justify-content: space-between;
         }
-        .urun-kart:hover { transform: translateY(-10px); border-color: var(--accent); }
-        .urun-kart img { width: 100%; height: 220px; object-fit: contain; margin-bottom: 15px; }
+        .urun-kart:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2); }
+        
+        .urun-img { width: 100%; height: 220px; object-fit: contain; margin-bottom: 15px; background: #fdfdfd; border-radius: 15px; }
+        
         .urun-kart h3 { font-family: 'Orbitron'; font-size: 1.1rem; color: var(--ana-renk); margin-bottom: 10px; }
-        .btn-whatsapp { 
-            display: inline-block; padding: 10px 20px; background: #25d366; color: white; 
-            text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 0.8rem;
+        .urun-kart p { font-size: 0.85rem; color: #64748b; margin-bottom: 20px; line-height: 1.5; }
+        
+        .btn-bilgi { 
+            display: block; padding: 12px; background: #25d366; color: white; 
+            text-decoration: none; border-radius: 15px; font-weight: 700; font-size: 0.8rem;
+            transition: 0.3s;
         }
+        .btn-bilgi:hover { background: #128c7e; transform: scale(1.03); }
+
+        footer { background: white; padding: 40px; text-align: center; margin-top: 60px; border-top: 1px solid #eee; }
+
+        @media (max-width: 768px) { .container { padding: 40px 5%; } .page-title { font-size: 1.8rem; } }
     </style>
 </head>
 <body>
+
     <header>
-        <img src="markalogo.png" alt="Lider Telsiz" class="logo-img">
+        <a href="index.html"><img src="markalogo7.png" alt="Lider Telsiz" class="logo-img"></a>
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> ANA SAYFAYA DÖN</a>
     </header>
 
     <div class="container">
-        <h1 style="text-align: center; font-family: 'Orbitron'; color: var(--ana-renk);">Ürün Kataloğumuz</h1>
-        
-        <div class="urun-grid">
-            <!-- Ürün Kartı Başlangıç -->
-            <div class="urun-kart">
-                <img src="urun1.png" alt="Ürün">
-                <h3>Dijital Telsiz Serisi</h3>
-                <p style="margin-bottom:15px; font-size:0.9rem; color:#64748b;">Yüksek çekim gücü, kristal ses netliği.</p>
-                <a href="https://wa.me" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Bilgi Al</a>
-            </div>
-            <!-- Ürün Kartı Bitiş -->
+        <h1 class="page-title">Ürün Kataloğumuz</h1>
 
-            <!-- Buraya yeni ürünler geldikçe üstteki kartın aynısını kopyalayıp altına ekleyeceğiz -->
+        <!-- Kategoriler (İstediğin gibi isimleri değiştirebilirsin) -->
+        <div class="filter-container">
+            <button class="filter-btn active">TÜM ÜRÜNLER</button>
+            <button class="filter-btn">DİJİTAL TELSİZLER</button>
+            <button class="filter-btn">ANALOG TELSİZLER</button>
+            <button class="filter-btn">INTERCOM</button>
+            <button class="filter-btn">AKSESUARLAR</button>
+        </div>
+
+        <div class="urun-grid">
+            
+            <!-- Ürün 1 -->
+            <div class="urun-kart">
+                <img src="u1.png" class="urun-img" alt="Ürün"> <!-- Buraya resim ismini yaz -->
+                <div>
+                    <h3>Motorola DP4801</h3>
+                    <p>Ekranlı, GPS'li ve Bluetooth özellikli profesyonel dijital telsiz.</p>
+                </div>
+                <a href="https://wa.me" class="btn-bilgi"><i class="fab fa-whatsapp"></i> FİYAT AL / BİLGİ</a>
+            </div>
+
+            <!-- Ürün 2 -->
+            <div class="urun-kart">
+                <img src="u2.png" class="urun-img" alt="Ürün">
+                <div>
+                    <h3>Hytera PD785</h3>
+                    <p>Zorlu set koşulları için darbelere dayanıklı IP67 lisanslı telsiz.</p>
+                </div>
+                <a href="https://wa.me" class="btn-bilgi"><i class="fab fa-whatsapp"></i> FİYAT AL / BİLGİ</a>
+            </div>
+
+            <!-- Ürün 3 -->
+            <div class="urun-kart">
+                <img src="u3.png" class="urun-img" alt="Ürün">
+                <div>
+                    <h3>Hollyland Mars T1000</h3>
+                    <p>Tam kablosuz, 5 kişilik profesyonel intercom haberleşme seti.</p>
+                </div>
+                <a href="https://wa.me" class="btn-bilgi"><i class="fab fa-whatsapp"></i> FİYAT AL / BİLGİ</a>
+            </div>
+
+            <!-- Ürün 4 -->
+            <div class="urun-kart">
+                <img src="u4.png" class="urun-img" alt="Ürün">
+                <div>
+                    <h3>Akustik Kulaklık Seti</h3>
+                    <p>Hava kanallı, gürültü engelleyici profesyonel akustik kulaklık.</p>
+                </div>
+                <a href="https://wa.me" class="btn-bilgi"><i class="fab fa-whatsapp"></i> FİYAT AL / BİLGİ</a>
+            </div>
+
         </div>
     </div>
+
+    <footer>
+        <img src="markalogo7.png" style="height: 50px; margin-bottom: 10px;"><br>
+        <p style="font-family:'Orbitron'; font-size:0.8rem;">&copy; 2024 LİDER TELSİZ - TÜM HAKLARI SAKLIDIR</p>
+    </footer>
+
 </body>
 </html>
