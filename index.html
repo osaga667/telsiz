@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lider Telsiz | Profesyonel Haberleşme Çözümleri</title>
     
-    <!-- FONT VE İKONLAR (Eksikler tamamlandı, düzen bozulmadı) -->
+    <!-- Fontlar ve İkonlar -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
 
@@ -26,7 +26,7 @@
             scroll-behavior: smooth;
         }
 
-        /* --- ARKA PLAN SLIDER (Aynen Korundu) --- */
+        /* --- ARKA PLAN SLIDER --- */
         .bg-slider { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
         .bg-slide {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -37,7 +37,7 @@
         .slide2 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('arkafon2.png'); animation-delay: 7s; }
         @keyframes sliderAnim { 0%, 100% { opacity: 0; } 10%, 45% { opacity: 1; } 55%, 90% { opacity: 0; } }
 
-        /* --- HEADER VE NAV (Aynen Korundu) --- */
+        /* --- HEADER --- */
         header {
             position: fixed; top: 0; width: 100%;
             display: flex; justify-content: space-between; align-items: center;
@@ -45,7 +45,7 @@
             backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
         .mobile-toggle { display: none; font-size: 28px; color: var(--ana-renk); cursor: pointer; }
-        .logo-img { height: 60px; width: auto; transition: 0.3s; }
+        .logo-img { height: 60px; width: auto; }
 
         .nav-links { display: flex; list-style: none; gap: 25px; }
         .nav-links a {
@@ -68,27 +68,25 @@
         .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; color: white; font-family: 'Orbitron'; text-shadow: 3px 3px 20px rgba(0,0,0,0.9); }
         .hero p { color: white; margin: 20px 0 40px; font-size: 1.4rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
 
-        /* --- HİZMET KARTLARI (Aynen Korundu) --- */
+        /* --- HİZMETLER --- */
         .section-padding { padding: 80px 8%; }
         .section-title { text-align: center; font-family: 'Orbitron'; margin-bottom: 60px; color: var(--ana-renk); background: rgba(255,255,255,0.95); padding: 20px; border-radius: 20px; font-size: clamp(1.5rem, 5vw, 2.2rem); }
         .hizmet-listesi { display: flex; flex-direction: column; gap: 50px; max-width: 1100px; margin: 0 auto; }
-        .hizmet-kart { display: flex; align-items: center; background: rgba(255,255,255,0.98); border-radius: 30px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); transition: 0.4s; gap: 40px; }
+        .hizmet-kart { display: flex; align-items: center; background: rgba(255,255,255,0.98); border-radius: 30px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); gap: 40px; }
         .hizmet-kart:nth-child(even) { flex-direction: row-reverse; }
         .hizmet-resim { flex: 0 0 30%; height: 200px; overflow: hidden; border-radius: 20px; background: #f8fafc; }
-        .hizmet-resim img { width: 100%; height: 100%; object-fit: contain; padding: 10px; }
-        .hizmet-icerik { flex: 1; }
-        .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--ana-renk); margin-bottom: 15px; font-size: 1.5rem; }
-        .hizmet-icerik p { line-height: 1.6; font-size: 1rem; color: #475569; margin-bottom: 20px; }
-        .btn-incele { background: var(--accent); color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-block; }
+        .hizmet-resim img { width: 100%; height: 100%; object-fit: contain; }
+        .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--ana-renk); margin-bottom: 15px; }
+        .btn-incele { background: var(--accent); color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; }
 
-        /* --- REFERANS SLIDER (Aynen Korundu) --- */
-        .slider { height: 150px; background: rgba(255,255,255,0.95); border-radius: 30px; overflow: hidden; display: flex; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .slide-track { display: flex; width: calc(250px * 16); animation: scroll 25s linear infinite; align-items: center; }
-        .slide { width: 250px; height: 100px; display: flex; justify-content: center; align-items: center; padding: 0 20px; }
-        .slide img { max-width: 100%; max-height: 80px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: 0.3s; }
+        /* --- REFERANS SLIDER --- */
+        .slider { height: 150px; background: rgba(255,255,255,0.95); border-radius: 30px; overflow: hidden; display: flex; align-items: center; }
+        .slide-track { display: flex; width: calc(250px * 16); animation: scroll 25s linear infinite; }
+        .slide { width: 250px; padding: 0 20px; display: flex; justify-content: center; }
+        .slide img { max-width: 100%; height: 80px; object-fit: contain; filter: grayscale(100%); }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 8)); } }
 
-        /* --- WHATSAPP BUTONU (Düzeltildi) --- */
+        /* --- WHATSAPP BUTONU --- */
         .whatsapp-btn { 
             position: fixed; bottom: 30px; right: 30px; 
             background: #25D366; color: white; 
@@ -140,7 +138,7 @@
     <section class="hero">
         <h1>LİDER TELSİZ</h1>
         <p>Haberleşme Sistemlerinde Profesyonel Çözüm Ortağınız</p>
-        <a href="#hizmetler" class="btn-incele">HİZMETLERİMİZİ GÖRÜN</a>
+        <a href="#hizmetler" class="btn-incele" style="padding: 15px 40px;">HİZMETLERİMİZİ GÖRÜN</a>
     </section>
 
     <section id="hizmetler" class="section-padding">
@@ -150,8 +148,8 @@
                 <div class="hizmet-resim"><img src="kiralama.png" alt="Kiralama"></div>
                 <div class="hizmet-icerik">
                     <h3>Telsiz Kiralama</h3>
-                    <p>Organizasyon ve projeleriniz için günlük/aylık kiralama çözümleri.</p>
-                    <a href="#" class="btn-incele">İncele</a>
+                    <p>Organizasyonlarınız için günlük/aylık profesyonel kiralama çözümleri.</p>
+                    <a href="#" class="btn-incele">Detaylar</a>
                 </div>
             </div>
         </div>
@@ -162,13 +160,22 @@
             <div class="slide-track">
                 <div class="slide"><img src="ref1.png" alt="Ref 1"></div>
                 <div class="slide"><img src="ref2.png" alt="Ref 2"></div>
-                <!-- Logolar buraya eklenebilir -->
+                <div class="slide"><img src="ref3.png" alt="Ref 3"></div>
+                <div class="slide"><img src="ref4.png" alt="Ref 4"></div>
+                <div class="slide"><img src="ref1.png" alt="Ref 1"></div>
+                <div class="slide"><img src="ref2.png" alt="Ref 2"></div>
+                <div class="slide"><img src="ref3.png" alt="Ref 3"></div>
+                <div class="slide"><img src="ref4.png" alt="Ref 4"></div>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp" style="font-size: 24px;"></i> WhatsApp'tan Yazın
+    <!-- WHATSAPP BUTONU (0539 592 60 70) -->
+    <a href="https://wa.me" 
+       class="whatsapp-btn" 
+       target="_blank">
+        <i class="fab fa-whatsapp" style="font-size: 24px;"></i> 
+        <span>WhatsApp'tan Yazın</span>
     </a>
 
     <script>
@@ -179,7 +186,6 @@
     </script>
 </body>
 </html>
-
 
 
 
