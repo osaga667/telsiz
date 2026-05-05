@@ -10,115 +10,89 @@
 
     <style>
         :root {
-            --ana-renk: #020617;
-            --accent: #3b82f6;
+            --ana-renk: #0a1f44; /* Dünkü orijinal lacivert */
+            --accent: #3b82f6;   /* Dünkü orijinal mavi */
             --beyaz: #ffffff;
-            --kart-bg: #0f172a;
         }
 
         * { margin:0; padding:0; box-sizing:border-box; }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--ana-renk);
-            color: var(--beyaz);
+            background-color: #000;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* --- ARKA PLAN --- */
+        /* --- ARKA PLAN SLIDER (Aynen Korundu) --- */
         .bg-slider { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
         .bg-slide {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background-size: cover; background-position: center; background-attachment: fixed;
             opacity: 0; animation: sliderAnim 14s infinite;
         }
-        .slide1 { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('arkafon.png'); }
-        .slide2 { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('arkafon2.png'); animation-delay: 7s; }
+        .slide1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('arkafon.png'); }
+        .slide2 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('arkafon2.png'); animation-delay: 7s; }
         @keyframes sliderAnim { 0%, 100% { opacity: 0; } 10%, 45% { opacity: 1; } 55%, 90% { opacity: 0; } }
 
-        /* --- HEADER --- */
+        /* --- HEADER VE LOGO (Düzeltildi) --- */
         header {
             position: fixed; top: 0; width: 100%;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 8%; background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 10px 8%; background: rgba(255, 255, 255, 0.95); /* Orijinal Beyaz Header */
+            backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
-        .logo-img { height: 55px; filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5)); }
-        .mobile-toggle { display: none; font-size: 28px; color: var(--accent); cursor: pointer; }
+        .logo-img { height: 60px; width: auto; filter: none !important; } /* Logo filtresi kaldırıldı */
 
-        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links { display: flex; list-style: none; gap: 25px; }
         .nav-links a {
-            text-decoration: none; color: var(--beyaz); font-weight: 700;
-            font-size: 0.8rem; text-transform: uppercase; font-family: 'Orbitron';
-            letter-spacing: 1px; transition: 0.3s;
+            text-decoration: none; color: var(--ana-renk); font-weight: 700;
+            font-size: 0.85rem; text-transform: uppercase; font-family: 'Orbitron';
         }
-        .nav-links a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent); }
 
-        /* --- HERO --- */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; }
-        .hero h1 { font-size: clamp(3rem, 10vw, 5rem); font-weight: 900; font-family: 'Orbitron'; letter-spacing: 5px; background: linear-gradient(to bottom, #fff, #64748b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { margin: 20px 0 40px; font-size: 1.2rem; color: #94a3b8; max-width: 600px; }
-
-        /* --- GÖMMELİ HİZMET KARTLARI --- */
-        .section-padding { padding: 100px 8%; }
-        .section-title { text-align: center; font-family: 'Orbitron'; margin-bottom: 80px; font-size: 2.5rem; letter-spacing: 3px; color: #fff; text-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+        /* --- HİZMET KARTLARI (Sadece Resim Alanı Şıklaştırıldı) --- */
+        .section-padding { padding: 80px 8%; }
+        .section-title { text-align: center; font-family: 'Orbitron'; margin-bottom: 60px; color: var(--ana-renk); background: rgba(255,255,255,0.95); padding: 20px; border-radius: 20px; font-size: clamp(1.5rem, 5vw, 2.2rem); }
         
-        .hizmet-listesi { display: flex; flex-direction: column; gap: 60px; max-width: 1200px; margin: 0 auto; }
-        .hizmet-kart {
-            display: flex; align-items: center;
-            background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95));
-            border-radius: 50px; padding: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            box-shadow: 20px 20px 60px #000000, -5px -5px 30px rgba(255, 255, 255, 0.02);
-            gap: 60px; transition: 0.4s;
+        .hizmet-listesi { display: flex; flex-direction: column; gap: 50px; max-width: 1100px; margin: 0 auto; }
+        .hizmet-kart { 
+            display: flex; align-items: center; 
+            background: rgba(255, 255, 255, 0.98); 
+            border-radius: 35px; padding: 35px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+            gap: 40px; 
         }
         .hizmet-kart:nth-child(even) { flex-direction: row-reverse; }
-        .hizmet-kart:hover { transform: translateY(-5px); border-color: var(--accent); }
 
-        /* GÖMMELİ RESİM KUTUSU */
-        .hizmet-resim {
-            flex: 0 0 35%; height: 280px; border-radius: 40px;
-            background: #020617;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: inset 10px 10px 20px #000, inset -5px -5px 15px rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255,255,255,0.02);
+        /* İstediğin şık resim alanı */
+        .hizmet-resim { 
+            flex: 0 0 32%; height: 230px; border-radius: 25px; 
+            background: #f1f5f9; /* Hafif gri, temiz zemin */
+            display: flex; align-items: center; justify-content: center; 
+            box-shadow: inset 5px 5px 15px rgba(0,0,0,0.05); /* Çok hafif gömme efekti */
+            border: 1px solid rgba(0,0,0,0.03);
         }
-        .hizmet-resim img { max-width: 70%; max-height: 70%; object-fit: contain; filter: drop-shadow(0 15px 30px #000); transition: 0.5s; }
-        .hizmet-kart:hover .hizmet-resim img { transform: scale(1.1) rotate(2deg); }
+        .hizmet-resim img { max-width: 85%; max-height: 85%; object-fit: contain; }
 
-        .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--accent); font-size: 2rem; margin-bottom: 20px; }
-        .hizmet-icerik p { color: #94a3b8; line-height: 1.8; font-size: 1.1rem; margin-bottom: 30px; }
-        
-        .btn-incele {
-            background: linear-gradient(135deg, var(--accent), #1e40af);
-            color: white; padding: 15px 35px; border-radius: 50px;
-            text-decoration: none; font-weight: 700; font-family: 'Orbitron';
-            font-size: 0.8rem; box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
-            display: inline-block; transition: 0.3s;
-        }
+        .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--ana-renk); margin-bottom: 15px; font-size: 1.6rem; }
+        .hizmet-icerik p { color: #475569; line-height: 1.6; font-size: 1.05rem; }
+        .btn-incele { background: var(--accent); color: white; padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-top: 15px; display: inline-block; }
 
         /* --- REFERANS SLIDER --- */
-        .slider { height: 160px; background: rgba(15, 23, 42, 0.5); border-radius: 40px; overflow: hidden; display: flex; align-items: center; border: 1px solid rgba(255,255,255,0.05); box-shadow: inset 0 0 20px #000; }
-        .slide-track { display: flex; width: calc(250px * 16); animation: scroll 30s linear infinite; }
-        .slide { width: 250px; padding: 0 30px; display: flex; justify-content: center; }
-        .slide img { max-height: 70px; filter: grayscale(100%) brightness(0.8); opacity: 0.6; }
-
+        .slider { height: 140px; background: rgba(255,255,255,0.95); border-radius: 30px; overflow: hidden; display: flex; align-items: center; }
+        .slide-track { display: flex; width: calc(250px * 16); animation: scroll 25s linear infinite; }
+        .slide { width: 250px; display: flex; justify-content: center; padding: 0 20px; }
+        .slide img { max-height: 75px; filter: grayscale(100%); opacity: 0.7; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 8)); } }
 
-        /* --- SIDE DRAWER --- */
-        .side-drawer { position: fixed; top: 0; left: -320px; width: 300px; height: 100%; background: var(--kart-bg); z-index: 2000; transition: 0.5s; padding: 60px 30px; border-right: 1px solid var(--accent); }
-        .side-drawer.active { left: 0; }
-        .drawer-links a { color: white; text-decoration: none; font-family: 'Orbitron'; display: block; margin-bottom: 30px; font-size: 1.2rem; }
-        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1500; display: none; }
-        .overlay.active { display: block; }
+        footer { background: #ffffff; color: var(--ana-renk); padding: 40px 8%; text-align: center; }
+        .footer-logo { height: 70px; margin-bottom: 10px; }
 
         @media (max-width: 900px) {
             .nav-links { display: none; }
             .mobile-toggle { display: block; }
-            header { padding: 15px 5%; }
-            .hizmet-kart, .hizmet-kart:nth-child(even) { flex-direction: column; text-align: center; padding: 30px; }
-            .hizmet-resim { width: 100%; height: 220px; }
+            .hizmet-kart, .hizmet-kart:nth-child(even) { flex-direction: column; text-align: center; }
+            .hizmet-resim { width: 100%; height: 200px; }
         }
     </style>
 </head>
@@ -129,18 +103,8 @@
         <div class="bg-slide slide2"></div>
     </div>
 
-    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-    <div class="side-drawer" id="drawer">
-        <div class="drawer-links">
-            <a href="index.html">ANA SAYFA</a>
-            <a href="urunlerimiz.html">ÜRÜNLERİMİZ</a>
-            <a href="#hizmetler" onclick="toggleMenu()">HİZMETLER</a>
-            <a href="#referanslar" onclick="toggleMenu()">REFERANSLAR</a>
-        </div>
-    </div>
-
     <header>
-        <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
         <img src="markalogo7.png" alt="Lider Telsiz" class="logo-img">
         <nav>
             <ul class="nav-links">
@@ -154,58 +118,49 @@
 
     <section class="hero">
         <h1>LİDER TELSİZ</h1>
-        <p>Haberleşme teknolojilerinde profesyonel çözüm ortağınız. Film setlerinden dev organizasyonlara kesintisiz iletişim.</p>
-        <a href="#hizmetler" class="btn-incele">ÇÖZÜMLERİMİZİ GÖRÜN</a>
+        <p>Haberleşme Sistemlerinde Profesyonel Çözüm Ortağınız</p>
     </section>
 
     <section id="hizmetler" class="section-padding">
-        <h2 class="section-title">PROFESYONEL HİZMETLERİMİZ</h2>
-        
+        <h2 class="section-title">HİZMETLERİMİZ</h2>
         <div class="hizmet-listesi">
-            <!-- Hizmet 1 -->
             <div class="hizmet-kart">
-                <div class="hizmet-resim"><img src="telsizkiralama.png" alt="Telsiz"></div>
+                <div class="hizmet-resim"><img src="telsizkiralama.png" alt="Kiralama"></div>
                 <div class="hizmet-icerik">
                     <h3>Telsiz Satış ve Kiralama</h3>
-                    <p>En yeni dijital telsiz modelleriyle satış ve kiralama hizmetleri. Projenize özel frekans planlaması ve kesintisiz destek.</p>
-                    <a href="urunlerimiz.html" class="btn-incele">ÜRÜNLERİ İNCELE</a>
+                    <p>Profesyonel haberleşme cihazları ile projelerinize güç katıyoruz.</p>
+                    <a href="urunlerimiz.html" class="btn-incele">İncele</a>
                 </div>
             </div>
-
-            <!-- Hizmet 2 -->
             <div class="hizmet-kart">
                 <div class="hizmet-resim"><img src="intercomgüncel.png" alt="Intercom"></div>
                 <div class="hizmet-icerik">
                     <h3>Intercom Kiralama</h3>
-                    <p>Canlı yayın ve konserler için profesyonel, Full-Duplex intercom sistemleri. Ekibinizle saniyeler içinde senkron olun.</p>
-                    <a href="#" class="btn-incele">DETAYLI BİLGİ</a>
+                    <p>Canlı yayın ve setler için kesintisiz iletişim sistemleri.</p>
+                    <a href="#" class="btn-incele">Detaylar</a>
                 </div>
             </div>
-
-            <!-- Hizmet 3 -->
             <div class="hizmet-kart">
-                <div class="hizmet-resim"><img src="tedarikmlz.png" alt="Set"></div>
+                <div class="hizmet-resim"><img src="tedarikmlz.png" alt="Tedarik"></div>
                 <div class="hizmet-icerik">
                     <h3>Set Tedarik</h3>
-                    <p>Film ve dizi setleri için gerekli tüm teknik ve yardımcı ekipmanların profesyonel tedariği. Lider Telsiz güvencesiyle.</p>
-                    <a href="#" class="btn-incele">TEKLİF ALIN</a>
+                    <p>İhtiyacınız olan tüm yardımcı ekipmanlar tek adreste.</p>
+                    <a href="#" class="btn-incele">Bilgi Al</a>
                 </div>
             </div>
-
-            <!-- Hizmet 4 -->
             <div class="hizmet-kart">
                 <div class="hizmet-resim"><img src="teknik.png" alt="Teknik"></div>
                 <div class="hizmet-icerik">
                     <h3>Teknik Servis</h3>
-                    <p>Cihazlarınızın bakımı, onarımı ve batarya değişimleri uzman teknik ekibimiz tarafından orijinal yedek parçalarla yapılır.</p>
-                    <a href="#" class="btn-incele">SERVİS KAYDI</a>
+                    <p>Cihazlarınız için profesyonel bakım ve hızlı onarım desteği.</p>
+                    <a href="#" class="btn-incele">Destek</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="referanslar" class="section-padding">
-        <div class="slider">
+    <footer id="referanslar">
+        <div class="slider" style="margin-bottom: 30px;">
             <div class="slide-track">
                 <div class="slide"><img src="ref1.png"></div>
                 <div class="slide"><img src="ref2.png"></div>
@@ -213,18 +168,12 @@
                 <div class="slide"><img src="ref4.png"></div>
                 <div class="slide"><img src="ref1.png"></div>
                 <div class="slide"><img src="ref2.png"></div>
-                <div class="slide"><img src="ref3.png"></div>
-                <div class="slide"><img src="ref4.png"></div>
             </div>
         </div>
-    </section>
+        <img src="markalogo7.png" class="footer-logo">
+        <p>&copy; 2026 Lider Telsiz</p>
+    </footer>
 
-    <script>
-        function toggleMenu() {
-            document.getElementById('drawer').classList.toggle('active');
-            document.getElementById('overlay').classList.toggle('active');
-        }
-    </script>
 </body>
 </html>
 
