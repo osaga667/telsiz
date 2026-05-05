@@ -44,7 +44,7 @@
             backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
         .mobile-toggle { display: none; font-size: 28px; color: var(--ana-renk); cursor: pointer; }
-        .logo-img { height: 60px; width: auto; transition: 0.3s; }
+        .logo-img { height: 60px; width: auto; }
 
         .nav-links { display: flex; list-style: none; gap: 25px; }
         .nav-links a {
@@ -66,18 +66,18 @@
         .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; color: white; font-family: 'Orbitron'; text-shadow: 3px 3px 20px rgba(0,0,0,0.9); }
         .hero p { color: white; margin: 20px 0 40px; font-size: 1.4rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
 
-        /* --- HİZMET KARTLARI --- */
+        /* --- HİZMET KARTLARI (TÜM BÖLÜMLER GERİ GELDİ) --- */
         .section-padding { padding: 80px 8%; }
         .section-title { text-align: center; font-family: 'Orbitron'; margin-bottom: 60px; color: var(--ana-renk); background: rgba(255,255,255,0.95); padding: 20px; border-radius: 20px; font-size: clamp(1.5rem, 5vw, 2.2rem); }
         .hizmet-listesi { display: flex; flex-direction: column; gap: 50px; max-width: 1100px; margin: 0 auto; }
         .hizmet-kart { display: flex; align-items: center; background: rgba(255,255,255,0.98); border-radius: 30px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); transition: 0.4s; gap: 40px; }
         .hizmet-kart:nth-child(even) { flex-direction: row-reverse; }
-        .hizmet-resim { flex: 0 0 30%; height: 200px; overflow: hidden; border-radius: 20px; background: #f8fafc; display: flex; align-items: center; justify-content: center; }
+        .hizmet-resim { flex: 0 0 30%; height: 220px; overflow: hidden; border-radius: 20px; background: #f8fafc; display: flex; align-items: center; justify-content: center; }
         .hizmet-resim img { max-width: 90%; max-height: 90%; object-fit: contain; }
         .hizmet-icerik { flex: 1; }
         .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--ana-renk); margin-bottom: 15px; font-size: 1.5rem; }
         .hizmet-icerik p { line-height: 1.6; font-size: 1rem; color: #475569; margin-bottom: 20px; }
-        .btn-incele { background: var(--accent); color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-block; transition: 0.3s; }
+        .btn-incele { background: var(--accent); color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-block; }
 
         /* --- REFERANS SLIDER --- */
         .slider { height: 150px; background: rgba(255,255,255,0.95); border-radius: 30px; overflow: hidden; display: flex; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
@@ -86,15 +86,12 @@
         .slide img { max-width: 100%; max-height: 80px; filter: grayscale(100%); opacity: 0.7; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 8)); } }
 
-        /* --- FOOTER --- */
-        footer { background: #ffffff; color: var(--ana-renk); padding: 60px 8%; text-align: center; border-top: 1px solid #eee; }
-        .footer-logo { height: 80px; width: auto; margin-bottom: 20px; }
-        footer p { font-weight: 700; font-family: 'Orbitron'; font-size: 0.9rem; }
+        footer { background: #ffffff; color: var(--ana-renk); padding: 50px 8%; text-align: center; border-top: 1px solid #eee; }
+        .footer-logo { height: 70px; margin-bottom: 15px; }
 
         @media (max-width: 900px) {
             .nav-links { display: none; }
             .mobile-toggle { display: block; }
-            header { padding: 10px 5%; }
             .hizmet-kart, .hizmet-kart:nth-child(even) { flex-direction: column; text-align: center; padding: 25px; }
             .hizmet-resim { width: 100%; height: 180px; }
         }
@@ -140,24 +137,47 @@
     <section id="hizmetler" class="section-padding">
         <h2 class="section-title">HİZMETLERİMİZ</h2>
         <div class="hizmet-listesi">
-            <!-- Hizmet 1 -->
+            
+            <!-- Bölüm 1: Telsiz Satış ve Kiralama -->
             <div class="hizmet-kart">
-                <div class="hizmet-resim"><img src="kiralama.png" alt="Kiralama"></div>
+                <div class="hizmet-resim"><img src="telsiz-satis.png" alt="Telsiz Satış ve Kiralama"></div>
                 <div class="hizmet-icerik">
-                    <h3>Telsiz Kiralama</h3>
-                    <p>Etkinlikleriniz için günlük veya uzun dönemli profesyonel telsiz kiralama çözümleri.</p>
-                    <a href="#" class="btn-incele">İncele</a>
+                    <h3>Telsiz Satış ve Kiralama</h3>
+                    <p>En yeni dijital ve analog telsiz modelleri ile satış ve kiralama hizmetleri. Projenize uygun profesyonel haberleşme çözümleri.</p>
+                    <a href="urunlerimiz.html" class="btn-incele">Ürünleri Gör</a>
                 </div>
             </div>
-            <!-- Hizmet 2 -->
+
+            <!-- Bölüm 2: Intercom Kiralama -->
+            <div class="hizmet-kart">
+                <div class="hizmet-resim"><img src="intercom.png" alt="Intercom Kiralama"></div>
+                <div class="hizmet-icerik">
+                    <h3>Intercom Kiralama</h3>
+                    <p>Canlı yayın, konser ve büyük organizasyonlar için kesintisiz haberleşme sağlayan profesyonel intercom sistemleri.</p>
+                    <a href="#" class="btn-incele">Detaylı Bilgi</a>
+                </div>
+            </div>
+
+            <!-- Bölüm 3: Set Tedarik Bölümü -->
+            <div class="hizmet-kart">
+                <div class="hizmet-resim"><img src="set-tedarik.png" alt="Set Tedarik"></div>
+                <div class="hizmet-icerik">
+                    <h3>Set Tedarik</h3>
+                    <p>Film ve dizi setleri için gerekli olan tüm haberleşme ve yardımcı ekipmanların profesyonel tedariği.</p>
+                    <a href="#" class="btn-incele">Teklif Al</a>
+                </div>
+            </div>
+
+            <!-- Bölüm 4: Teknik Servis -->
             <div class="hizmet-kart">
                 <div class="hizmet-resim"><img src="teknik.png" alt="Teknik Servis"></div>
                 <div class="hizmet-icerik">
-                    <h3>Teknik Servis</h3>
-                    <p>Cihazlarınız için hızlı bakım, onarım ve yedek parça desteği sağlıyoruz.</p>
-                    <a href="#" class="btn-incele">Destek Al</a>
+                    <h3>Teknik Servis & Destek</h3>
+                    <p>Cihazlarınız için hızlı bakım, onarım, batarya değişimi ve frekans programlama desteği.</p>
+                    <a href="#" class="btn-incele">Destek Hattı</a>
                 </div>
             </div>
+
         </div>
     </section>
 
