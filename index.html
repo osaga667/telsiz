@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lider Telsiz | Profesyonel Haberleşme Çözümleri</title>
     
-    <!-- Fontlar ve İkonlar -->
+    <!-- Gerekli Font ve İkonlar -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
 
@@ -26,7 +26,7 @@
             scroll-behavior: smooth;
         }
 
-        /* --- ARKA PLAN SLIDER --- */
+        /* --- ARKA PLAN SLIDER (ORİJİNAL) --- */
         .bg-slider { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
         .bg-slide {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -45,7 +45,7 @@
             backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
         .mobile-toggle { display: none; font-size: 28px; color: var(--ana-renk); cursor: pointer; }
-        .logo-img { height: 60px; width: auto; }
+        .logo-img { height: 60px; width: auto; transition: 0.3s; }
 
         .nav-links { display: flex; list-style: none; gap: 25px; }
         .nav-links a {
@@ -68,38 +68,49 @@
         .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; color: white; font-family: 'Orbitron'; text-shadow: 3px 3px 20px rgba(0,0,0,0.9); }
         .hero p { color: white; margin: 20px 0 40px; font-size: 1.4rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
 
-        /* --- HİZMETLER --- */
+        /* --- HİZMET KARTLARI --- */
         .section-padding { padding: 80px 8%; }
         .section-title { text-align: center; font-family: 'Orbitron'; margin-bottom: 60px; color: var(--ana-renk); background: rgba(255,255,255,0.95); padding: 20px; border-radius: 20px; font-size: clamp(1.5rem, 5vw, 2.2rem); }
         .hizmet-listesi { display: flex; flex-direction: column; gap: 50px; max-width: 1100px; margin: 0 auto; }
-        .hizmet-kart { display: flex; align-items: center; background: rgba(255,255,255,0.98); border-radius: 30px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); gap: 40px; }
+        .hizmet-kart { display: flex; align-items: center; background: rgba(255,255,255,0.98); border-radius: 30px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); transition: 0.4s; gap: 40px; }
         .hizmet-kart:nth-child(even) { flex-direction: row-reverse; }
         .hizmet-resim { flex: 0 0 30%; height: 200px; overflow: hidden; border-radius: 20px; background: #f8fafc; }
-        .hizmet-resim img { width: 100%; height: 100%; object-fit: contain; }
-        .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--ana-renk); margin-bottom: 15px; }
-        .btn-incele { background: var(--accent); color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; }
+        .hizmet-resim img { width: 100%; height: 100%; object-fit: contain; padding: 10px; }
+        .hizmet-icerik { flex: 1; }
+        .hizmet-icerik h3 { font-family: 'Orbitron'; color: var(--ana-renk); margin-bottom: 15px; font-size: 1.5rem; }
+        .hizmet-icerik p { line-height: 1.6; font-size: 1rem; color: #475569; margin-bottom: 20px; }
+        .btn-incele { background: var(--accent); color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-block; transition: 0.3s; }
+        .btn-incele:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4); }
 
-        /* --- REFERANS SLIDER --- */
-        .slider { height: 150px; background: rgba(255,255,255,0.95); border-radius: 30px; overflow: hidden; display: flex; align-items: center; }
-        .slide-track { display: flex; width: calc(250px * 16); animation: scroll 25s linear infinite; }
-        .slide { width: 250px; padding: 0 20px; display: flex; justify-content: center; }
-        .slide img { max-width: 100%; height: 80px; object-fit: contain; filter: grayscale(100%); }
+        /* --- DENGELİ REFERANS SLIDER --- */
+        .slider { height: 150px; background: rgba(255,255,255,0.95); border-radius: 30px; overflow: hidden; display: flex; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .slide-track { display: flex; width: calc(250px * 16); animation: scroll 25s linear infinite; align-items: center; }
+        .slide { width: 250px; height: 100px; display: flex; justify-content: center; align-items: center; padding: 0 20px; }
+        .slide img { max-width: 100%; max-height: 80px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: 0.3s; }
+        .slide img:hover { filter: grayscale(0%); opacity: 1; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 8)); } }
 
-        /* --- WHATSAPP BUTONU --- */
+        /* --- BEYAZ FOOTER --- */
+        footer { background: #ffffff; color: var(--ana-renk); padding: 60px 8%; text-align: center; border-top: 1px solid #eee; }
+        .footer-logo { height: 80px; width: auto; margin-bottom: 20px; }
+        footer p { font-weight: 700; font-family: 'Orbitron'; font-size: 0.9rem; opacity: 0.8; }
+
+        /* --- WHATSAPP BUTONU (TELEFONDA %100 ÇALIŞAN) --- */
         .whatsapp-btn { 
             position: fixed; bottom: 30px; right: 30px; 
             background: #25D366; color: white; 
-            padding: 12px 25px; border-radius: 50px; 
+            padding: 15px 25px; border-radius: 50px; 
             text-decoration: none; font-weight: bold; 
-            z-index: 9999; display: flex; align-items: center; 
-            gap: 10px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); 
+            z-index: 9999; display: flex; align-items: center; gap: 10px; 
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); 
         }
 
         @media (max-width: 900px) {
             .nav-links { display: none; }
             .mobile-toggle { display: block; }
-            .hizmet-kart, .hizmet-kart:nth-child(even) { flex-direction: column; text-align: center; }
+            header { padding: 10px 5%; }
+            .hizmet-kart, .hizmet-kart:nth-child(even) { flex-direction: column; padding: 25px; text-align: center; }
+            .hizmet-resim { flex: none; width: 100%; height: 180px; }
             .whatsapp-btn { padding: 10px 15px; bottom: 20px; right: 20px; font-size: 14px; }
         }
     </style>
@@ -138,7 +149,7 @@
     <section class="hero">
         <h1>LİDER TELSİZ</h1>
         <p>Haberleşme Sistemlerinde Profesyonel Çözüm Ortağınız</p>
-        <a href="#hizmetler" class="btn-incele" style="padding: 15px 40px;">HİZMETLERİMİZİ GÖRÜN</a>
+        <a href="#hizmetler" class="btn-incele" style="padding: 15px 40px; font-size: 1rem;">ÇÖZÜMLERİMİZİ KEŞFEDİN</a>
     </section>
 
     <section id="hizmetler" class="section-padding">
@@ -148,8 +159,16 @@
                 <div class="hizmet-resim"><img src="kiralama.png" alt="Kiralama"></div>
                 <div class="hizmet-icerik">
                     <h3>Telsiz Kiralama</h3>
-                    <p>Organizasyonlarınız için günlük/aylık profesyonel kiralama çözümleri.</p>
-                    <a href="#" class="btn-incele">Detaylar</a>
+                    <p>Film setleri ve organizasyonlar için günlük profesyonel telsiz kiralama hizmeti.</p>
+                    <a href="#" class="btn-incele">Detaylı Bilgi</a>
+                </div>
+            </div>
+            <div class="hizmet-kart">
+                <div class="hizmet-resim"><img src="teknik.png" alt="Teknik Destek"></div>
+                <div class="hizmet-icerik">
+                    <h3>Teknik Servis</h3>
+                    <p>Uzman ekibimizle hızlı bakım, onarım ve telsiz programlama desteği.</p>
+                    <a href="#" class="btn-incele">Destek Al</a>
                 </div>
             </div>
         </div>
@@ -170,14 +189,16 @@
         </div>
     </section>
 
-    <!-- TÜM TELEFONLARDA %100 ÇALIŞAN EN SADE WHATSAPP BUTONU -->
-<a href="https://whatsapp.com" 
-   class="whatsapp-btn" 
-   target="_blank">
-    <i class="fab fa-whatsapp" style="font-size: 24px;"></i> 
-    <span>WhatsApp'tan Yazın</span>
-</a>
+    <footer>
+        <img src="markalogo7.png" alt="Lider Telsiz" class="footer-logo">
+        <p>&copy; 2026 LİDER TELSİZ - Tüm Hakları Saklıdır.</p>
+    </footer>
 
+    <!-- WHATSAPP: TELEFONDA EN GARANTİ AÇILAN FORMAT -->
+    <a href="https://whatsapp.com" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp" style="font-size: 24px;"></i> 
+        <span>WhatsApp'tan Yazın</span>
+    </a>
 
     <script>
         function toggleMenu() {
