@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lider Telsiz | Profesyonel Haberleşme Çözümleri</title>
+<title>Lider Telsiz | Profesyonel Haberleşme</title>
 
 <meta name="description" content="Telsiz kiralama, intercom sistemleri ve set tedarik hizmetleri.">
 
@@ -15,196 +15,170 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-:root {
-    --ana-renk:#0a1f44;
-    --accent:#3b82f6;
+:root{
+--ana:#0a1f44;
+--accent:#3b82f6;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:#000;
-    overflow-x:hidden;
-}
-
-/* ARKA PLAN */
-.bg-slider{position:fixed;width:100%;height:100%;z-index:-2;}
-.bg-slide{
-    position:absolute;width:100%;height:100%;
-    background-size:cover;
-    background-position:center;
-    opacity:0;
-    animation:slider 14s infinite;
-}
-
-.slide1{background:url('arkafon.png') center/cover;}
-.slide2{background:url('arkafon2.png') center/cover;animation-delay:7s;}
-
-@keyframes slider{
-    0%,100%{opacity:0;}
-    10%,45%{opacity:1;}
-    55%,90%{opacity:0;}
+font-family:'Poppins',sans-serif;
+background:#000;
+color:#fff;
+scroll-behavior:smooth;
 }
 
 /* HEADER */
 header{
-    position:fixed;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:10px 8%;
-    background:rgba(255,255,255,0.95);
-    z-index:1000;
+position:fixed;top:0;width:100%;
+background:#fff;color:#000;
+display:flex;justify-content:space-between;align-items:center;
+padding:12px 8%;z-index:1000;
 }
 
 .logo-img{height:55px;}
 
-.nav-links{display:flex;gap:20px;list-style:none;}
+.nav-links{display:flex;gap:25px;list-style:none;}
 
 .nav-links a{
-    text-decoration:none;
-    font-family:'Orbitron';
-    font-weight:700;
-    color:var(--ana-renk);
+text-decoration:none;
+font-family:'Orbitron';
+color:var(--ana);
+font-weight:700;
 }
 
-/* MOBILE */
 .mobile-toggle{display:none;font-size:26px;cursor:pointer;}
 
+/* DRAWER */
 .side-drawer{
-    position:fixed;
-    left:-300px;
-    top:0;
-    width:300px;
-    height:100%;
-    background:var(--ana-renk);
-    padding:40px;
-    transition:.3s;
-    z-index:2000;
+position:fixed;left:-300px;top:0;width:300px;height:100%;
+background:var(--ana);padding:40px;
+transition:.3s;z-index:2000;
 }
-
 .side-drawer.active{left:0;}
 
-.drawer-links li{margin:20px 0;list-style:none;}
-.drawer-links a{color:white;text-decoration:none;}
+.drawer-links li{margin:20px 0;}
+.drawer-links a{color:#fff;text-decoration:none;}
 
 .overlay{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.7);
-    display:none;
-    z-index:1500;
+position:fixed;width:100%;height:100%;
+background:rgba(0,0,0,0.7);
+display:none;z-index:1500;
 }
 .overlay.active{display:block;}
 
 /* HERO */
 .hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:0 10%;
+height:100vh;
+display:flex;flex-direction:column;justify-content:center;align-items:center;
+text-align:center;padding:0 10%;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('arkafon.png') center/cover;
 }
 
 .hero h1{
-    color:white;
-    font-size:4rem;
-    font-family:'Orbitron';
+font-size:clamp(2.5rem,8vw,4rem);
+font-family:'Orbitron';
 }
 
-.hero p{
-    color:white;
-    margin:20px 0;
-}
+.hero p{margin:20px 0;}
 
 .btn{
-    background:var(--accent);
-    color:white;
-    padding:12px 30px;
-    border-radius:30px;
-    text-decoration:none;
+background:var(--accent);
+padding:12px 30px;
+border-radius:30px;
+color:#fff;
+text-decoration:none;
+margin:5px;
+display:inline-block;
+}
+
+/* SECTION */
+.section{padding:90px 8%;background:#fff;color:#000;}
+
+.section h2{
+text-align:center;
+margin-bottom:50px;
+font-family:'Orbitron';
 }
 
 /* HİZMET */
-.section{padding:80px 8%;}
-
 .hizmet-kart{
-    display:flex;
-    gap:30px;
-    background:white;
-    padding:25px;
-    margin-bottom:30px;
-    border-radius:20px;
-    align-items:center;
+display:flex;
+gap:30px;
+margin-bottom:40px;
+background:#f9fafb;
+padding:25px;
+border-radius:20px;
+align-items:center;
 }
 
 .hizmet-kart:nth-child(even){flex-direction:row-reverse;}
 
-.hizmet-resim{
-    flex:0 0 35%;
-}
-
-.hizmet-resim img{
-    width:100%;
-    border-radius:15px;
-}
+.hizmet-resim{flex:0 0 35%;}
+.hizmet-resim img{width:100%;border-radius:15px;}
 
 .hizmet-icerik h3{
-    font-family:'Orbitron';
-    margin-bottom:10px;
+font-family:'Orbitron';
+margin-bottom:10px;
+}
+
+.hizmet-icerik p{
+line-height:1.6;
+}
+
+/* BUTONLAR */
+.call-btn{
+background:#10b981;
 }
 
 /* WHATSAPP */
 .whatsapp{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:white;
-    font-size:28px;
-    z-index:9999;
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+width:60px;height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:#fff;
+z-index:9999;
+}
+
+/* FOOTER */
+footer{
+background:#0a1f44;
+color:#fff;
+text-align:center;
+padding:40px;
 }
 
 /* MOBİL */
 @media(max-width:900px){
-    .nav-links{display:none;}
-    .mobile-toggle{display:block;}
+.nav-links{display:none;}
+.mobile-toggle{display:block;}
 
-    .hizmet-kart,
-    .hizmet-kart:nth-child(even){
-        flex-direction:column;
-        text-align:center;
-    }
+.hizmet-kart,
+.hizmet-kart:nth-child(even){
+flex-direction:column;
+text-align:center;
+}
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg-slider">
-<div class="bg-slide slide1"></div>
-<div class="bg-slide slide2"></div>
-</div>
-
 <div class="overlay" id="overlay" onclick="menu()"></div>
 
 <div class="side-drawer" id="drawer">
 <ul class="drawer-links">
-<li><a href="#">Ana Sayfa</a></li>
-<li><a href="#">Ürünler</a></li>
-<li><a href="#">Hizmetler</a></li>
-<li><a href="#">Referanslar</a></li>
+<li><a href="#hero" onclick="menu()">Ana Sayfa</a></li>
+<li><a href="#hizmetler" onclick="menu()">Hizmetler</a></li>
+<li><a href="#iletisim" onclick="menu()">İletişim</a></li>
 </ul>
 </div>
 
@@ -213,26 +187,30 @@ header{
 <img src="markalogo7.png" class="logo-img">
 
 <ul class="nav-links">
-<li><a href="#">Ana Sayfa</a></li>
-<li><a href="#">Ürünler</a></li>
-<li><a href="#">Hizmetler</a></li>
-<li><a href="#">Referanslar</a></li>
+<li><a href="#hero">Ana Sayfa</a></li>
+<li><a href="#hizmetler">Hizmetler</a></li>
+<li><a href="#iletisim">İletişim</a></li>
 </ul>
 </header>
 
-<section class="hero">
+<!-- HERO -->
+<section id="hero" class="hero">
 <h1>LİDER TELSİZ</h1>
 <p>Profesyonel Haberleşme Çözümleri</p>
-<a href="#" class="btn">KEŞFET</a>
+
+<a href="#hizmetler" class="btn">Hizmetleri Gör</a>
+<a href="tel:+905055984487" class="btn call-btn">Hemen Ara</a>
 </section>
 
-<section class="section">
+<!-- HİZMETLER -->
+<section id="hizmetler" class="section">
+<h2>Hizmetlerimiz</h2>
 
 <div class="hizmet-kart">
 <div class="hizmet-resim"><img src="telsizkiralama.png"></div>
 <div class="hizmet-icerik">
-<h3>Telsiz Kiralama</h3>
-<p>Profesyonel telsiz çözümleri</p>
+<h3>Telsiz Satış ve Kiralama</h3>
+<p>Profesyonel telsiz kiralama ve satış hizmetlerimiz ile organizasyonlarınızda kesintisiz iletişim sağlıyoruz. Etkinlikler, şantiyeler, güvenlik ekipleri ve prodüksiyonlar için yüksek performanslı cihazlar sunuyoruz. Uzun pil ömrü, geniş kapsama alanı ve dayanıklı modeller ile her ihtiyaca uygun çözümler üretiyoruz.</p>
 </div>
 </div>
 
@@ -240,7 +218,7 @@ header{
 <div class="hizmet-resim"><img src="intercomgüncel.png"></div>
 <div class="hizmet-icerik">
 <h3>Intercom Kiralama</h3>
-<p>Canlı yayın sistemleri</p>
+<p>Canlı yayın, film setleri ve büyük organizasyonlar için profesyonel intercom sistemleri kiralama hizmeti sunuyoruz. Hollyland ve benzeri üst segment ekipmanlarla ekipler arası anlık ve net iletişim sağlanır. Gürültü önleyici kulaklıklar ve kablosuz sistemlerle maksimum verim elde edilir.</p>
 </div>
 </div>
 
@@ -248,16 +226,41 @@ header{
 <div class="hizmet-resim"><img src="tedarikmlz.png"></div>
 <div class="hizmet-icerik">
 <h3>Set Tedarik</h3>
-<p>Film ve organizasyon ekipmanları</p>
+<p>Film ve dizi setleri için gerekli tüm haberleşme ve teknik ekipmanların tedarikini sağlıyoruz. İhtiyaca özel çözümler, hızlı kurulum ve sahada destek ile prodüksiyon sürecinizi sorunsuz hale getiriyoruz.</p>
+</div>
+</div>
+
+<div class="hizmet-kart">
+<div class="hizmet-resim"><img src="teknik.png"></div>
+<div class="hizmet-icerik">
+<h3>Teknik Servis</h3>
+<p>Telsiz ve haberleşme cihazlarınız için bakım, onarım ve teknik servis hizmeti sunuyoruz. Deneyimli ekibimiz arızaları hızlı şekilde tespit eder ve cihazlarınızı en kısa sürede çalışır hale getirir.</p>
 </div>
 </div>
 
 </section>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/905055984487" class="whatsapp" target="_blank">
+<!-- İLETİŞİM -->
+<section id="iletisim" class="section">
+<h2>İletişim</h2>
+<p style="text-align:center;">
+WhatsApp üzerinden hızlıca bize ulaşabilirsiniz veya hemen arayabilirsiniz.
+</p>
+
+<div style="text-align:center;margin-top:20px;">
+<a href="https://wa.me/905055984487?text=Merhaba%20bilgi%20almak%20istiyorum" class="btn">WhatsApp Yaz</a>
+<a href="tel:+905055984487" class="btn call-btn">Hemen Ara</a>
+</div>
+</section>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/905055984487?text=Merhaba%20bilgi%20almak%20istiyorum" class="whatsapp" target="_blank">
 <i class="fab fa-whatsapp"></i>
 </a>
+
+<footer>
+<p>© 2026 Lider Telsiz - Tüm Hakları Saklıdır</p>
+</footer>
 
 <script>
 function menu(){
@@ -268,7 +271,6 @@ document.getElementById("overlay").classList.toggle("active");
 
 </body>
 </html>
-
 
 
 
